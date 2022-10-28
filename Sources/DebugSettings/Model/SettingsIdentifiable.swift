@@ -6,17 +6,8 @@
 //
 
 import Foundation
+import ObjcBridge
 
-public protocol SettingsIdentifiable<ID> {
-
-    associatedtype ID : Hashable
-
-    var id: Self.ID { get }
-}
-
-
-public extension SettingsIdentifiable {
-    
-    var id: UUID { UUID() }
-    
+public protocol SettingsIdentifiable: ObjcBridgeProtocol {
+    var id: String { get }
 }
