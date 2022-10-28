@@ -70,6 +70,39 @@ extension SettingsPage: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return pageModel.sections[section].title
     }
+    
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionLabel = UILabel()
+        sectionLabel.textColor = .black
+        sectionLabel.font = .systemFont(ofSize: 18)
+        
+        let sectionTitle = pageModel.sections[section].title
+        sectionLabel.text = sectionTitle
+        
+        let headerView = UIView()
+        headerView.addSubview(sectionLabel)
+        sectionLabel.snp.makeConstraints { make in
+            make.left.equalTo(headerView).offset(5)
+            make.right.equalTo(headerView).offset(-5)
+            make.top.equalTo(headerView).offset(8)
+            make.bottom.equalTo(headerView).offset(-2)
+        }
+        return headerView
+    }
+    
+    public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        return index
+    }
+    
+    public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        guard pageModel.sections.count > 10 else {
+            return nil
+        }
+        
+        return pageModel.sections.map { _ in
+            return "⦁"
+        }
+    }
 }
 
 extension SettingsPage: UITableViewDelegate {
