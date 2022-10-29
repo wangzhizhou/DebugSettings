@@ -125,7 +125,7 @@ class SettingsEntryBaseCell: UITableViewCell {
             self.rightContainer.snp.updateConstraints { make in
                 make.width.equalTo(self.settingSwitch.frame.size.width)
             }
-            self.settingSwitch.isOn = entryItem.isSwitchOn
+            self.settingSwitch.isOn = entryItem.isSwitchOn ?? false
         case .button:
             break
         }

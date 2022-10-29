@@ -8,6 +8,6 @@
 import Foundation
 import ObjcBridge
 
-public protocol SettingsIdentifiable: ObjcBridgeProtocol {
-    var id: String { get }
+public protocol SettingsIdentifiable: ObjcBridgeProtocol, Identifiable {
+    var id: SettingsIdentifier { get }
 }

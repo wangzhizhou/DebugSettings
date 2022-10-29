@@ -9,60 +9,58 @@ import Foundation
 import ObjcBridge
 
 @objcMembers
-public class SettingsPageModel: ObjcBridgeClass {
+public class SettingsPageModel: ObjcBridgeClass, SettingsIdentifiable {
+    public let id: SettingsIdentifier
     public let title: String
     public let sections: [SettingsSectionItem]
-    public let navigationBarHeight: Int
+    public var navigationBarHeight: Int
     
-    public init(title: String, sections: [SettingsSectionItem], navigationBarHeight: Int = 40) {
+    public init(id: SettingsIdentifier, title: String, sections: [SettingsSectionItem], navigationBarHeight: Int = 40) {
+        self.id = id
         self.title = title
         self.sections = sections
         self.navigationBarHeight = navigationBarHeight
     }
 }
-extension SettingsPageModel: SettingsIdentifiable {
-    public var id: String {
-        return UUID().uuidString
-    }
-}
 
 @objcMembers
-public class SettingsSectionItem: ObjcBridgeClass {
+public class SettingsSectionItem: ObjcBridgeClass, SettingsIdentifiable {
+    public let id: SettingsIdentifier
     public let title: String
     public let items: [SettingsEntryItem]
     
-    public init(title: String, items: [SettingsEntryItem]) {
+    public init(id: SettingsIdentifier, title: String, items: [SettingsEntryItem]) {
+        self.id = id
         self.title = title
         self.items = items
     }
 }
-extension SettingsSectionItem: SettingsIdentifiable {
-    public var id: String {
-        return UUID().uuidString
-    }
-}
 
 @objcMembers
-public class SettingsEntryItem: ObjcBridgeClass {
-    public var icon: String? = nil
-    public let title: String
-    public let subtitle: String?
-    public let detailDescription: String?
-    public let type: EntryType
-    public var isSwitchOn: Bool = false
+public class SettingsEntryItem: ObjcBridgeClass, SettingsIdentifiable {
     
-    public init(icon: String? = nil, title: String, subtitle: String?, detailDescription: String?, type: EntryType, isSwitchOn: Bool) {
+    public let id: SettingsIdentifier
+    public var icon: String?
+    public let title: String
+    public var subtitle: String?
+    public var detailDescription: String?
+    public let type: EntryType
+    public var isSwitchOn: Bool? {
+        get { Persistence.boolValueForId(self.id.persistenceKey) }
+        set { Persistence.saveBoolValue(newValue ?? false, for: self.id.persistenceKey) }
+    }
+    
+    public init(id: SettingsIdentifier, icon: String? = nil, title: String, subtitle: String? = nil, detailDescription: String? = nil, type: EntryType, isSwitchOn: Bool = false) {
+        self.id = id
         self.icon = icon
         self.title = title
         self.subtitle = subtitle
         self.detailDescription = detailDescription
         self.type = type
-        self.isSwitchOn = isSwitchOn
-    }
-}
-extension SettingsEntryItem: SettingsIdentifiable {
-    public var id: String {
-        return UUID().uuidString
+        super.init()
+        if self.isSwitchOn == nil {
+            self.isSwitchOn = isSwitchOn
+        }
     }
 }
 
