@@ -42,7 +42,7 @@ class SettingsEntryBaseCell: UITableViewCell {
     
     lazy var rightArrowIcon: UIImageView = {
         let ret = UIImageView(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
-        ret.tintColor = .gray.withAlphaComponent(0.3)
+        ret.tintColor = .gray.withAlphaComponent(0.5)
         ret.image = UIImage(systemName: "chevron.right")
         ret.contentMode = .scaleAspectFit
         return ret
