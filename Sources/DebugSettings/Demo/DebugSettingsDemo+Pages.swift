@@ -71,7 +71,6 @@ public class DebugSettingsDemo: ObjcBridgeClass {
                             id: entryId ,
                             title: entryIdRawValue,
                             subtitle: "只是一个测试开关 只是一个测试开关 只是一个测试开关",
-                            detailDescription: "description description description description description description description description description description description description description description description description description description",
                             type: .switch,
                             switchValueChangeAction: switchValueChangeAction)
                     }
@@ -80,7 +79,6 @@ public class DebugSettingsDemo: ObjcBridgeClass {
                         return SettingsEntryItem(
                             id: entryId ,
                             title: entryIdRawValue,
-                            subtitle: "只是一个测试按钮 只是一个测试按钮 只是一个测试按钮",
                             detailDescription: "description description description description description description description description description description description description description description description description description description",
                             type: .button,
                             buttonClickAction: buttonClickAction)
@@ -90,8 +88,6 @@ public class DebugSettingsDemo: ObjcBridgeClass {
                         return SettingsEntryItem(
                             id: entryId ,
                             title: entryIdRawValue,
-                            subtitle: "进入测试子页面 进入测试子页面 进入测试子页面 进入测试子页面 进入测试子页面",
-                            detailDescription: "description description description description description description description description description description description description description description description description description description",
                             type: .subpage,
                             subpageJumpAction: subpageJumpAction)
                     }

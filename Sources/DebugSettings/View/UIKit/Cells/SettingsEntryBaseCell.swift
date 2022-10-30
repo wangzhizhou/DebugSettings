@@ -42,12 +42,19 @@ class SettingsEntryBaseCell: UITableViewCell {
     
     lazy var rightArrowIcon: UIImageView = {
         let ret = UIImageView(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        ret.tintColor = .gray.withAlphaComponent(0.3)
         ret.image = UIImage(systemName: "chevron.right")
         ret.contentMode = .scaleAspectFit
         return ret
     }()
     
     let rightContainer = UIView()
+    
+    lazy var bottomLine: UIView = {
+        let ret = UIView()
+        ret.backgroundColor = .gray.withAlphaComponent(0.1)
+        return ret
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -59,6 +66,7 @@ class SettingsEntryBaseCell: UITableViewCell {
         self.contentView.addSubview(self.subtitleLabel)
         self.contentView.addSubview(self.detailDescriptionLabel)
         self.contentView.addSubview(self.rightContainer)
+        self.contentView.addSubview(self.bottomLine)
         
         self.icon.snp.makeConstraints { make in
             make.top.left.equalTo(self.contentView).offset(5)
@@ -81,13 +89,20 @@ class SettingsEntryBaseCell: UITableViewCell {
         self.detailDescriptionLabel.snp.makeConstraints { make in
             make.left.right.equalTo(self.subtitleLabel)
             make.top.equalTo(self.subtitleLabel.snp.bottom).offset(2)
-            make.bottom.equalTo(self.contentView).offset(-5)
+            make.bottom.equalTo(self.bottomLine.snp.top).offset(-5)
         }
         
         self.rightContainer.snp.makeConstraints { make in
             make.right.equalTo(self.contentView).offset(-5)
             make.centerY.equalTo(self.contentView)
             make.width.equalTo(0)
+        }
+        
+        self.bottomLine.snp.makeConstraints { make in
+            make.left.equalTo(self.icon)
+            make.right.equalTo(self.rightContainer)
+            make.height.equalTo(0.5)
+            make.bottom.equalTo(self.contentView)
         }
     }
     
