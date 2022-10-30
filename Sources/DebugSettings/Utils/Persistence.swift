@@ -21,4 +21,8 @@ class Persistence {
     static func saveBoolValue(_ value: Bool, for id: String) {
         settingsStore?.set(value, forKey: id)
     }
+    
+    static func clearAll() {
+        
+    }
 }

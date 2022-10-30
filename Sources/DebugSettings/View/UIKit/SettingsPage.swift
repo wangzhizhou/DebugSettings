@@ -1,5 +1,5 @@
-import ObjcBridge
 import SnapKit
+import UIKit
 
 @objcMembers
 public class SettingsPage: UIViewController {
@@ -113,5 +113,23 @@ extension SettingsPage: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        
+        let entryItem = pageModel.sections[indexPath.section].items[indexPath.row]
+        
+        switch entryItem.type {
+        case .button:
+            // 添加震动反馈
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            if let buttonClickAction = entryItem.buttonClickAction {
+                buttonClickAction(entryItem)
+            }
+        case .subpage:
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            if let subPageJumpAction = entryItem.subpageJumpAction {
+                subPageJumpAction(entryItem, self)
+            }
+        default:
+            break
+        }
     }
 }

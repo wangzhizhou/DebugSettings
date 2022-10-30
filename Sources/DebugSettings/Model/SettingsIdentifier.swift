@@ -21,7 +21,7 @@ public struct SettingsIdentifier {
         return SettingsIdentifier(segs: newSegs)
     }
     
-    public var persistenceKey: String {
+    var persistenceKey: String {
         get {
             let ret = self.segs.reduce("") { partialResult, seg in
                 guard !partialResult.isEmpty else {
@@ -34,5 +34,11 @@ public struct SettingsIdentifier {
             }
             return ret
         }
+    }
+}
+
+extension SettingsIdentifier: Equatable {
+    static public func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.segs == rhs.segs
     }
 }

@@ -40,6 +40,13 @@ class SettingsEntryBaseCell: UITableViewCell {
         return ret
     }()
     
+    lazy var rightArrowIcon: UIImageView = {
+        let ret = UIImageView(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        ret.image = UIImage(systemName: "chevron.right")
+        ret.contentMode = .scaleAspectFit
+        return ret
+    }()
+    
     let rightContainer = UIView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -126,9 +133,18 @@ class SettingsEntryBaseCell: UITableViewCell {
                 make.width.equalTo(self.settingSwitch.frame.size.width)
             }
             self.settingSwitch.isOn = entryItem.isSwitchOn ?? false
-        case .button:
+        case .subpage:
+            self.rightContainer.addSubview(self.rightArrowIcon)
+            self.rightArrowIcon.snp.makeConstraints { make in
+                make.edges.equalTo(self.rightContainer)
+            }
+            self.rightContainer.snp.updateConstraints { make in
+                make.width.equalTo(self.rightArrowIcon.frame.size.width)
+            }
+        default:
             break
         }
+        
     }
     
     @objc func switchAction(_ sender: UISwitch) {
