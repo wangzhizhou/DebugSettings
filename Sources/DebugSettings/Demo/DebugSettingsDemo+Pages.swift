@@ -102,7 +102,5 @@ public class DebugSettingsDemo: ObjcBridgeClass {
         }
         return SettingsPage(pageModel: model)
     }
-    
+
 }
-
-
