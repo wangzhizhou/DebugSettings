@@ -41,9 +41,8 @@ class SettingsEntryBaseCell: UITableViewCell {
     }()
     
     lazy var rightArrowIcon: UIImageView = {
-        let ret = UIImageView(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
-        ret.tintColor = .gray.withAlphaComponent(0.5)
-        ret.image = UIImage(systemName: "chevron.right")
+        let ret = UIImageView(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
+        ret.image = UIImage.image(named: "rightArrow")
         ret.contentMode = .scaleAspectFit
         return ret
     }()
@@ -115,8 +114,8 @@ class SettingsEntryBaseCell: UITableViewCell {
     func bindEntryItem(_ entryItem: SettingsEntryItem) {
         self.entryItem = entryItem
         
-        if let imageName = entryItem.icon, let iconImage = UIImage(systemName: imageName) {
-            self.icon.image = iconImage
+        if let icon = entryItem.icon {
+            self.icon.image = icon
             self.icon.snp.updateConstraints { make in
                 make.height.equalTo(self.titleLabel.snp.height)
             }

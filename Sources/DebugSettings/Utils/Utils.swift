@@ -5,8 +5,14 @@
 //  Created by joker on 2022/10/27.
 //
 
-import Foundation
+import UIKit
 
-struct Utils {
-    
+extension UIImage {
+    static func image(named name: String) -> UIImage? {
+#if canImport(ObjcBridge)
+        return UIImage(named: name, in: Bundle.module, compatibleWith: nil)
+#else
+        return UIImage(named: name)
+#endif
+    }
 }

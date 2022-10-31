@@ -6,8 +6,10 @@
 //
 
 import Foundation
+#if canImport(ObjcBridge)
 import ObjcBridge
+#endif
 
-public protocol SettingsIdentifiable: ObjcBridgeProtocol, Identifiable {
+public protocol SettingsIdentifiable: ObjcBridgeProtocol {
     var id: SettingsIdentifier { get }
 }

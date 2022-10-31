@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(ObjcBridge)
 import ObjcBridge
+#endif
 
 @objcMembers
 public class SettingsPageModel: ObjcBridgeClass, SettingsIdentifiable {
@@ -42,7 +44,7 @@ public class SettingsSectionItem: ObjcBridgeClass, SettingsIdentifiable {
 public class SettingsEntryItem: ObjcBridgeClass, SettingsIdentifiable {
     
     public let id: SettingsIdentifier
-    public var icon: String?
+    public var icon: UIImage?
     public let title: String
     public var subtitle: String?
     public var detailDescription: String?
@@ -78,7 +80,7 @@ public class SettingsEntryItem: ObjcBridgeClass, SettingsIdentifiable {
     
     public init(
         id: SettingsIdentifier,
-        icon: String? = nil,
+        icon: UIImage? = nil,
         title: String,
         subtitle: String? = nil,
         detailDescription: String? = nil,

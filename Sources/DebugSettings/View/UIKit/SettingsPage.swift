@@ -19,9 +19,8 @@ public class SettingsPage: UIViewController {
         super.viewDidLoad()
         
         title = pageModel.title
-        
         let backButton = UIButton(type: .custom)
-        let backImage = UIImage(systemName: "chevron.left")
+        let backImage = UIImage.image(named: "leftArrow")
         backButton.setImage(backImage, for: .normal)
         backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)

@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(ObjcBridge)
 import ObjcBridge
+#endif
 
 
 /// 配置项页面定义
