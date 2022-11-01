@@ -9,3 +9,4 @@
 #import <UIKit/UIKit.h>
 #import "ObjcBridgeClass.h"
 #import "ObjcBridgeProtocol.h"
+#import "DebugSettings.h"
