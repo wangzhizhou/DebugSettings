@@ -42,8 +42,8 @@ public class SettingsPage: UIViewController {
         ret.dataSource = self
         ret.delegate = self
         ret.backgroundColor = .white
-        ret.estimatedRowHeight = UITableView.automaticDimension
         ret.separatorStyle = .none
+        ret.estimatedRowHeight = UITableView.automaticDimension
         self.view.backgroundColor = ret.backgroundColor
         return ret
     }()
@@ -65,15 +65,11 @@ extension SettingsPage: UITableViewDataSource {
         cell.bindEntryItem(entryItem)
         return cell
     }
-    
-    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return pageModel.sections[section].title
-    }
-    
+        
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionLabel = UILabel()
         sectionLabel.textColor = .black
-        sectionLabel.font = .systemFont(ofSize: 18)
+        sectionLabel.font = .boldSystemFont(ofSize: 18)
         
         let sectionTitle = pageModel.sections[section].title
         sectionLabel.text = sectionTitle
@@ -87,6 +83,14 @@ extension SettingsPage: UITableViewDataSource {
             make.bottom.equalTo(headerView).offset(-2)
         }
         return headerView
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
+    }
+    
+    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
     }
     
     public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {

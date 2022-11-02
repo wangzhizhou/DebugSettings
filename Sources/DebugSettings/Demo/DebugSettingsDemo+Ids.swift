@@ -15,10 +15,10 @@ enum SettingsPageId: String, CaseIterable {
 
 /// 定义页面内部SectionID
 enum SettingsSectionId: String, CaseIterable {
-    case section1
-    case section2
-    case section3
-    case section4
+    case Section1
+    case Section2
+    case Section3
+    case Section4
 }
 
 /// 定义开关类型的设置项ID

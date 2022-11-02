@@ -11,6 +11,7 @@ class Persistence {
 
     // MARK: 持久化
     static let settingsStore = UserDefaults(suiteName: "com.joker.settings.entries")
+    
     static func boolValueForId(_ identifier: String) -> Bool? {
         guard let obj = settingsStore?.object(forKey: identifier) else {
             return nil
@@ -22,7 +23,11 @@ class Persistence {
         settingsStore?.set(value, forKey: id)
     }
     
+    /// 清除所有存储的Key
     static func clearAll() {
-        
+        settingsStore?.dictionaryRepresentation().keys.map {
+            settingsStore?.removeObject(forKey: $0)
+        }
+        settingsStore?.synchronize()
     }
 }
