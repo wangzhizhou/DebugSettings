@@ -11,6 +11,7 @@ import Foundation
 enum SettingsPageId: String, CaseIterable {
     case main
     case subpage
+    case swiftui
 }
 
 /// 定义页面内部SectionID

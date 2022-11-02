@@ -47,6 +47,8 @@ extension DebugSettingsDemo {
         case mainPageIdSection1.append(SettingsEntrySubPageId.page1.rawValue):
             print("id: \(entryItem.id) subpage jump")
             from.navigationController?.pushViewController(subpage(), animated: true)
+        case mainPageIdSection1.append(SettingsEntrySubPageId.page2.rawValue):
+            from.navigationController?.pushViewController(swiftUIPage(), animated: true)
         default:
             print("other subpage jump")
         }

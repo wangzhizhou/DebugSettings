@@ -52,6 +52,7 @@ public class DebugSettingsDemo: ObjcBridgeClass {
                             type: .subpage,
                             subpageJumpAction: subpageJumpAction)
                     }
+                    
                     return entrySwitchItems + entryButtonItems + entrySubPageItems
                 }
             }
@@ -100,5 +101,4 @@ public class DebugSettingsDemo: ObjcBridgeClass {
         }
         return SettingsPage(pageModel: model)
     }
-
 }

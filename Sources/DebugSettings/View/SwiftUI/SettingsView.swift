@@ -7,15 +7,23 @@
 #if canImport(SwiftUI)
 import SwiftUI
 
-struct SettingsView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+public struct SettingsView: View {
+    let model: SettingsPageModel
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    public var body: some View {
+        NavigationView {
+            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        }
+        .navigationBarTitle(model.title)
+        .colorInvert()
+        .navigationBarItems(leading: Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }, label: {
+            if let backImage = UIImage.image(named: "leftArrow") {
+                Image(uiImage: backImage)
+            }
+        }))
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-    }
-}
 #endif
