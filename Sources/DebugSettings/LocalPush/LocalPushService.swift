@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import UserNotifications
+import ObjcBridge
 
 @available(iOS 10.0, *)
 @objc public enum LocalPushServiceError: Int, Error {
