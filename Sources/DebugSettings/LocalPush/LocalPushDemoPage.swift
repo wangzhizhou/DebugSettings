@@ -6,7 +6,12 @@
 //
 
 import UIKit
+#if canImport(Toast)
 import Toast
+#endif
+#if canImport(Toast_Swift)
+import Toast_Swift
+#endif
 import SnapKit
 
 @objcMembers
