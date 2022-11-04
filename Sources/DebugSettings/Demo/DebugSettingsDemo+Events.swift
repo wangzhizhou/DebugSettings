@@ -33,6 +33,8 @@ extension DebugSettingsDemo {
         switch entryItem.id {
         case mainPageIdSection1.append(SettingsEntryButtonId.button1.rawValue):
             print("id: \(entryItem.id) action")
+        case mainPageIdSection1.append(SettingsEntryButtonId.button2.rawValue):
+            LocalPushDemoPage.show()
         default:
             print("other button action")
         }

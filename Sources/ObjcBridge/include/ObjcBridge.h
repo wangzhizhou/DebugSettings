@@ -10,3 +10,4 @@
 #import "ObjcBridgeClass.h"
 #import "ObjcBridgeProtocol.h"
 #import "DebugSettings.h"
+#import "LocalPushOCBridge.h"

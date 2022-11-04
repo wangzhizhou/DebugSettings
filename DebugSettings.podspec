@@ -26,7 +26,7 @@ Pod::Spec.new do |spec|
   spec.subspec 'Core' do |cs|
     cs.source_files  = "Sources/DebugSettings/**/*.{swift}"
     cs.resources = "Sources/DebugSettings/Resources/**/*"
-    
+    cs.dependency "Toast-Swift", "~>5.0.1"
     cs.dependency "SnapKit", "~> 5.6.0"
     cs.dependency "DebugSettings/OCBridge"
   end
