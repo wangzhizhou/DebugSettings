@@ -34,7 +34,7 @@ let package = Package(
             name: "DebugSettingsTests",
             dependencies: ["DebugSettings"]),
         .target(name: "ObjcBridge"),
-        .target(name: "DebugTools")
+        .target(name: "DebugTools", dependencies: ["ObjcBridge"])
     ],
     swiftLanguageVersions: [
         .v5
