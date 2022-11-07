@@ -6,6 +6,9 @@
 //
 
 import UIKit
+#if canImport(DebugTools)
+import DebugTools
+#endif
 
 // MARK: 配置项事件处理
 extension DebugSettingsDemo {
@@ -29,7 +32,7 @@ extension DebugSettingsDemo {
     static func buttonClickAction(_ entryItem: SettingsPageEntryModel) {
         switch entryItem.id {
         case SettingsPage.main.entryId(for: .button1):
-            LocalPushDemoPage.show()
+            LocalPushDemoPage().pushOnTopViewController()
         case SettingsPage.main.entryId(for: .button2):
             print("id: \(entryItem.id) action")
             let isEnable = SettingsManager.switchEnable(for: SettingsPage.main.entryId(for: .switch1))
