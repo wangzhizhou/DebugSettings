@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Persistence {
+public class Persistence {
 
     // MARK: 持久化
     static let settingsStore = UserDefaults(suiteName: "com.joker.settings.entries")

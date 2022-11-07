@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Utils.swift
 //  
 //
 //  Created by joker on 2022/10/27.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIImage {
+public extension UIImage {
     static func image(named name: String) -> UIImage? {
 #if canImport(ObjcBridge)
         return UIImage(named: name, in: Bundle.module, compatibleWith: nil)
@@ -18,7 +18,7 @@ extension UIImage {
 }
 
 
-extension String {
+public extension String {
     func toJSONObject() -> Any? {
         guard let jsonData = self.data(using: .utf8) else { return nil }
         return try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
@@ -33,7 +33,7 @@ extension String {
     }
 }
 
-extension UIViewController {
+public extension UIViewController {
     
     func pushOnTopViewController() {
         UIViewController.topViewController()?.navigationController?.pushViewController(self, animated: true)

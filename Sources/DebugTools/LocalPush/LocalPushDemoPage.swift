@@ -12,6 +12,9 @@ import Toast
 #if canImport(Toast_Swift)
 import Toast_Swift
 #endif
+#if canImport(Utils)
+import Utils
+#endif
 import SnapKit
 
 @objcMembers
