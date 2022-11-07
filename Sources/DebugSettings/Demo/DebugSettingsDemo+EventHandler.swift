@@ -14,42 +14,37 @@ extension DebugSettingsDemo {
     ///   - entryItem: 设置项数据模型
     ///   - isOn: 开关是否打开
     ///   - type: 值变化的类型
-    static func switchValueChangeAction(_ entryItem: SettingsEntryItem, _ isOn: Bool, _ type: SettingsEntrySwitchActionType) {
+    static func switchValueChangeAction(_ entryItem: SettingsPageEntryModel, _ isOn: Bool, _ type: SettingsEntrySwitchActionType) {
         
-        let mainPageIdSection1 = SettingsIdentifier(segs: [SettingsPageId.main.rawValue]).append(SettingsSectionId.Section1.rawValue)
         switch entryItem.id {
-        case mainPageIdSection1.append(SettingsEntrySwitchId.switch1.rawValue):
+        case SettingsPage.main.entryId(for: .switch1):
             print("id: \(entryItem.id), isOn: \(isOn), type: \(type)")
         default:
             print("other switch change")
         }
     }
     
-    
     /// 处理按钮类设置项的事件处理器
     /// - Parameter entryItem: 设置项数据模型
-    static func buttonClickAction(_ entryItem: SettingsEntryItem) {
-        let mainPageIdSection1 = SettingsIdentifier(segs: [SettingsPageId.main.rawValue]).append(SettingsSectionId.Section1.rawValue)
+    static func buttonClickAction(_ entryItem: SettingsPageEntryModel) {
         switch entryItem.id {
-        case mainPageIdSection1.append(SettingsEntryButtonId.button1.rawValue):
-            print("id: \(entryItem.id) action")
-        case mainPageIdSection1.append(SettingsEntryButtonId.button2.rawValue):
+        case SettingsPage.main.entryId(for: .button1):
             LocalPushDemoPage.show()
+        case SettingsPage.main.entryId(for: .button2):
+            print("id: \(entryItem.id) action")
         default:
             print("other button action")
         }
     }
     
-    
     /// 处理跳转子页面事件
     /// - Parameter entryItem: 设置项数据模型
-    static func subpageJumpAction(_ entryItem: SettingsEntryItem, _ from: UIViewController) {
-        let mainPageIdSection1 = SettingsIdentifier(segs: [SettingsPageId.main.rawValue]).append(SettingsSectionId.Section1.rawValue)
+    static func subpageJumpAction(_ entryItem: SettingsPageEntryModel, _ from: UIViewController) {
         switch entryItem.id {
-        case mainPageIdSection1.append(SettingsEntrySubPageId.page1.rawValue):
+        case SettingsPage.main.entryId(for: .subpage1):
             print("id: \(entryItem.id) subpage jump")
             from.navigationController?.pushViewController(subpage(), animated: true)
-        case mainPageIdSection1.append(SettingsEntrySubPageId.page2.rawValue):
+        case SettingsPage.main.entryId(for: .subpage2):
 #if canImport(SwiftUI)
             from.navigationController?.pushViewController(swiftUIPage(), animated: true)
 #else

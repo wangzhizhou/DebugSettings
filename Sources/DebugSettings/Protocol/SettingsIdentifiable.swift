@@ -11,5 +11,5 @@ import ObjcBridge
 #endif
 
 public protocol SettingsIdentifiable: ObjcBridgeProtocol {
-    var id: SettingsIdentifier { get }
+    var id: String { get }
 }

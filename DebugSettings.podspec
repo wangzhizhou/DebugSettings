@@ -34,4 +34,8 @@ Pod::Spec.new do |spec|
   spec.subspec 'OCBridge' do |oc|
     oc.source_files  = "Sources/ObjcBridge/**/*.{h,m}"
   end
+  
+  spec.subspec 'DebugTools' do |dt|
+    dt.source_files = "Sources/DebugTools/**/*.{h,m,swift}"
+  end
 end

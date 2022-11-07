@@ -9,9 +9,6 @@ import Foundation
 
 
 struct SettingsManager {
-    
     static let shared = SettingsManager()
-    
     private init() {}
-    
 }

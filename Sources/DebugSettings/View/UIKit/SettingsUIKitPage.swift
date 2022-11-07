@@ -2,7 +2,7 @@ import SnapKit
 import UIKit
 
 @objcMembers
-public class SettingsPage: UIViewController {
+public class SettingsUIKitPage: UIViewController {
     
     let pageModel: SettingsPageModel
     
@@ -49,7 +49,7 @@ public class SettingsPage: UIViewController {
     }()
 }
 
-extension SettingsPage: UITableViewDataSource {
+extension SettingsUIKitPage: UITableViewDataSource {
     
     public func numberOfSections(in tableView: UITableView) -> Int {
         return pageModel.sections.count
@@ -64,6 +64,14 @@ extension SettingsPage: UITableViewDataSource {
         let cell = SettingsEntryBaseCell()
         cell.bindEntryItem(entryItem)
         return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard pageModel.sections.count > 1
+        else {
+            return .leastNormalMagnitude
+        }
+        return UITableView.automaticDimension
     }
         
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -108,7 +116,7 @@ extension SettingsPage: UITableViewDataSource {
     }
 }
 
-extension SettingsPage: UITableViewDelegate {
+extension SettingsUIKitPage: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension

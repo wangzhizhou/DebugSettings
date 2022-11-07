@@ -25,7 +25,7 @@ class Persistence {
     
     /// 清除所有存储的Key
     static func clearAll() {
-        settingsStore?.dictionaryRepresentation().keys.map {
+        settingsStore?.dictionaryRepresentation().keys.forEach {
             settingsStore?.removeObject(forKey: $0)
         }
         settingsStore?.synchronize()

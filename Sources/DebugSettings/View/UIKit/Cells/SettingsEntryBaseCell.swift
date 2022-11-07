@@ -110,8 +110,8 @@ class SettingsEntryBaseCell: UITableViewCell {
     }
     
     
-    var entryItem: SettingsEntryItem? = nil
-    func bindEntryItem(_ entryItem: SettingsEntryItem) {
+    var entryItem: SettingsPageEntryModel? = nil
+    func bindEntryItem(_ entryItem: SettingsPageEntryModel) {
         self.entryItem = entryItem
         
         if let icon = entryItem.icon {
