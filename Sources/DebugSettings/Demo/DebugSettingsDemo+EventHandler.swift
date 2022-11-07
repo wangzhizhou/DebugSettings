@@ -32,6 +32,11 @@ extension DebugSettingsDemo {
             LocalPushDemoPage.show()
         case SettingsPage.main.entryId(for: .button2):
             print("id: \(entryItem.id) action")
+            let isEnable = SettingsManager.switchEnable(for: SettingsPage.main.entryId(for: .switch1))
+            
+        case SettingsPage.subpage.entryId(for: .button1):
+            entryItem.subtitle = "刷新了页面后的subtitle"
+            SettingsManager.refreshPage(for: SettingsPage.subpage.rawValue)
         default:
             print("other button action")
         }

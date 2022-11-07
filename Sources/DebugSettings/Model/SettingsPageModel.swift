@@ -24,5 +24,7 @@ public class SettingsPageModel: ObjcBridgeClass, SettingsIdentifiable {
     }
     
     let sections: [SettingsPageSectionModel]
+    
+    public static let notificationUserInfoPageIdKey = "page_id"
 }
 

@@ -28,12 +28,14 @@ public class DebugSettingsDemo: ObjcBridgeClass {
                     switchValueChangeAction: switchValueChangeAction)
                 
                 let button1 = SettingsPageEntryModel(id: SettingsPage.main.entryId(for: .button1), title: "Local Push", subtitle: "本地模拟远程推送，测试通知跳转逻辑", type: .button, buttonClickAction: buttonClickAction)
+                
+                let button2 = SettingsPageEntryModel(id: SettingsPage.main.entryId(for: .button2), title: "Test Button", type: .button, buttonClickAction: buttonClickAction)
             
                 let subPage1 = SettingsPageEntryModel(id: SettingsPage.main.entryId(for: .subpage1), title: "UIKit子页面", type: .subpage, subpageJumpAction: subpageJumpAction)
                 
                 let subPage2 = SettingsPageEntryModel(id: SettingsPage.main.entryId(for: .subpage2), title: "SwiftUI子页面", type: .subpage, subpageJumpAction: subpageJumpAction)
                 
-                return [switch1, button1, subPage1, subPage2]
+                return [switch1, button1, button2, subPage1, subPage2]
             }
             
             return [section1]
@@ -47,7 +49,7 @@ public class DebugSettingsDemo: ObjcBridgeClass {
                 
                 let switch1 = SettingsPageEntryModel(id: SettingsPage.subpage.entryId(for: .switch1), title: "Switch1", type: .switch, switchValueChangeAction: switchValueChangeAction)
                 
-                let button1 = SettingsPageEntryModel(id: SettingsPage.subpage.entryId(for: .subpage1), title: "Button1", type: .button, buttonClickAction: buttonClickAction)
+                let button1 = SettingsPageEntryModel(id: SettingsPage.subpage.entryId(for: .button1), title: "修改按钮副标题", type: .button, buttonClickAction: buttonClickAction)
                 
                 let subpage1 = SettingsPageEntryModel(id: SettingsPage.subpage.entryId(for: .subpage1), title: "Subpage1", type: .subpage, subpageJumpAction: subpageJumpAction)
                 

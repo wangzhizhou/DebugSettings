@@ -31,6 +31,16 @@ public class SettingsUIKitPage: UIViewController {
             make.left.right.equalTo(self.view)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
         }
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(refreshPage) , name: .SettingsPageRefresh, object: nil)
+    }
+    
+    @objc func refreshPage(_ notification: Notification) {
+        guard let pageId = notification.userInfo?[SettingsPageModel.notificationUserInfoPageIdKey] as? String, pageId == self.pageModel.id
+        else {
+            return
+        }
+        tableView.reloadData()
     }
     
     func backAction(_ sender: UIButton) {
