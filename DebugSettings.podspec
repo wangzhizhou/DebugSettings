@@ -29,13 +29,20 @@ Pod::Spec.new do |spec|
     cs.dependency "Toast-Swift", "~>5.0.1"
     cs.dependency "SnapKit", "~> 5.6.0"
     cs.dependency "DebugSettings/OCBridge"
+    cs.dependency "DebugSettings/DebugTools"
+  end
+  
+  spec.subspec 'DebugTools' do |dt|
+    dt.source_files = "Sources/DebugTools/**/*.{h,m,swift}"
+    dt.dependency "DebugSettings/OCBridge"
+    dt.dependency "DebugSettings/Utils"
   end
   
   spec.subspec 'OCBridge' do |oc|
     oc.source_files  = "Sources/ObjcBridge/**/*.{h,m}"
   end
   
-  spec.subspec 'DebugTools' do |dt|
-    dt.source_files = "Sources/DebugTools/**/*.{h,m,swift}"
+  spec.subspec 'Utils' do |us|
+    us.source_files = "Sources/Utils/**/*.{h,m,swift}"
   end
 end
