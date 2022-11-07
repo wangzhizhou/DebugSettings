@@ -34,7 +34,7 @@ public class LocalPushService: NSObject {
     private override init() {}
     
     public static let localPushIdentifier = "com.debug.settings.local.push.identifier"
-    var originalUserNotificationCenterDelegate: UNUserNotificationCenterDelegate? = nil
+    weak var originalUserNotificationCenterDelegate: UNUserNotificationCenterDelegate?
     public func restoreOriginalUserNotificationCenterDelegate() {
         UNUserNotificationCenter.current().delegate = self.originalUserNotificationCenterDelegate
     }
@@ -57,12 +57,12 @@ public extension LocalPushService {
             return appStatus != .active
         }
     }
-    func sendLocalNotification(with userInfo: Dictionary<String, Any>?,
+    func sendLocalNotification(with userInfo: [String: Any]?,
                                triggerAfterNow seconds: TimeInterval,
                                type: LocalPushType = .all,
                                completionHandler: @escaping (_ error: Error?) -> Void) {
         
-        guard let userInfo = userInfo, let aps = userInfo["aps"] as? Dictionary<String, Any>, let alert = aps["alert"] as? Dictionary<String, Any>
+        guard let userInfo = userInfo, let aps = userInfo["aps"] as? [String: Any], let alert = aps["alert"] as? [String: Any]
         else {
             completionHandler(LocalPushServiceError.userInfoInvalid)
             return
