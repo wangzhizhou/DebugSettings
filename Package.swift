@@ -25,7 +25,6 @@ let package = Package(
         .target(
             name: "DebugSettings",
             dependencies: [
-                "ObjcBridge",
                 "DebugTools",
                 .product(name: "SnapKit", package: "SnapKit"),
                 .product(name: "Toast", package: "Toast-Swift")
@@ -33,9 +32,9 @@ let package = Package(
         .testTarget(
             name: "DebugSettingsTests",
             dependencies: ["DebugSettings"]),
-        .target(name: "DebugTools", dependencies: ["ObjcBridge","Utils"]),
-        .target(name: "ObjcBridge"),
-        .target(name: "Utils")
+        .target(name: "DebugTools", dependencies: ["Utils"]),
+        .target(name: "Utils", dependencies: ["ObjcBridge"]),
+        .target(name: "ObjcBridge")
     ],
     swiftLanguageVersions: [
         .v5

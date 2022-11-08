@@ -6,16 +6,33 @@
 //
 
 import SwiftUI
+import DebugSettings
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+                Text("Hello, world!")
+            }
+            .padding()
+            .navigationBarItems(trailing: NavigationLink("调试工具") {
+                DebugSettingsView()
+            })
+            .navigationTitle("Demo")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .padding()
+    }
+}
+
+struct DebugSettingsView: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> some UIViewController {
+        return DebugSettingsDemo.swiftUIPage()
+    }
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
     }
 }
 

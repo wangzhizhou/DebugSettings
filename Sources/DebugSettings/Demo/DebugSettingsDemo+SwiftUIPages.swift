@@ -16,17 +16,17 @@ extension DebugSettingsDemo {
             let section1 = SettingsPageSectionModel(title: "Section1") {
                 
                 let switch1 = SettingsPageEntryModel(
-                    id: SettingsPage.main.entryId(for: .switch1) ,
+                    id: SettingsPage.swiftui.entryId(for: .switch1) ,
                     title: "switch1",
                     subtitle: "只是一个测试开关 只是一个测试开关 只是一个测试开关",
                     detailDescription: "description description description description description description description description description description description description description description description description description description",
                     type: .switch,
                     switchValueChangeAction: switchValueChangeAction)
                 
-                let button1 = SettingsPageEntryModel(id: SettingsPage.main.entryId(for: .button1), title: "Button1", type: .button, buttonClickAction: buttonClickAction)
+                let button1 = SettingsPageEntryModel(id: SettingsPage.swiftui.entryId(for: .button1), title: "Button1", type: .button, buttonClickAction: buttonClickAction)
                 
                 
-                let subPage1 = SettingsPageEntryModel(id: SettingsPage.main.entryId(for: .subpage1), title: "subpage1", type: .subpage, subpageJumpAction: subpageJumpAction)
+                let subPage1 = SettingsPageEntryModel(id: SettingsPage.swiftui.entryId(for: .subpage1), title: "subpage1", type: .subpage, subpageJumpAction: subpageJumpAction)
                 
                 
                 return [switch1, button1, subPage1]

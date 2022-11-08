@@ -22,6 +22,8 @@ extension DebugSettingsDemo {
         switch entryItem.id {
         case SettingsPage.main.entryId(for: .switch1):
             print("id: \(entryItem.id), isOn: \(isOn), type: \(type)")
+        case SettingsPage.swiftui.entryId(for: .switch1):
+            print("id: \(entryItem.id), isOn: \(isOn), type: \(type)")
         default:
             print("other switch change")
         }
@@ -38,6 +40,8 @@ extension DebugSettingsDemo {
         case SettingsPage.subpage.entryId(for: .button1):
             entryItem.subtitle = "刷新了页面后的subtitle"
             SettingsManager.refreshPage(for: SettingsPage.subpage.rawValue)
+        case SettingsPage.swiftui.entryId(for: .button1):
+            print("id: \(entryItem.id) action")
         default:
             print("other button action")
         }
@@ -45,17 +49,19 @@ extension DebugSettingsDemo {
     
     /// 处理跳转子页面事件
     /// - Parameter entryItem: 设置项数据模型
-    static func subpageJumpAction(_ entryItem: SettingsPageEntryModel, _ from: UIViewController) {
+    static func subpageJumpAction(_ entryItem: SettingsPageEntryModel, _ from: UIViewController? = UIViewController.topViewController()) {
         switch entryItem.id {
         case SettingsPage.main.entryId(for: .subpage1):
             print("id: \(entryItem.id) subpage jump")
-            from.navigationController?.pushViewController(subpage(), animated: true)
+            from?.navigationController?.pushViewController(subpage(), animated: true)
         case SettingsPage.main.entryId(for: .subpage2):
 #if canImport(SwiftUI)
-            from.navigationController?.pushViewController(swiftUIPage(), animated: true)
+            from?.navigationController?.pushViewController(swiftUIPage(), animated: true)
 #else
             break
 #endif
+        case SettingsPage.swiftui.entryId(for: .subpage1):
+            print("id: \(entryItem.id) subpage jump")
         default:
             print("other subpage jump")
         }

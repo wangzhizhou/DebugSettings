@@ -9,14 +9,9 @@ import UIKit
 
 public extension UIImage {
     static func image(named name: String) -> UIImage? {
-#if canImport(ObjcBridge)
-        return UIImage(named: name, in: Bundle.module, compatibleWith: nil)
-#else
         return UIImage(named: name)
-#endif
     }
 }
-
 
 public extension String {
     func toJSONObject() -> Any? {
@@ -40,7 +35,19 @@ public extension UIViewController {
     }
         
     static func topViewController(_ base: UIViewController? = nil) -> UIViewController? {
-        let base = base ?? UIApplication.shared.keyWindow?.subviews.compactMap{ $0.next as? UIViewController }.last ?? UIApplication.shared.keyWindow?.rootViewController
+        var keyWindow: UIWindow?
+        if #available(iOS 13, *) {
+            keyWindow = UIApplication
+                .shared
+                .connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .flatMap { $0.windows }
+                .first { $0.isKeyWindow }
+        } else {
+            keyWindow = UIApplication.shared.keyWindow
+        }
+        
+        let base = base ?? keyWindow?.subviews.compactMap{ $0.next as? UIViewController }.last ?? keyWindow?.rootViewController
         if let nav = base as? UINavigationController {
             return topViewController(nav.visibleViewController)
         }

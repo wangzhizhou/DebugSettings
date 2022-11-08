@@ -11,6 +11,7 @@
 		F3D012C0291ABB0F00875334 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D012BF291ABB0F00875334 /* ContentView.swift */; };
 		F3D012C2291ABB1000875334 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3D012C1291ABB1000875334 /* Assets.xcassets */; };
 		F3D012C6291ABB1000875334 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3D012C5291ABB1000875334 /* Preview Assets.xcassets */; };
+		F3D012D0291AC56900875334 /* DebugSettings in Frameworks */ = {isa = PBXBuildFile; productRef = F3D012CF291AC56900875334 /* DebugSettings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		F3D012C1291ABB1000875334 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3D012C3291ABB1000875334 /* Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Demo.entitlements; sourceTree = "<group>"; };
 		F3D012C5291ABB1000875334 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F3D012CD291ABBEB00875334 /* DebugSettings */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DebugSettings; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3D012D0291AC56900875334 /* DebugSettings in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,8 +39,10 @@
 		F3D012B1291ABB0E00875334 = {
 			isa = PBXGroup;
 			children = (
+				F3D012CC291ABBEB00875334 /* Packages */,
 				F3D012BC291ABB0F00875334 /* Demo */,
 				F3D012BB291ABB0F00875334 /* Products */,
+				F3D012CE291AC56900875334 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +74,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		F3D012CC291ABBEB00875334 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				F3D012CD291ABBEB00875334 /* DebugSettings */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		F3D012CE291AC56900875334 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -85,6 +105,9 @@
 			dependencies = (
 			);
 			name = Demo;
+			packageProductDependencies = (
+				F3D012CF291AC56900875334 /* DebugSettings */,
+			);
 			productName = Demo;
 			productReference = F3D012BA291ABB0F00875334 /* Demo.app */;
 			productType = "com.apple.product-type.application";
@@ -279,7 +302,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -317,7 +340,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -354,6 +377,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F3D012CF291AC56900875334 /* DebugSettings */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DebugSettings;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F3D012B2291ABB0E00875334 /* Project object */;
 }

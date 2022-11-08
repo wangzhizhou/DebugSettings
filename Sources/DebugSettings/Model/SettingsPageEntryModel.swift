@@ -12,7 +12,6 @@ import ObjcBridge
 
 @objcMembers
 public class SettingsPageEntryModel: ObjcBridgeClass, SettingsIdentifiable {
-    
     public let id: String
     public var icon: UIImage?
     public let title: String
@@ -101,4 +100,4 @@ public enum SettingsEntrySwitchActionType: Int {
 /// 开关类型设置项的值变化处理事件
 public typealias SettingsEntrySwitchAction = (_ entryItem: SettingsPageEntryModel, _ isOn: Bool, _ type: SettingsEntrySwitchActionType) -> Void
 public typealias SettingsEntryButtonAction = (_ entryItem: SettingsPageEntryModel) -> Void
-public typealias SettingsEntrySubPageJumpAction = (_ entryItem: SettingsPageEntryModel, _ from: UIViewController) -> Void
+public typealias SettingsEntrySubPageJumpAction = (_ entryItem: SettingsPageEntryModel, _ from: UIViewController?) -> Void
