@@ -47,6 +47,7 @@ public class SettingsPageEntryModel: ObjcBridgeClass, SettingsIdentifiable {
     /// 跳转子页面事件处理
     public var subpageJumpAction: SettingsEntrySubPageJumpAction?
     
+    @discardableResult
     public init(
         id: String,
         icon: UIImage? = nil,

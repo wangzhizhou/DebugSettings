@@ -9,10 +9,11 @@
 import SwiftUI
 
 extension DebugSettingsDemo {
-    static public let switfuiModel = SettingsPageModel(id: SettingsPage.swiftui.rawValue, title: "SwiftUI调试选项子页面") {
-        let section1 = SettingsPageSectionModel(title: "Section1") {
+    static public let switfuiModel = SettingsPageModel(id: SettingsPage.swiftui.rawValue, name: "SwiftUI调试选项子页面") {
+        
+        SettingsPageSectionModel(name: "Section1") {
             
-            let switch1 = SettingsPageEntryModel(
+            SettingsPageEntryModel(
                 id: SettingsPage.swiftui.entryId(for: .switch1) ,
                 title: "switch1",
                 subtitle: "只是一个测试开关 只是一个测试开关 只是一个测试开关",
@@ -20,16 +21,11 @@ extension DebugSettingsDemo {
                 type: .switch,
                 switchValueChangeAction: switchValueChangeAction)
             
-            let button1 = SettingsPageEntryModel(id: SettingsPage.swiftui.entryId(for: .button1), title: "Button1", type: .button, buttonClickAction: buttonClickAction)
+            SettingsPageEntryModel(id: SettingsPage.swiftui.entryId(for: .button1), title: "Button1", type: .button, buttonClickAction: buttonClickAction)
             
+            SettingsPageEntryModel(id: SettingsPage.swiftui.entryId(for: .subpage1), title: "subpage1", type: .subpage, subpageJumpAction: subpageJumpAction)
             
-            let subPage1 = SettingsPageEntryModel(id: SettingsPage.swiftui.entryId(for: .subpage1), title: "subpage1", type: .subpage, subpageJumpAction: subpageJumpAction)
-            
-            
-            return [switch1, button1, subPage1]
         }
-        
-        return [section1]
     }
     static public func swiftUIPage() -> SettingsSwiftUIPage<SettingsView> {
         return SettingsSwiftUIPage(rootView: SettingsView(model: switfuiModel))

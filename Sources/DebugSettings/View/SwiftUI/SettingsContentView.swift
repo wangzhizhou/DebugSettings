@@ -62,6 +62,7 @@ public struct SettingsContentView: View {
                             }
                         }
                         .onTapGesture {
+                            UIImpactFeedbackGenerator().impactOccurred()
                             if item.type == .button {
                                 if let buttonClickAction = item.buttonClickAction {
                                     buttonClickAction(item)
