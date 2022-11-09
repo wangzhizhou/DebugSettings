@@ -19,7 +19,7 @@ struct ContentView: View {
             }
             .padding()
             .navigationBarItems(trailing: NavigationLink("调试工具") {
-                DebugSettingsView()
+                SettingsContentView(model: DebugSettingsDemo.switfuiModel)
             })
             .navigationTitle("Demo")
             .navigationBarTitleDisplayMode(.inline)
