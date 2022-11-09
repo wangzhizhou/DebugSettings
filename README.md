@@ -12,12 +12,14 @@
 ### SPM方式
 
 ```swift
-
+.package(url: "https://github.com/wangzhizhou/DebugSettings.git", branch: "main")
 ```
 
 ### Cocoapods方式
 
 ```ruby
+
+pod 'DebugSettings'
 
 ```
 

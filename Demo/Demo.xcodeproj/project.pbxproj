@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BDD0BEE291B6DB000E6F5AD /* DebugSettings in Frameworks */ = {isa = PBXBuildFile; productRef = 2BDD0BED291B6DB000E6F5AD /* DebugSettings */; };
 		F3D012BE291ABB0F00875334 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D012BD291ABB0F00875334 /* DemoApp.swift */; };
 		F3D012C0291ABB0F00875334 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D012BF291ABB0F00875334 /* ContentView.swift */; };
 		F3D012C2291ABB1000875334 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3D012C1291ABB1000875334 /* Assets.xcassets */; };
 		F3D012C6291ABB1000875334 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3D012C5291ABB1000875334 /* Preview Assets.xcassets */; };
-		F3D012D0291AC56900875334 /* DebugSettings in Frameworks */ = {isa = PBXBuildFile; productRef = F3D012CF291AC56900875334 /* DebugSettings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +21,6 @@
 		F3D012C1291ABB1000875334 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3D012C3291ABB1000875334 /* Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Demo.entitlements; sourceTree = "<group>"; };
 		F3D012C5291ABB1000875334 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		F3D012CD291ABBEB00875334 /* DebugSettings */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DebugSettings; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,7 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3D012D0291AC56900875334 /* DebugSettings in Frameworks */,
+				2BDD0BEE291B6DB000E6F5AD /* DebugSettings in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,7 +38,6 @@
 		F3D012B1291ABB0E00875334 = {
 			isa = PBXGroup;
 			children = (
-				F3D012CC291ABBEB00875334 /* Packages */,
 				F3D012BC291ABB0F00875334 /* Demo */,
 				F3D012BB291ABB0F00875334 /* Products */,
 				F3D012CE291AC56900875334 /* Frameworks */,
@@ -74,14 +72,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		F3D012CC291ABBEB00875334 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				F3D012CD291ABBEB00875334 /* DebugSettings */,
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 		F3D012CE291AC56900875334 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,7 +96,7 @@
 			);
 			name = Demo;
 			packageProductDependencies = (
-				F3D012CF291AC56900875334 /* DebugSettings */,
+				2BDD0BED291B6DB000E6F5AD /* DebugSettings */,
 			);
 			productName = Demo;
 			productReference = F3D012BA291ABB0F00875334 /* Demo.app */;
@@ -136,6 +126,9 @@
 				Base,
 			);
 			mainGroup = F3D012B1291ABB0E00875334;
+			packageReferences = (
+				2BDD0BEC291B6DB000E6F5AD /* XCRemoteSwiftPackageReference "DebugSettings" */,
+			);
 			productRefGroup = F3D012BB291ABB0F00875334 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -378,9 +371,21 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		2BDD0BEC291B6DB000E6F5AD /* XCRemoteSwiftPackageReference "DebugSettings" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wangzhizhou/DebugSettings.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
-		F3D012CF291AC56900875334 /* DebugSettings */ = {
+		2BDD0BED291B6DB000E6F5AD /* DebugSettings */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 2BDD0BEC291B6DB000E6F5AD /* XCRemoteSwiftPackageReference "DebugSettings" */;
 			productName = DebugSettings;
 		};
 /* End XCSwiftPackageProductDependency section */
