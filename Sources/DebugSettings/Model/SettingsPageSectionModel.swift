@@ -28,8 +28,12 @@ public class SettingsPageSectionModel: ObjcBridgeClass {
 
 @resultBuilder
 struct SettingsPageSectionBuilder {
-    static func buildBlock(_ components: SettingsPageEntryModel...) -> SettingsPageSectionModel {
-        return SettingsPageSectionModel(title: "", items: components)
+    static func buildBlock(_ components: SettingsPageEntryModel...) -> [SettingsPageEntryModel] {
+        return components
+    }
+    
+    static func buildFinalResult(_ component: [SettingsPageEntryModel]) -> SettingsPageSectionModel {
+        return SettingsPageSectionModel(title: "", items: component)
     }
 }
 

@@ -34,8 +34,12 @@ public class SettingsPageModel: ObjcBridgeClass, SettingsIdentifiable {
 
 @resultBuilder
 struct SettingsPageBuilder {
-    static func buildBlock(_ components: SettingsPageSectionModel...) -> SettingsPageModel {
-        return SettingsPageModel(id: "", title: "", navigationBarHeight: 0, sections: components)
+    static func buildBlock(_ components: SettingsPageSectionModel...) -> [SettingsPageSectionModel] {
+        return components
+    }
+    
+    static func buildFinalResult(_ component: [SettingsPageSectionModel]) -> SettingsPageModel  {
+        return SettingsPageModel(id: "", title: "", navigationBarHeight: 0, sections: component)
     }
 }
 
