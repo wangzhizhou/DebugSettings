@@ -27,12 +27,36 @@ public class SettingsPageSectionModel: ObjcBridgeClass {
 }
 
 @resultBuilder
-struct SettingsPageSectionBuilder {
-    static func buildBlock(_ components: SettingsPageEntryModel...) -> [SettingsPageEntryModel] {
-        return components
+public struct SettingsPageSectionBuilder {
+    public static func buildBlock(_ components: [SettingsPageEntryModel]...) -> [SettingsPageEntryModel] {
+        return components.flatMap { $0 }
     }
     
-    static func buildFinalResult(_ component: [SettingsPageEntryModel]) -> SettingsPageSectionModel {
+    public static func buildEither(first component: [SettingsPageEntryModel]) -> [SettingsPageEntryModel] {
+        return component
+    }
+    
+    public static func buildEither(second component: [SettingsPageEntryModel]) -> [SettingsPageEntryModel] {
+        return component
+    }
+    
+    public static func buildOptional(_ component: [SettingsPageEntryModel]?) -> [SettingsPageEntryModel] {
+        return component ?? []
+    }
+    
+    public static func buildArray(_ components: [[SettingsPageEntryModel]]) -> [SettingsPageEntryModel] {
+        return components.flatMap { $0 }
+    }
+    
+    public static func buildExpression(_ expression: SettingsPageEntryModel) -> [SettingsPageEntryModel] {
+        return [expression]
+    }
+    
+    public static func buildExpression(_ expression: [SettingsPageEntryModel]) -> [SettingsPageEntryModel] {
+        return expression
+    }
+    
+    public static func buildFinalResult(_ component: [SettingsPageEntryModel]) -> SettingsPageSectionModel {
         return SettingsPageSectionModel(title: "", items: component)
     }
 }
