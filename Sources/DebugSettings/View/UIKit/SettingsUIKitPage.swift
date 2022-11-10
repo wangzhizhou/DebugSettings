@@ -27,9 +27,13 @@ public class SettingsUIKitPage: UIViewController {
         
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(pageModel.navigationBarHeight)
             make.left.right.equalTo(self.view)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+            if #available(iOS 11.0, *) {
+                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(pageModel.navigationBarHeight)
+                make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+            } else {
+                
+            }
         }
         
         NotificationCenter.default.addObserver(self, selector:#selector(refreshPage) , name: .SettingsPageRefresh, object: nil)

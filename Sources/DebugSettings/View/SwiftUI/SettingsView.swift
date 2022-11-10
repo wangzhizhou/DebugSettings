@@ -7,6 +7,7 @@
 #if canImport(SwiftUI)
 import SwiftUI
 
+@available(iOS 13, *)
 public struct SettingsView: View {
     let model: SettingsPageModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>

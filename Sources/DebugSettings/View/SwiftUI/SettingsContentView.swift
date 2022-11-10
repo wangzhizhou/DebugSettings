@@ -13,6 +13,7 @@ extension SettingsPageSectionModel: Identifiable {
 }
 extension SettingsPageEntryModel: Identifiable {}
 
+@available(iOS 13, *)
 public struct SettingsContentView: View {
     public let model: SettingsPageModel
     public init(model: SettingsPageModel) {

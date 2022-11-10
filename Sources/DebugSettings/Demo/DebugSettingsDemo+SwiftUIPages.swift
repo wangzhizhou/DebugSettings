@@ -8,6 +8,7 @@
 #if canImport(SwiftUI)
 import SwiftUI
 
+@available(iOS 13, *)
 extension DebugSettingsDemo {
     static public let switfuiModel = SettingsPageModel(id: SettingsPage.swiftui.rawValue, name: "SwiftUI调试选项子页面") {
         

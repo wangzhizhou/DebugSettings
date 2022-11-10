@@ -55,11 +55,9 @@ extension DebugSettingsDemo {
             print("id: \(entryItem.id) subpage jump")
             from?.navigationController?.pushViewController(subpage(), animated: true)
         case SettingsPage.main.entryId(for: .subpage2):
-#if canImport(SwiftUI)
-            from?.navigationController?.pushViewController(swiftUIPage(), animated: true)
-#else
-            break
-#endif
+            if #available(iOS 13, *) {
+                from?.navigationController?.pushViewController(swiftUIPage(), animated: true)
+            }
         case SettingsPage.swiftui.entryId(for: .subpage1):
             print("id: \(entryItem.id) subpage jump")
         default:
