@@ -19,7 +19,7 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "10.0"
   spec.source       = { :git => "https://github.com/wangzhizhou/DebugSettings.git", :tag => "#{spec.version}" }
   spec.module_name   = 'DebugSettings'
-  
+  spec.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   spec.requires_arc = true
   spec.swift_version = '5.0'
   
