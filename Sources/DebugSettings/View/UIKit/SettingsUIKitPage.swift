@@ -59,6 +59,8 @@ public class SettingsUIKitPage: UIViewController {
         ret.backgroundColor = .white
         ret.separatorStyle = .none
         ret.estimatedRowHeight = UITableView.automaticDimension
+        ret.showsVerticalScrollIndicator = false
+        ret.showsHorizontalScrollIndicator = false
         self.view.backgroundColor = ret.backgroundColor
         return ret
     }()

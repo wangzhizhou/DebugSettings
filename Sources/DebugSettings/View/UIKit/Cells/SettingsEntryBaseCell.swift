@@ -68,7 +68,7 @@ class SettingsEntryBaseCell: UITableViewCell {
         self.contentView.addSubview(self.bottomLine)
         
         self.icon.snp.makeConstraints { make in
-            make.top.left.equalTo(self.contentView).offset(5)
+            make.top.left.equalTo(self.contentView).offset(10)
             make.width.equalTo(self.icon.snp.height)
             make.height.equalTo(0)
         }
