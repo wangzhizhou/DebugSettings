@@ -81,7 +81,7 @@ class SettingsEntryBaseCell: UITableViewCell {
         
         self.subtitleLabel.snp.makeConstraints { make in
             make.top.equalTo(self.titleLabel.snp.bottom).offset(2)
-            make.left.equalTo(self.contentView).offset(5)
+            make.left.equalTo(self.titleLabel)
             make.right.equalTo(self.titleLabel)
         }
         

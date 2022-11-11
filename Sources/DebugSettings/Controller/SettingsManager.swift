@@ -15,7 +15,7 @@ public class SettingsManager: ObjcBridgeClass {
     private override init() {}
 }
 
-extension SettingsManager {
+public extension SettingsManager {
     
     /// 获取开关项是否打开状态值
     /// - Parameter id: 开关项的Id
