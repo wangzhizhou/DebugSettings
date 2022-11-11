@@ -32,7 +32,8 @@ public class SettingsUIKitPage: UIViewController {
                 make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(pageModel.navigationBarHeight)
                 make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
             } else {
-                
+                make.top.equalTo(self.topLayoutGuide.snp.bottom)
+                make.bottom.equalTo(self.bottomLayoutGuide.snp.top)
             }
         }
         
@@ -90,19 +91,20 @@ extension SettingsUIKitPage: UITableViewDataSource {
         
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionLabel = UILabel()
-        sectionLabel.textColor = .black
+        sectionLabel.textColor = .darkGray
         sectionLabel.font = .boldSystemFont(ofSize: 18)
         
         let sectionTitle = pageModel.sections[section].title
         sectionLabel.text = sectionTitle
+        sectionLabel.textAlignment = .left
         
         let headerView = UIView()
         headerView.addSubview(sectionLabel)
         sectionLabel.snp.makeConstraints { make in
             make.left.equalTo(headerView).offset(5)
             make.right.equalTo(headerView).offset(-5)
-            make.top.equalTo(headerView).offset(8)
-            make.bottom.equalTo(headerView).offset(-2)
+            make.top.equalTo(headerView).offset(5)
+            make.bottom.equalTo(headerView).offset(-5)
         }
         return headerView
     }

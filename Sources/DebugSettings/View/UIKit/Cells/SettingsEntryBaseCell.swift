@@ -14,7 +14,7 @@ class SettingsEntryBaseCell: UITableViewCell {
     lazy var titleLabel: UILabel = {
         let ret = UILabel()
         ret.textColor = .black
-        ret.font = .boldSystemFont(ofSize: 16)
+        ret.font = .systemFont(ofSize: 16)
         return ret
     }()
     
