@@ -4,7 +4,7 @@ import UIKit
 @objcMembers
 public class SettingsUIKitPage: UIViewController {
     
-    let pageModel: SettingsPageModel
+    public let pageModel: SettingsPageModel
     
     public init(pageModel: SettingsPageModel) {
         self.pageModel = pageModel
