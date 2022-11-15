@@ -59,6 +59,7 @@ public class SettingsPageEntryModel: ObjcBridgeClass, SettingsIdentifiable {
         detailDescription: String? = nil,
         type: EntryType,
         isSwitchOn: Bool = false,
+        switchDefaultValue: Bool = false,
         switchValueChangeAction: SettingsEntrySwitchValueChangeAction? = nil,
         switchClickAction: SettingsEntrySwitchClickAction? = nil,
         buttonClickAction: SettingsEntryButtonAction? = nil,
@@ -75,7 +76,12 @@ public class SettingsPageEntryModel: ObjcBridgeClass, SettingsIdentifiable {
             self.buttonClickAction = buttonClickAction
             self.subpageJumpAction = subpageJumpAction
             super.init()
-            self.isSwitchOn = isSwitchOn
+            if self.isSwitchOn == nil {
+                self.isSwitchOn = switchDefaultValue
+            }
+            else {
+                self.isSwitchOn = self.isSwitchOn
+            }
         }
 }
 
