@@ -142,18 +142,21 @@ extension SettingsUIKitPage: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        // 添加震动反馈
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
         
         let entryItem = pageModel.sections[indexPath.section].items[indexPath.row]
         
         switch entryItem.type {
+        case .switch:
+            if let switchClickAction = entryItem.switchClickAction {
+                switchClickAction(entryItem)
+            }
         case .button:
-            // 添加震动反馈
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
             if let buttonClickAction = entryItem.buttonClickAction {
                 buttonClickAction(entryItem)
             }
         case .subpage:
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
             if let subPageJumpAction = entryItem.subpageJumpAction {
                 subPageJumpAction(entryItem, self)
             }

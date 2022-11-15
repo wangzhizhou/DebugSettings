@@ -29,14 +29,24 @@ public extension SettingsManager {
     }
     
     /// 刷新指定页面
-    /// - Parameter id: 页面id
-    static func refreshPage(for pageId: String) {
+    /// - Parameters:
+    ///   - pageId: 页面id
+    ///   - throttleInterval: throttle间隔
+    static func refreshPage(for pageId: String, throttleInterval: DispatchTimeInterval = .milliseconds(250)) {
         guard !pageId.isEmpty
         else {
             return
         }
-        NotificationCenter.default.post(name: .SettingsPageRefresh, object: nil, userInfo: [SettingsPageModel.notificationUserInfoPageIdKey: pageId])
+        if !refreshThrottling {
+            refreshThrottling = true
+            NotificationCenter.default.post(name: .SettingsPageRefresh, object: nil, userInfo: [SettingsPageModel.notificationUserInfoPageIdKey: pageId])
+            DispatchQueue.main.asyncAfter(deadline: .now() + throttleInterval) {
+                refreshThrottling = false
+            }
+        }
     }
+    
+    private static var refreshThrottling = false
 }
 
 extension Notification.Name {

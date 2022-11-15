@@ -14,7 +14,7 @@ import ObjcBridge
 public class SettingsPageEntryModel: ObjcBridgeClass, SettingsIdentifiable {
     public let id: String
     public var icon: UIImage?
-    public let title: String
+    public var title: String
     public var subtitle: String?
     public var detailDescription: String?
     public let type: EntryType
@@ -39,7 +39,10 @@ public class SettingsPageEntryModel: ObjcBridgeClass, SettingsIdentifiable {
     }
     
     /// 开关类型设置值变化处理事件
-    public var switchValueChangeAction: SettingsEntrySwitchAction?
+    public var switchValueChangeAction: SettingsEntrySwitchValueChangeAction?
+    
+    /// 开关项被用户点击时的处理事件
+    public var switchClickAction: SettingsEntrySwitchClickAction?
     
     /// 按钮类型设置点击处理事件
     public var buttonClickAction: SettingsEntryButtonAction?
@@ -56,7 +59,8 @@ public class SettingsPageEntryModel: ObjcBridgeClass, SettingsIdentifiable {
         detailDescription: String? = nil,
         type: EntryType,
         isSwitchOn: Bool = false,
-        switchValueChangeAction: SettingsEntrySwitchAction? = nil,
+        switchValueChangeAction: SettingsEntrySwitchValueChangeAction? = nil,
+        switchClickAction: SettingsEntrySwitchClickAction? = nil,
         buttonClickAction: SettingsEntryButtonAction? = nil,
         subpageJumpAction: SettingsEntrySubPageJumpAction? = nil) {
             
@@ -67,6 +71,7 @@ public class SettingsPageEntryModel: ObjcBridgeClass, SettingsIdentifiable {
             self.detailDescription = detailDescription
             self.type = type
             self.switchValueChangeAction = switchValueChangeAction
+            self.switchClickAction = switchClickAction
             self.buttonClickAction = buttonClickAction
             self.subpageJumpAction = subpageJumpAction
             super.init()
@@ -90,7 +95,7 @@ public enum EntryType: Int {
 }
 
 @objc
-public enum SettingsEntrySwitchActionType: Int {
+public enum SettingsEntrySwitchValueChangeActionType: Int {
     /// 初始值
     case `init`
     
@@ -99,6 +104,7 @@ public enum SettingsEntrySwitchActionType: Int {
 }
 
 /// 开关类型设置项的值变化处理事件
-public typealias SettingsEntrySwitchAction = (_ entryItem: SettingsPageEntryModel, _ isOn: Bool, _ type: SettingsEntrySwitchActionType) -> Void
+public typealias SettingsEntrySwitchValueChangeAction = (_ entryItem: SettingsPageEntryModel, _ isOn: Bool, _ type: SettingsEntrySwitchValueChangeActionType) -> Void
+public typealias SettingsEntrySwitchClickAction = (_ entryItem: SettingsPageEntryModel) -> Void
 public typealias SettingsEntryButtonAction = (_ entryItem: SettingsPageEntryModel) -> Void
 public typealias SettingsEntrySubPageJumpAction = (_ entryItem: SettingsPageEntryModel, _ from: UIViewController?) -> Void
