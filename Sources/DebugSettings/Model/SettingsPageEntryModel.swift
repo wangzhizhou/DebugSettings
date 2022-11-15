@@ -22,16 +22,16 @@ public class SettingsPageEntryModel: ObjcBridgeClass, SettingsIdentifiable {
         get { Persistence.boolValueForId(self.id) }
         set {
             let value = newValue ?? false
-            if self.isSwitchOn == nil {
-                // 初始人时的赋值
+            if let old = self.isSwitchOn {
+                // 初始化之后，再改变时的赋值
                 if let switchValueChangeAction = self.switchValueChangeAction {
-                    switchValueChangeAction(self, value, .`init`)
+                    switchValueChangeAction(self, value, value == old ? .old : .new)
                 }
             }
             else {
-                // 初始化之后，再改变时的赋值
+                // 初始化时的赋值
                 if let switchValueChangeAction = self.switchValueChangeAction {
-                    switchValueChangeAction(self, value, .new)
+                    switchValueChangeAction(self, value, .`init`)
                 }
             }
             Persistence.saveBoolValue(value, for: self.id)
@@ -75,9 +75,7 @@ public class SettingsPageEntryModel: ObjcBridgeClass, SettingsIdentifiable {
             self.buttonClickAction = buttonClickAction
             self.subpageJumpAction = subpageJumpAction
             super.init()
-            if self.isSwitchOn == nil {
-                self.isSwitchOn = isSwitchOn
-            }
+            self.isSwitchOn = isSwitchOn
         }
 }
 
@@ -98,6 +96,9 @@ public enum EntryType: Int {
 public enum SettingsEntrySwitchValueChangeActionType: Int {
     /// 初始值
     case `init`
+    
+    /// 初始化后没有变化过的值
+    case old
     
     /// 初始化后被变化的值
     case new
