@@ -11,6 +11,8 @@ public protocol SettingsPageEntryProtocol {
     
     var id: String { get }
     
+    var pageType: SwiftDebugSettingsPage.Type { get }
+    
     func switchEntryModel(
         title: String,
         icon: UIImage?,
@@ -38,7 +40,7 @@ public protocol SettingsPageEntryProtocol {
 public extension SettingsPageEntryProtocol {
     
     /// 确保页面内每一个选项的ID是唯一可标识的
-    var entryId: String { "\(SwiftDebugSettingsPage.pageId).\(self.id)" }
+    var entryId: String { "\(pageType.pageId).\(self.id)" }
     
     func switchEntryModel(
         title: String,
@@ -56,8 +58,8 @@ public extension SettingsPageEntryProtocol {
                 type: .switch,
                 isSwitchOn: isOn,
                 switchDefaultValue: `default`,
-                switchValueChangeAction:SwiftDebugSettingsPage.switchValueChangeAction,
-                switchClickAction: SwiftDebugSettingsPage.switchClickAction
+                switchValueChangeAction: pageType.switchValueChangeAction,
+                switchClickAction: pageType.switchClickAction
             )
         }
     
@@ -74,7 +76,7 @@ public extension SettingsPageEntryProtocol {
             subtitle: subtitle,
             detailDescription: detail,
             type: .button,
-            buttonClickAction: SwiftDebugSettingsPage.buttonClickAction)
+            buttonClickAction: pageType.buttonClickAction)
     }
     
     func subPageEntryModel(
@@ -90,6 +92,6 @@ public extension SettingsPageEntryProtocol {
             subtitle: subtitle,
             detailDescription: detail,
             type: .subpage,
-            subpageJumpAction: SwiftDebugSettingsPage.subpageJumpAction)
+            subpageJumpAction: pageType.subpageJumpAction)
     }
 }
