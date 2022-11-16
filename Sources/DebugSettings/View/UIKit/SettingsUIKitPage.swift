@@ -121,7 +121,7 @@ extension SettingsUIKitPage: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         self.view.hideAllToasts()
-        self.view.makeToast(pageModel.sections[index].title, duration: 2, position: .center)
+        self.view.makeToast(pageModel.sections[index].title, duration: 1, position: .center)
         return index
     }
     
