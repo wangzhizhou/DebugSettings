@@ -6,7 +6,8 @@
 //
 
 import Foundation
-import Toast_Swift
+import UIKit
+import Toast
 
 @objcMembers
 open class SwiftDebugSettingsPage: NSObject, SwiftDebugSettingsPageProtocol {

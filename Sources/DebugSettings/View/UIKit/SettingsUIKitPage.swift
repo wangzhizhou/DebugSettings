@@ -1,6 +1,7 @@
 import SnapKit
 import UIKit
-import Toast_Swift
+import Toast
+
 @objcMembers
 public class SettingsUIKitPage: UIViewController {
     
