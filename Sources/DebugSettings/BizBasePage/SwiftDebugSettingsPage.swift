@@ -9,8 +9,7 @@ import Foundation
 import Toast_Swift
 
 @objcMembers
-open class SwiftDebugSettingsPage: NSObject {
-    
+open class SwiftDebugSettingsPage: NSObject, SwiftDebugSettingsPageProtocol {
     /// 定义pageId，子类可覆盖
     open class var pageId: String {
         if let bundleId = Bundle.main.bundleIdentifier {
@@ -42,9 +41,10 @@ open class SwiftDebugSettingsPage: NSObject {
         page.pushOnTopViewController()
     }
     
-    private override init() {}
-    
     public static func showToast(_ message: String) {
         UIViewController.topViewController()?.view.makeToast(message, duration: 3, position: .center)
     }
+    
+    private override init() {}
+    
 }

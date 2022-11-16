@@ -68,9 +68,10 @@ class SettingsEntryBaseCell: UITableViewCell {
         self.contentView.addSubview(self.bottomLine)
         
         self.icon.snp.makeConstraints { make in
-            make.top.left.equalTo(self.contentView).offset(10)
+            make.top.equalTo(self.contentView).offset(10)
+            make.left.equalTo(self.contentView).offset(10)
             make.width.equalTo(self.icon.snp.height)
-            make.height.equalTo(0)
+            make.height.equalTo(10)
         }
 
         self.titleLabel.snp.makeConstraints { make in
@@ -92,7 +93,7 @@ class SettingsEntryBaseCell: UITableViewCell {
         }
         
         self.rightContainer.snp.makeConstraints { make in
-            make.right.equalTo(self.contentView).offset(-5)
+            make.right.equalTo(self.contentView).offset(-10)
             make.centerY.equalTo(self.contentView)
             make.width.equalTo(0)
         }

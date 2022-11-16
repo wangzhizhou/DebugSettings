@@ -63,6 +63,6 @@ public struct SettingsPageSectionBuilder {
 
 public extension SettingsPageSectionModel {
     convenience init(name: String, @SettingsPageSectionBuilder content: () -> SettingsPageSectionModel) {
-        self.init(title: name, items: content().items)
+        self.init(title: "❖ \(name)", items: content().items)
     }
 }
