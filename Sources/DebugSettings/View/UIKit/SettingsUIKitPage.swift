@@ -1,6 +1,6 @@
 import SnapKit
 import UIKit
-
+import Toast_Swift
 @objcMembers
 public class SettingsUIKitPage: UIViewController {
     
@@ -120,11 +120,13 @@ extension SettingsUIKitPage: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        self.view.hideAllToasts()
+        self.view.makeToast(pageModel.sections[index].title, duration: 2, position: .center)
         return index
     }
     
     public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        guard pageModel.sections.count > 10 else {
+        guard pageModel.sections.count > 5 else {
             return nil
         }
         
