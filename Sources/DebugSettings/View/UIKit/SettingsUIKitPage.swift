@@ -1,10 +1,16 @@
 import SnapKit
 import UIKit
+#if canImport(Toast)
+import Toast
+#endif
+#if canImport(Toast_Swift)
+import Toast_Swift
+#endif
 
 @objcMembers
 public class SettingsUIKitPage: UIViewController {
     
-    let pageModel: SettingsPageModel
+    public let pageModel: SettingsPageModel
     
     public init(pageModel: SettingsPageModel) {
         self.pageModel = pageModel
@@ -32,7 +38,8 @@ public class SettingsUIKitPage: UIViewController {
                 make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(pageModel.navigationBarHeight)
                 make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
             } else {
-                
+                make.top.equalTo(self.topLayoutGuide.snp.bottom)
+                make.bottom.equalTo(self.bottomLayoutGuide.snp.top)
             }
         }
         
@@ -58,6 +65,8 @@ public class SettingsUIKitPage: UIViewController {
         ret.backgroundColor = .white
         ret.separatorStyle = .none
         ret.estimatedRowHeight = UITableView.automaticDimension
+        ret.showsVerticalScrollIndicator = false
+        ret.showsHorizontalScrollIndicator = false
         self.view.backgroundColor = ret.backgroundColor
         return ret
     }()
@@ -90,19 +99,20 @@ extension SettingsUIKitPage: UITableViewDataSource {
         
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionLabel = UILabel()
-        sectionLabel.textColor = .black
+        sectionLabel.textColor = .darkGray
         sectionLabel.font = .boldSystemFont(ofSize: 18)
         
         let sectionTitle = pageModel.sections[section].title
         sectionLabel.text = sectionTitle
+        sectionLabel.textAlignment = .left
         
         let headerView = UIView()
         headerView.addSubview(sectionLabel)
         sectionLabel.snp.makeConstraints { make in
             make.left.equalTo(headerView).offset(5)
             make.right.equalTo(headerView).offset(-5)
-            make.top.equalTo(headerView).offset(8)
-            make.bottom.equalTo(headerView).offset(-2)
+            make.top.equalTo(headerView).offset(5)
+            make.bottom.equalTo(headerView).offset(-5)
         }
         return headerView
     }
@@ -116,11 +126,13 @@ extension SettingsUIKitPage: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        self.view.hideAllToasts()
+        self.view.makeToast(pageModel.sections[index].title, duration: 1, position: .center)
         return index
     }
     
     public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        guard pageModel.sections.count > 10 else {
+        guard pageModel.sections.count > 5 else {
             return nil
         }
         
@@ -138,18 +150,21 @@ extension SettingsUIKitPage: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        // 添加震动反馈
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
         
         let entryItem = pageModel.sections[indexPath.section].items[indexPath.row]
         
         switch entryItem.type {
+        case .switch:
+            if let switchClickAction = entryItem.switchClickAction {
+                switchClickAction(entryItem)
+            }
         case .button:
-            // 添加震动反馈
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
             if let buttonClickAction = entryItem.buttonClickAction {
                 buttonClickAction(entryItem)
             }
         case .subpage:
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
             if let subPageJumpAction = entryItem.subpageJumpAction {
                 subPageJumpAction(entryItem, self)
             }

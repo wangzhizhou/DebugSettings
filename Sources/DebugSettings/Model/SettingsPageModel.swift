@@ -22,6 +22,10 @@ public class SettingsPageModel: ObjcBridgeClass, SettingsIdentifiable {
     public convenience init(id: String, title: String, navigationBarHeight: Int = 40, sectionsBlock: () -> [SettingsPageSectionModel]) {
         self.init(id: id, title: title, navigationBarHeight: navigationBarHeight, sections: sectionsBlock())
     }
+    
+    public func entryModels(for id: String) -> [SettingsPageEntryModel] {
+        return self.sections.flatMap { $0.items }.filter { $0.id == id }
+    }
 
     init(id: String, title: String, navigationBarHeight: Int, sections: [SettingsPageSectionModel]) {
         self.id = id

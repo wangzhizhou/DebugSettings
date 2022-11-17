@@ -14,7 +14,8 @@ class SettingsEntryBaseCell: UITableViewCell {
     lazy var titleLabel: UILabel = {
         let ret = UILabel()
         ret.textColor = .black
-        ret.font = .boldSystemFont(ofSize: 16)
+        ret.font = .systemFont(ofSize: 16)
+        ret.numberOfLines = 1
         return ret
     }()
     
@@ -68,20 +69,22 @@ class SettingsEntryBaseCell: UITableViewCell {
         self.contentView.addSubview(self.bottomLine)
         
         self.icon.snp.makeConstraints { make in
-            make.top.left.equalTo(self.contentView).offset(5)
+            make.left.equalTo(self.contentView).offset(5)
             make.width.equalTo(self.icon.snp.height)
-            make.height.equalTo(0)
+            make.width.equalTo(self.icon.snp.height)
+            make.width.equalTo(10)
+            make.centerY.equalTo(self.titleLabel)
         }
 
         self.titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.icon)
+            make.top.equalTo(self.contentView).offset(10)
             make.left.equalTo(self.icon.snp.right).offset(5)
             make.right.equalTo(self.self.rightContainer.snp.left).offset(-5)
         }
         
         self.subtitleLabel.snp.makeConstraints { make in
             make.top.equalTo(self.titleLabel.snp.bottom).offset(2)
-            make.left.equalTo(self.contentView).offset(5)
+            make.left.equalTo(self.titleLabel)
             make.right.equalTo(self.titleLabel)
         }
         
@@ -92,7 +95,7 @@ class SettingsEntryBaseCell: UITableViewCell {
         }
         
         self.rightContainer.snp.makeConstraints { make in
-            make.right.equalTo(self.contentView).offset(-5)
+            make.right.equalTo(self.contentView).offset(-10)
             make.centerY.equalTo(self.contentView)
             make.width.equalTo(0)
         }
@@ -114,27 +117,10 @@ class SettingsEntryBaseCell: UITableViewCell {
     func bindEntryItem(_ entryItem: SettingsPageEntryModel) {
         self.entryItem = entryItem
         
-        if let icon = entryItem.icon {
-            self.icon.image = icon
-            self.icon.snp.updateConstraints { make in
-                make.height.equalTo(self.titleLabel.snp.height)
-            }
-            self.titleLabel.snp.updateConstraints { make in
-                make.left.equalTo(self.icon.snp.right).offset(5)
-            }
-        } else {
-            self.icon.snp.updateConstraints { make in
-                make.height.equalTo(0)
-            }
-            self.titleLabel.snp.updateConstraints { make in
-                make.left.equalTo(self.icon.snp.right).offset(0)
-            }
-        }
-        
+        self.icon.image = entryItem.icon
         self.titleLabel.text = entryItem.title
         self.subtitleLabel.text = entryItem.subtitle
         self.detailDescriptionLabel.text = entryItem.detailDescription
-        
         
         self.rightContainer.subviews.forEach { $0.removeFromSuperview() }
         switch entryItem.type {

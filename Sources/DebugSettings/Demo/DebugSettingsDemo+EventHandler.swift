@@ -17,7 +17,7 @@ extension DebugSettingsDemo {
     ///   - entryItem: 设置项数据模型
     ///   - isOn: 开关是否打开
     ///   - type: 值变化的类型
-    static func switchValueChangeAction(_ entryItem: SettingsPageEntryModel, _ isOn: Bool, _ type: SettingsEntrySwitchActionType) {
+    static func switchValueChangeAction(_ entryItem: SettingsPageEntryModel, _ isOn: Bool, _ type: SettingsEntrySwitchValueChangeActionType) {
         
         switch entryItem.id {
         case SettingsPage.main.entryId(for: .switch1):

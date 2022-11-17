@@ -30,11 +30,11 @@ public extension String {
 
 public extension UIViewController {
     
-    func pushOnTopViewController() {
+    @objc func pushOnTopViewController() {
         UIViewController.topViewController()?.navigationController?.pushViewController(self, animated: true)
     }
         
-    static func topViewController(_ base: UIViewController? = nil) -> UIViewController? {
+    @objc static func topViewController(_ base: UIViewController? = nil) -> UIViewController? {
         var keyWindow: UIWindow?
         if #available(iOS 13, *) {
             keyWindow = UIApplication
