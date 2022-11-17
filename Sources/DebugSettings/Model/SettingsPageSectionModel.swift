@@ -11,7 +11,7 @@ import ObjcBridge
 #endif
 
 @objcMembers
-public class SettingsPageSectionModel: ObjcBridgeClass {
+public class SettingsPageSectionModel: DSObjcBridgeClass {
     public let title: String
     
     public convenience init(title: String, itemsBlock: () -> [SettingsPageEntryModel]) {

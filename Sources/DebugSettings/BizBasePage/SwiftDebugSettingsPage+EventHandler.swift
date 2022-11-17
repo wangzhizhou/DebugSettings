@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// 处理Switch开关事件
 extension SwiftDebugSettingsPage {

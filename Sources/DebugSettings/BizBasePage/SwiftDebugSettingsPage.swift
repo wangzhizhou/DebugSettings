@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 #if canImport(Toast)
 import Toast
 #endif

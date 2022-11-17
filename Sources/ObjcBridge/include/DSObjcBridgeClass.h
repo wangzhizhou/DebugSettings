@@ -1,15 +1,15 @@
 //
-//  ObjcBridgeProtocol.h
+//  DSObjcBridgeClass.h
 //  
 //
-//  Created by joker on 2022/10/29.
+//  Created by joker on 2022/10/28.
 //
 
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol ObjcBridgeProtocol <NSObject>
+@interface DSObjcBridgeClass : NSObject
 
 @end
 
