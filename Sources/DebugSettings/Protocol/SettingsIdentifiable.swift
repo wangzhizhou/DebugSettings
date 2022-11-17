@@ -10,6 +10,6 @@ import Foundation
 import ObjcBridge
 #endif
 
-public protocol SettingsIdentifiable: ObjcBridgeProtocol {
+public protocol SettingsIdentifiable: DSObjcBridgeProtocol {
     var id: String { get }
 }

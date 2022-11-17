@@ -11,7 +11,7 @@ import ObjcBridge
 #endif
 
 @objcMembers
-public class SettingsPageEntryModel: ObjcBridgeClass, SettingsIdentifiable {
+public class SettingsPageEntryModel: DSObjcBridgeClass, SettingsIdentifiable {
     public let id: String
     public var icon: UIImage?
     public var title: String

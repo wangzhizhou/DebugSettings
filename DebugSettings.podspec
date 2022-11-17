@@ -34,7 +34,7 @@ Pod::Spec.new do |spec|
     dt.dependency "DebugSettings/OCBridge"
     dt.dependency "DebugSettings/Utils"
     dt.dependency "Toast-Swift", "~> 5.0.1"
-    dt.dependency "SnapKit", "~> 5.6.0"
+    dt.dependency "SnapKit", "~> 5.0.0"
   end
   
   spec.subspec 'OCBridge' do |oc|

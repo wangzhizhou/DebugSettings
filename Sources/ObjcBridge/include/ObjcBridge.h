@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "ObjcBridgeClass.h"
-#import "ObjcBridgeProtocol.h"
+#import "DSObjcBridgeClass.h"
+#import "DSObjcBridgeProtocol.h"
 #import "DebugSettings.h"
-#import "LocalPushOCBridge.h"
+#import "DSLocalPushOCBridge.h"

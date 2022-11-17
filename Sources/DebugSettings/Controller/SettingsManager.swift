@@ -10,7 +10,7 @@ import Foundation
 import ObjcBridge
 #endif
 
-public class SettingsManager: ObjcBridgeClass {
+public class SettingsManager: DSObjcBridgeClass {
     static let shared = SettingsManager()
     private override init() {}
 }
