@@ -11,7 +11,7 @@ import ObjcBridge
 #endif
 
 @objcMembers
-public class SettingsPageModel: ObjcBridgeClass, SettingsIdentifiable {
+public class SettingsPageModel: DSObjcBridgeClass, SettingsIdentifiable {
     
     public let id: String
     public let title: String

@@ -12,7 +12,7 @@ import ObjcBridge
 
 /// 配置项页面定义
 @objcMembers
-public class DebugSettingsDemo: ObjcBridgeClass {
+public class DebugSettingsDemo: DSObjcBridgeClass {
 
     static public func mainPage() -> SettingsUIKitPage {
         

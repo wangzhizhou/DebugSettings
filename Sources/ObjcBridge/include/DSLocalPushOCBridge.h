@@ -1,5 +1,5 @@
 //
-//  LocalPushOCBridge.h
+//  DSLocalPushOCBridge.h
 //  Debugger
 //
 //  Created by joker on 2022/11/4.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LocalPushOCBridge : NSObject
+@interface DSLocalPushOCBridge : NSObject
 + (UNPushNotificationTrigger *)createMockPushNotificationTrigger API_AVAILABLE(ios(10.0));
 @end
 

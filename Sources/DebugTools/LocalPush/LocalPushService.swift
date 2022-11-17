@@ -134,7 +134,7 @@ extension LocalPushService: UNUserNotificationCenterDelegate {
             
             if response.notification.request.identifier == Self.localPushIdentifier {
                 // 为本地调试工具发出的推送请求， 运行时修改readonly属性值, 让其按照远程推送的类型进行处理
-                let mockRemoteNotificationTrigger = LocalPushOCBridge.createMockPushNotificationTrigger()
+                let mockRemoteNotificationTrigger = DSLocalPushOCBridge.createMockPushNotificationTrigger()
                 response.notification.request.setValue(mockRemoteNotificationTrigger, forKeyPath: "trigger")
             }
             

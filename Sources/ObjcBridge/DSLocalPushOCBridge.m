@@ -1,14 +1,14 @@
 //
-//  LocalPushOCBridge.m
+//  DSLocalPushOCBridge.m
 //  Debugger
 //
 //  Created by joker on 2022/11/4.
 //
 
-#import "LocalPushOCBridge.h"
+#import "DSLocalPushOCBridge.h"
 #import <objc/message.h>
 
-@implementation LocalPushOCBridge
+@implementation DSLocalPushOCBridge
 + (UNPushNotificationTrigger *)createMockPushNotificationTrigger {
     
     // 私有API调用，只在调试环境下使用，不要带上线

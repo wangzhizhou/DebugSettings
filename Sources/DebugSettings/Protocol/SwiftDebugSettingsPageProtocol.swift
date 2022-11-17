@@ -6,9 +6,12 @@
 //
 
 import Foundation
+#if canImport(ObjcBridge)
+import ObjcBridge
+#endif
 
 @objc
-public protocol SwiftDebugSettingsPageProtocol: ObjcBridgeProtocol {
+public protocol SwiftDebugSettingsPageProtocol: DSObjcBridgeProtocol {
     static var pageId: String { get }
     static var pageModel: SettingsPageModel { get }
     static weak var weakPage: SettingsUIKitPage? { get set }
