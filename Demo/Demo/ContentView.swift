@@ -4,7 +4,7 @@
 //
 //  Created by joker on 2022/11/9.
 //
-
+#if canImport(SwiftUI)
 import SwiftUI
 import DebugSettings
 
@@ -45,3 +45,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+#endif
