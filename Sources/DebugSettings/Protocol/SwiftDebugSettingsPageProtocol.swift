@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(ObjcBridge)
 import ObjcBridge
+#endif
 
 @objc
 public protocol SwiftDebugSettingsPageProtocol: DSObjcBridgeProtocol {
