@@ -15,6 +15,6 @@ import Utils
 public extension LocalPushDemoPage {
     static func show() {
         let page = LocalPushDemoPage()
-        UIViewController.topViewController()?.navigationController?.pushViewController(page, animated: true)
+        page.pushOnTopViewController()
     }
 }

@@ -18,25 +18,13 @@ struct ContentView: View {
                 Text("Hello, world!")
             }
             .padding()
-            .navigationBarItems(trailing:NavigationLink("SwiftUI") {
-                SettingsContentView(model: DebugSettingsDemo.switfuiModel)
-                    .navigationTitle("SwiftUI调试页面")
+            .navigationBarItems(trailing:NavigationLink("高级调试") {
+                SettingsContentView(model: DebugSettingsDemoSwiftUIPage.pageModel)
+                    .navigationTitle("高级调试")
             })
-            .navigationBarItems(leading: NavigationLink("UIKit"){
-                DebugSettingsUIKitPage()
-            })
-            .navigationTitle("Demo")
+            .navigationTitle("SwiftUI Demo")
             .navigationBarTitleDisplayMode(.inline)
         }
-    }
-}
-
-struct DebugSettingsUIKitPage: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> some UIViewController {
-        let uikitPage = DebugSettingsDemo.mainPage()
-        return uikitPage
-    }
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
     }
 }
 

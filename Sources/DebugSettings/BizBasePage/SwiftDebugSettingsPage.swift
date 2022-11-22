@@ -37,7 +37,7 @@ open class SwiftDebugSettingsPage: NSObject, SwiftDebugSettingsPageProtocol {
         _ = pageModel
     }
     
-    public static func show() {
+    open class func show() {
         let topVC = UIViewController.topViewController()
         if topVC is SettingsUIKitPage {
             return

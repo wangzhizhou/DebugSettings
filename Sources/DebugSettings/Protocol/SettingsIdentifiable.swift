@@ -13,3 +13,8 @@ import ObjcBridge
 public protocol SettingsIdentifiable: DSObjcBridgeProtocol {
     var id: String { get }
 }
+
+
+public protocol SettingsPageIdentifiable {
+    var id: String { get }
+}
