@@ -19,7 +19,7 @@ public class SettingsPageModel: DSObjcBridgeClass, SettingsIdentifiable {
     
     public static let notificationUserInfoPageIdKey = "page_id"
     
-    public convenience init(id: String, title: String, navigationBarHeight: Int = 40, sectionsBlock: () -> [SettingsPageSectionModel]) {
+    public convenience init(id: String, title: String, navigationBarHeight: Int = 0, sectionsBlock: () -> [SettingsPageSectionModel]) {
         self.init(id: id, title: title, navigationBarHeight: navigationBarHeight, sections: sectionsBlock())
     }
     
@@ -48,7 +48,7 @@ public struct SettingsPageBuilder {
 }
 
 public extension SettingsPageModel {
-    convenience init(id: String, name: String, navigationBarHeight: Int = 40, @SettingsPageBuilder content: () -> SettingsPageModel) {
+    convenience init(id: String, name: String, navigationBarHeight: Int = 0, @SettingsPageBuilder content: () -> SettingsPageModel) {
         self.init(id: id, title: name, navigationBarHeight: navigationBarHeight, sections: content().sections)
     }
 }
