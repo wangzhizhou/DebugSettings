@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B8F4013292C8D44003383EB /* LookinServer in Frameworks */ = {isa = PBXBuildFile; productRef = 2B8F4012292C8D44003383EB /* LookinServer */; };
 		2BDD0BEE291B6DB000E6F5AD /* DebugSettings in Frameworks */ = {isa = PBXBuildFile; productRef = 2BDD0BED291B6DB000E6F5AD /* DebugSettings */; };
 		F3D012BE291ABB0F00875334 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D012BD291ABB0F00875334 /* DemoApp.swift */; };
 		F3D012C0291ABB0F00875334 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D012BF291ABB0F00875334 /* ContentView.swift */; };
@@ -30,6 +31,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BDD0BEE291B6DB000E6F5AD /* DebugSettings in Frameworks */,
+				2B8F4013292C8D44003383EB /* LookinServer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +101,7 @@
 			name = Demo;
 			packageProductDependencies = (
 				2BDD0BED291B6DB000E6F5AD /* DebugSettings */,
+				2B8F4012292C8D44003383EB /* LookinServer */,
 			);
 			productName = Demo;
 			productReference = F3D012BA291ABB0F00875334 /* Demo.app */;
@@ -130,6 +133,7 @@
 			mainGroup = F3D012B1291ABB0E00875334;
 			packageReferences = (
 				2BDD0BEC291B6DB000E6F5AD /* XCRemoteSwiftPackageReference "DebugSettings" */,
+				2B8F4011292C8D44003383EB /* XCRemoteSwiftPackageReference "LookinServer" */,
 			);
 			productRefGroup = F3D012BB291ABB0F00875334 /* Products */;
 			projectDirPath = "";
@@ -374,6 +378,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2B8F4011292C8D44003383EB /* XCRemoteSwiftPackageReference "LookinServer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/QMUI/LookinServer/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		2BDD0BEC291B6DB000E6F5AD /* XCRemoteSwiftPackageReference "DebugSettings" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/wangzhizhou/DebugSettings.git";
@@ -385,6 +397,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2B8F4012292C8D44003383EB /* LookinServer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B8F4011292C8D44003383EB /* XCRemoteSwiftPackageReference "LookinServer" */;
+			productName = LookinServer;
+		};
 		2BDD0BED291B6DB000E6F5AD /* DebugSettings */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2BDD0BEC291B6DB000E6F5AD /* XCRemoteSwiftPackageReference "DebugSettings" */;

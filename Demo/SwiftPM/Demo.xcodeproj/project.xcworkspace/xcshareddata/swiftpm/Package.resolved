@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "LookinServer",
+        "repositoryURL": "https://github.com/QMUI/LookinServer/",
+        "state": {
+          "branch": null,
+          "revision": "e5b7cb4e862ba0381bd7efb826da82096f783963",
+          "version": "1.1.2"
+        }
+      },
+      {
         "package": "SnapKit",
         "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
         "state": {
