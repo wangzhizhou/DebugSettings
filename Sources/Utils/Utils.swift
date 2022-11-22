@@ -9,8 +9,12 @@ import UIKit
 
 public extension UIImage {
     static func image(named name: String) -> UIImage? {
+#if !canImport(DebugSettings)
         let bundle = Bundle(for: SettingsUIKitPage.self)
         return UIImage(named: name, in: bundle, compatibleWith: nil)
+#else
+        return UIImage(named: name)
+#endif
     }
 }
 
@@ -34,7 +38,7 @@ public extension UIViewController {
     @objc func pushOnTopViewController() {
         UIViewController.topViewController()?.navigationController?.pushViewController(self, animated: true)
     }
-        
+    
     @objc static func topViewController(_ base: UIViewController? = nil) -> UIViewController? {
         var keyWindow: UIWindow?
         if #available(iOS 13, *) {

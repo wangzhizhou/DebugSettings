@@ -57,45 +57,36 @@ public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsPage {
 extension DebugSettingsDemoUIKitMainPage {
     
     public override class func switchValueChangeAction(_ entryItem: SettingsPageEntryModel, _ isOn: Bool, _ type: SettingsEntrySwitchValueChangeActionType) {
-        switch entryItem.id {
-        case SettingPageEntry.switch1.entryId:
-            print("id: \(entryItem.id), isOn: \(isOn), type: \(type)")
-        default:
-            print("other switch change")
-        }
+        print("id: \(entryItem.id), isOn: \(isOn), type: \(type)")
     }
     
     public override class func switchClickAction(_ entryItem: SettingsPageEntryModel) {
-        switch entryItem.id {
-        case SettingPageEntry.switch1.entryId:
-            print("id: \(entryItem.id) clicked")
-        default:
-            print("other switch click")
-        }
+        print("id: \(entryItem.id) clicked")
     }
     
     public override class func buttonClickAction(_ entryItem: SettingsPageEntryModel) {
+        print("id: \(entryItem.id) action")
+        
         switch entryItem.id {
         case SettingPageEntry.button1.entryId:
             LocalPushDemoPage.show()
-        case SettingPageEntry.button2.entryId:
-            print("id: \(entryItem.id) action")
         default:
-            print("other button action")
+            break
         }
     }
     
     public override class func subpageJumpAction(_ entryItem: SettingsPageEntryModel, _ from: UIViewController? = UIViewController.topViewController()) {
+        print("id: \(entryItem.id) subpage jump")
+        
         switch entryItem.id {
         case SettingPageEntry.subpage1.entryId:
-            print("id: \(entryItem.id) subpage jump")
             DebugSettingsDemoUIKitSubPage.show()
         case SettingPageEntry.subpage2.entryId:
             if #available(iOS 13, *) {
                 DebugSettingsDemoSwiftUIPage.show()
             }
         default:
-            print("other subpage jump")
+            break
         }
     }
 }
