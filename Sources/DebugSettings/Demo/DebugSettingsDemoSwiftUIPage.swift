@@ -53,6 +53,7 @@ public final class DebugSettingsDemoSwiftUIPage: SwiftDebugSettingsPage {
     }
 }
 
+@available(iOS 13, *)
 extension DebugSettingsDemoSwiftUIPage {
     
     public override class func switchValueChangeAction(_ entryItem: SettingsPageEntryModel, _ isOn: Bool, _ type: SettingsEntrySwitchValueChangeActionType) {

@@ -7,7 +7,9 @@
 
 import Foundation
 import UIKit
+#if canImport(DebugTools)
 import DebugTools
+#endif
 
 public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsPage {
 
