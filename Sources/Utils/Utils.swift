@@ -9,7 +9,8 @@ import UIKit
 
 public extension UIImage {
     static func image(named name: String) -> UIImage? {
-        return UIImage(named: name)
+        let bundle = Bundle(for: SettingsUIKitPage.self)
+        return UIImage(named: name, in: bundle, compatibleWith: nil)
     }
 }
 

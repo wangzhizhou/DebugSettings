@@ -17,15 +17,15 @@ public final class DebugSettingsDemoSwiftUIPage: SwiftDebugSettingsPage {
         // 开关类
         case switch1
         case switch2
-
+        
         // 按钮类
         case button1
         case button2
-
+        
         // 子页面类
         case subpage1
         case subpage2
-
+        
         // SettingsPageEntryProtocol
         var id: String { self.rawValue }
         var pageType: SwiftDebugSettingsPage.Type { DebugSettingsDemoSwiftUIPage.self }
@@ -49,7 +49,8 @@ public final class DebugSettingsDemoSwiftUIPage: SwiftDebugSettingsPage {
     }
     
     public override class func show() {
-        SettingsSwiftUIPage(rootView: SettingsView(model: self.pageModel)).pushOnTopViewController()
+        let rootView = SettingsContentView(model: self.pageModel).navigationBarTitle(self.pageModel.title)
+        SettingsSwiftUIPage(rootView: rootView).pushOnTopViewController()
     }
 }
 
