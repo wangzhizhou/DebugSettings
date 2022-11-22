@@ -1,0 +1,38 @@
+PODS:
+  - DebugSettings (0.0.1):
+    - DebugSettings/Core (= 0.0.1)
+    - DebugSettings/DebugTools (= 0.0.1)
+    - DebugSettings/OCBridge (= 0.0.1)
+    - DebugSettings/Utils (= 0.0.1)
+  - DebugSettings/Core (0.0.1):
+    - DebugSettings/DebugTools
+  - DebugSettings/DebugTools (0.0.1):
+    - DebugSettings/OCBridge
+    - DebugSettings/Utils
+    - SnapKit (~> 5.0.0)
+    - Toast-Swift (~> 5.0.1)
+  - DebugSettings/OCBridge (0.0.1)
+  - DebugSettings/Utils (0.0.1)
+  - SnapKit (5.0.1)
+  - Toast-Swift (5.0.1)
+
+DEPENDENCIES:
+  - DebugSettings (from `../../DebugSettings.podspec`)
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
+    - Toast-Swift
+
+EXTERNAL SOURCES:
+  DebugSettings:
+    :path: "../../DebugSettings.podspec"
+
+SPEC CHECKSUMS:
+  DebugSettings: accf6170ff53fd20552b53e00a839d5f8ec019fd
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+
+PODFILE CHECKSUM: 8a41d2c55127362f8ea35ac0ee1419705b58ac12
+
+COCOAPODS: 1.11.3
