@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 
+
+/// 页面调试选项定义需要遵循的协议
 public protocol SettingsPageEntryProtocol {
     
     var id: String { get }
@@ -43,6 +45,7 @@ public extension SettingsPageEntryProtocol {
     /// 确保页面内每一个选项的ID是唯一可标识的
     var entryId: String { "\(pageType.pageId).\(self.id)" }
     
+    /// 创建开关类调试选项的辅助API
     func switchEntryModel(
         title: String,
         icon: UIImage? = nil,
@@ -64,6 +67,7 @@ public extension SettingsPageEntryProtocol {
             )
         }
     
+    /// 创建按钮类调试选项的辅助API
     func buttonEntryModel(
         title: String,
         icon: UIImage? = nil,
@@ -80,6 +84,7 @@ public extension SettingsPageEntryProtocol {
             buttonClickAction: pageType.buttonClickAction)
     }
     
+    /// 创建子页面类调试选项的辅助API
     func subPageEntryModel(
         title: String,
         icon: UIImage? = nil,

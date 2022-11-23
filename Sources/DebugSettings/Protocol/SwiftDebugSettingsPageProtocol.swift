@@ -10,6 +10,7 @@ import Foundation
 import ObjcBridge
 #endif
 
+/// 调试页面需要遵循的协议
 @objc
 public protocol SwiftDebugSettingsPageProtocol: DSObjcBridgeProtocol {
     static var pageId: String { get }

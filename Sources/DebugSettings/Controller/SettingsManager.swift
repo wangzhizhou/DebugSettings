@@ -10,6 +10,7 @@ import Foundation
 import ObjcBridge
 #endif
 
+/// 调试选项单例辅助类
 public class SettingsManager: DSObjcBridgeClass {
     static let shared = SettingsManager()
     private override init() {}
@@ -31,7 +32,7 @@ public extension SettingsManager {
     /// 刷新指定页面
     /// - Parameters:
     ///   - pageId: 页面id
-    ///   - throttleInterval: throttle间隔
+    ///   - throttleInterval: 页面连续刷新时的throttle间隔
     static func refreshPage(for pageId: String, throttleInterval: DispatchTimeInterval = .milliseconds(250)) {
         guard !pageId.isEmpty
         else {
@@ -46,9 +47,12 @@ public extension SettingsManager {
         }
     }
     
+    /// 页面连续刷新时，是否正在throttle状态中
     private static var refreshThrottling = false
 }
 
 extension Notification.Name {
+    
+    /// 触发调试页面刷新时的通知名称
     static let SettingsPageRefresh = Notification.Name("com.debug.settings.page.refresh.notification")
 }
