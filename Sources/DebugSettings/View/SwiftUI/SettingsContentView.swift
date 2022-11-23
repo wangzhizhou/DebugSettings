@@ -13,6 +13,7 @@ extension SettingsPageSectionModel: Identifiable {
 }
 extension SettingsPageEntryModel: Identifiable {}
 
+/// SwiftUI版调试页面对应的视图，不带页面导航
 @available(iOS 13, *)
 public struct SettingsContentView: View {
     public let model: SettingsPageModel

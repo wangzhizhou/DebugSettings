@@ -8,10 +8,11 @@
 #if canImport(SwiftUI)
 import SwiftUI
 
+/// 用于SwiftUI类型App接入时的Demo页面
 @available(iOS 13, *)
 public final class DebugSettingsDemoSwiftUIPage: SwiftDebugSettingsPage {
     
-    /// 定义页面页Settings项目Id，同一个枚举中可以保持读写时的唯一性
+    /// 定义页面内调试选项，同一个枚举中可以保证页面内部调试选项的Id唯一性
     private enum SettingPageEntry: String, CaseIterable, SettingsPageEntryProtocol {
         
         // 开关类
@@ -26,7 +27,6 @@ public final class DebugSettingsDemoSwiftUIPage: SwiftDebugSettingsPage {
         case subpage1
         case subpage2
         
-        // SettingsPageEntryProtocol
         var id: String { self.rawValue }
         var pageType: SwiftDebugSettingsPage.Type { DebugSettingsDemoSwiftUIPage.self }
     }

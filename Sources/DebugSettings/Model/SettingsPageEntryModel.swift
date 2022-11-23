@@ -100,6 +100,7 @@ public class SettingsPageEntryModel: DSObjcBridgeClass, SettingsIdentifiable {
         }
 }
 
+/// 定义调试选项的类型，`开关类(switch)`、`按钮类(button)`、`子页面类(subpage)`
 @objc
 public enum EntryType: Int {
     
@@ -113,6 +114,7 @@ public enum EntryType: Int {
     case subpage
 }
 
+/// switch类调试选项开关状值变化时对应的类型
 @objc
 public enum SettingsEntrySwitchValueChangeActionType: Int {
     
@@ -126,10 +128,14 @@ public enum SettingsEntrySwitchValueChangeActionType: Int {
     case new
 }
 
+/// 处理switch类调试选项开关状态值变化事件的闭包定义
 public typealias SettingsEntrySwitchValueChangeAction = (_ entryItem: SettingsPageEntryModel, _ isOn: Bool, _ type: SettingsEntrySwitchValueChangeActionType) -> Void
 
+/// 处理switch类调试选项点击非开关区域事件的闭包定义
 public typealias SettingsEntrySwitchClickAction = (_ entryItem: SettingsPageEntryModel) -> Void
 
+/// 处理button类调试选项点击事件的闭包定义
 public typealias SettingsEntryButtonAction = (_ entryItem: SettingsPageEntryModel) -> Void
 
+/// 处理subpage类调试选项点击跳转事件的闭包定义
 public typealias SettingsEntrySubPageJumpAction = (_ entryItem: SettingsPageEntryModel, _ from: UIViewController?) -> Void

@@ -11,6 +11,8 @@ import ObjcBridge
 #endif
 
 /// 调试选项页面对应的数据模型
+///
+/// 可使用常规init方法创建，也可以使用DSL创建，参考：``SettingsPageBuilder``
 @objcMembers
 public class SettingsPageModel: DSObjcBridgeClass, SettingsIdentifiable {
     

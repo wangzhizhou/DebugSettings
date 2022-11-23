@@ -11,23 +11,24 @@ import UIKit
 import DebugTools
 #endif
 
+/// 用于UIKit类型App接入时的Demo页面
 public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsPage {
-
-    /// 定义页面页Settings项目Id，同一个枚举中可以保持读写时的唯一性
-   private enum SettingPageEntry: String, CaseIterable, SettingsPageEntryProtocol {
+    
+    /// 定义页面内调试选项，同一个枚举中可以保证页面内部调试选项的Id唯一性
+    private enum SettingPageEntry: String, CaseIterable, SettingsPageEntryProtocol {
         
         // 开关类
         case switch1
         case switch2
-
+        
         // 按钮类
         case button1
         case button2
-
+        
         // 子页面类
         case subpage1
         case subpage2
-
+        
         // SettingsPageEntryProtocol
         var id: String { self.rawValue }
         var pageType: SwiftDebugSettingsPage.Type { DebugSettingsDemoUIKitMainPage.self }
@@ -39,7 +40,7 @@ public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsPage {
             SettingsPageSectionModel(name: "Section1") {
                 
                 SettingPageEntry.switch1.switchEntryModel(title: "switch1", subtitle: "只是一个测试开关 只是一个测试开关 只是一个测试开关", detail: "description description description description description description description description description description description description description description description description description description")
-
+                
                 SettingPageEntry.button1.buttonEntryModel(title: "Local Push", subtitle: "本地模拟远程推送，测试通知跳转逻辑")
                 
                 SettingPageEntry.button2.buttonEntryModel(title: "Test Button")

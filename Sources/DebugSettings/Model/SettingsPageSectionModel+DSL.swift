@@ -7,6 +7,20 @@
 
 import Foundation
 
+/// 为``SettingsPageSectionModel``实现声明式创建语法，定义DSL实现
+///
+///  可使用类似于`SwiftUI/RegexBuilder`的声明式语法进行创建：
+///  ```swift
+///     let sectionModel = SettingsPageSectionModel(name: "Section1") {
+///
+///         SettingPageEntry.switch1.switchEntryModel(title: "Switch1")
+///
+///         SettingPageEntry.button1.buttonEntryModel(title: "修改按钮副标题")
+///
+///         SettingPageEntry.subpage1.subPageEntryModel(title: "Subpage1")
+///
+///     }
+///  ```
 @resultBuilder
 public struct SettingsPageSectionBuilder {
     public static func buildBlock(_ components: [SettingsPageEntryModel]...) -> [SettingsPageEntryModel] {

@@ -17,6 +17,7 @@ import Utils
 #endif
 import SnapKit
 
+/// 用来演示Local Push功能的Demo页面
 @objcMembers
 @available(iOS 10.0, *)
 open class LocalPushDemoPage: UIViewController {

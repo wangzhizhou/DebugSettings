@@ -7,6 +7,7 @@ import Toast
 import Toast_Swift
 #endif
 
+/// 用来定义调试页面UI布局样式的UIKit页面容器，收敛在SDK内部实现，方便调试页面UI样式的统一
 @objcMembers
 public class SettingsUIKitPage: UIViewController {
     

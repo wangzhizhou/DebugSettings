@@ -12,6 +12,7 @@ import UserNotifications
 import ObjcBridge
 #endif
 
+/// Local Push 服务错误类型定义
 @available(iOS 10.0, *)
 @objc public enum LocalPushServiceError: Int, Error {
     case userInfoInvalid
@@ -19,6 +20,7 @@ import ObjcBridge
     case requestNotificationPermissionFailed
 }
 
+/// Local Push 触发类型，区分前后台，或无条件触发
 @available(iOS 10.0, *)
 @objc public enum LocalPushType: Int {
     case all
@@ -26,6 +28,9 @@ import ObjcBridge
     case background
 }
 
+/// 实现Local Push功能的服务类
+///
+/// 仅支持使用本地推送模拟Alert类型的远程推送处理
 @available(iOS 10.0, *)
 @objcMembers
 public class LocalPushService: NSObject {
