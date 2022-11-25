@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B8F3FF0292C819F003383EB /* DebugSettings */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DebugSettings; path = ../..; sourceTree = "<group>"; };
+		2BC3FD30293099BD008B73EC /* DebugSettings */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DebugSettings; path = ../..; sourceTree = "<group>"; };
 		F3D012BA291ABB0F00875334 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3D012BD291ABB0F00875334 /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
 		F3D012BF291ABB0F00875334 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,10 +38,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2B8F3FEF292C819F003383EB /* Packages */ = {
+		2BC3FD2F293099BD008B73EC /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				2B8F3FF0292C819F003383EB /* DebugSettings */,
+				2BC3FD30293099BD008B73EC /* DebugSettings */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -49,7 +49,7 @@
 		F3D012B1291ABB0E00875334 = {
 			isa = PBXGroup;
 			children = (
-				2B8F3FEF292C819F003383EB /* Packages */,
+				2BC3FD2F293099BD008B73EC /* Packages */,
 				F3D012BC291ABB0F00875334 /* Demo */,
 				F3D012BB291ABB0F00875334 /* Products */,
 			);
