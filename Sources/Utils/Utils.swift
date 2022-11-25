@@ -14,7 +14,7 @@ public extension UIImage {
         return UIImage(named: name, in: bundle, compatibleWith: nil)
 #else
         return UIImage(named: name)
-#endif
+#endif 
     }
 }
 
