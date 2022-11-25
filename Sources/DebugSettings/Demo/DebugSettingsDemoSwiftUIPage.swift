@@ -31,7 +31,7 @@ public final class DebugSettingsDemoSwiftUIPage: SwiftDebugSettingsPage {
         var pageType: SwiftDebugSettingsPage.Type { DebugSettingsDemoSwiftUIPage.self }
     }
     
-    public override class var pageId: String { SettingsPage.swiftui.rawValue }
+    public override class var pageId: String { SettingsPage.swiftui.id }
     
     public override class var pageModel: SettingsPageModel {
         SettingsPageModel(id: self.pageId, name: "SwiftUI调试选项子页面") {

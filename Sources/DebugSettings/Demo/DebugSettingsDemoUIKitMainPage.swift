@@ -34,14 +34,19 @@ public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsPage {
         var pageType: SwiftDebugSettingsPage.Type { DebugSettingsDemoUIKitMainPage.self }
     }
     
-    public override class var pageId: String { SettingsPage.main.rawValue }
+    public override class var pageId: String { SettingsPage.main.id }
     public override class var pageModel: SettingsPageModel {
         SettingsPageModel(id: self.pageId, name: "调试页面") {
             SettingsPageSectionModel(name: "Section1") {
                 
-                SettingPageEntry.switch1.switchEntryModel(title: "switch1", subtitle: "只是一个测试开关 只是一个测试开关 只是一个测试开关", detail: "description description description description description description description description description description description description description description description description description description")
+                SettingPageEntry.switch1.switchEntryModel(
+                    title: "switch1",
+                    subtitle: "只是一个测试开关 只是一个测试开关 只是一个测试开关",
+                    detail: "description description description description")
                 
-                SettingPageEntry.button1.buttonEntryModel(title: "Local Push", subtitle: "本地模拟远程推送，测试通知跳转逻辑")
+                SettingPageEntry.button1.buttonEntryModel(
+                    title: "Local Push",
+                    subtitle: "本地模拟远程推送，测试通知跳转逻辑")
                 
                 SettingPageEntry.button2.buttonEntryModel(title: "Test Button")
                 

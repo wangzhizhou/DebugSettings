@@ -34,7 +34,7 @@ public final class DebugSettingsDemoUIKitSubPage: SwiftDebugSettingsPage {
         var pageType: SwiftDebugSettingsPage.Type { DebugSettingsDemoUIKitSubPage.self }
     }
     
-    public override class var pageId: String { SettingsPage.subpage.rawValue }
+    public override class var pageId: String { SettingsPage.subpage.id }
     public override class var pageModel: SettingsPageModel {
         SettingsPageModel(id: self.pageId, name: "调试选项子页面") {
             SettingsPageSectionModel(name: "Section1") {
