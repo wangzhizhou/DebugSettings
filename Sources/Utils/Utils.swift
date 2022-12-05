@@ -6,12 +6,7 @@
 //
 
 import UIKit
-
-public extension UIImage {
-    static func image(named name: String) -> UIImage? {
-        return UIImage(named: name)
-    }
-}
+import Foundation
 
 public extension String {
     func toJSONObject() -> Any? {
@@ -33,7 +28,7 @@ public extension UIViewController {
     @objc func pushOnTopViewController() {
         UIViewController.topViewController()?.navigationController?.pushViewController(self, animated: true)
     }
-        
+    
     @objc static func topViewController(_ base: UIViewController? = nil) -> UIViewController? {
         var keyWindow: UIWindow?
         if #available(iOS 13, *) {

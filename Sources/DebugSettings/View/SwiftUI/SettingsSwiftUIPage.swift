@@ -8,6 +8,7 @@
 #if canImport(SwiftUI)
 import SwiftUI
 
+/// UIKit类App中用来承载SwiftUI视图的UIKit视图容器页面，用来支持在UIKit中使用SwiftUI页面视图
 @available(iOS 13, *)
 public class SettingsSwiftUIPage<Content>: UIHostingController<Content> where Content : View {
 }

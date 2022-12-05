@@ -10,59 +10,24 @@ import Foundation
 import ObjcBridge
 #endif
 
+/// 调试页面各Section对应的数据模型
+///
+/// 可使用常规init方法创建，也可以使用DSL创建，参考：``SettingsPageSectionBuilder``
 @objcMembers
 public class SettingsPageSectionModel: DSObjcBridgeClass {
+    
+    /// Section的标题
     public let title: String
     
     public convenience init(title: String, itemsBlock: () -> [SettingsPageEntryModel]) {
         self.init(title: title, items: itemsBlock())
     }
 
+    /// Sectione包含的调试选项数据模型数组
     let items: [SettingsPageEntryModel]
     
     init(title: String, items: [SettingsPageEntryModel]) {
         self.title = title
         self.items = items
-    }
-}
-
-@resultBuilder
-public struct SettingsPageSectionBuilder {
-    public static func buildBlock(_ components: [SettingsPageEntryModel]...) -> [SettingsPageEntryModel] {
-        return components.flatMap { $0 }
-    }
-    
-    public static func buildEither(first component: [SettingsPageEntryModel]) -> [SettingsPageEntryModel] {
-        return component
-    }
-    
-    public static func buildEither(second component: [SettingsPageEntryModel]) -> [SettingsPageEntryModel] {
-        return component
-    }
-    
-    public static func buildOptional(_ component: [SettingsPageEntryModel]?) -> [SettingsPageEntryModel] {
-        return component ?? []
-    }
-    
-    public static func buildArray(_ components: [[SettingsPageEntryModel]]) -> [SettingsPageEntryModel] {
-        return components.flatMap { $0 }
-    }
-    
-    public static func buildExpression(_ expression: SettingsPageEntryModel) -> [SettingsPageEntryModel] {
-        return [expression]
-    }
-    
-    public static func buildExpression(_ expression: [SettingsPageEntryModel]) -> [SettingsPageEntryModel] {
-        return expression
-    }
-    
-    public static func buildFinalResult(_ component: [SettingsPageEntryModel]) -> SettingsPageSectionModel {
-        return SettingsPageSectionModel(title: "", items: component)
-    }
-}
-
-public extension SettingsPageSectionModel {
-    convenience init(name: String, @SettingsPageSectionBuilder content: () -> SettingsPageSectionModel) {
-        self.init(title: "❖ \(name)", items: content().items)
     }
 }

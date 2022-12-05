@@ -13,6 +13,7 @@ extension SettingsPageSectionModel: Identifiable {
 }
 extension SettingsPageEntryModel: Identifiable {}
 
+/// SwiftUI版调试页面对应的视图，不带页面导航
 @available(iOS 13, *)
 public struct SettingsContentView: View {
     public let model: SettingsPageModel
@@ -64,12 +65,16 @@ public struct SettingsContentView: View {
                         }
                         .onTapGesture {
                             UIImpactFeedbackGenerator().impactOccurred()
-                            if item.type == .button {
+                            switch item.type {
+                            case .switch:
+                                if let switchClickAction = item.switchClickAction {
+                                    switchClickAction(item)
+                                }
+                            case .button:
                                 if let buttonClickAction = item.buttonClickAction {
                                     buttonClickAction(item)
                                 }
-                            }
-                            else if item.type == .subpage {
+                            case .subpage:
                                 if let subPageJumpAction = item.subpageJumpAction {
                                     subPageJumpAction(item, nil)
                                 }

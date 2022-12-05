@@ -7,6 +7,7 @@
 #if canImport(SwiftUI)
 import SwiftUI
 
+/// SwiftUI版调试页面对应的视图，带页面导航
 @available(iOS 13, *)
 public struct SettingsView: View {
     let model: SettingsPageModel

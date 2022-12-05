@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "LookinServer",
+        "repositoryURL": "https://github.com/QMUI/LookinServer/",
+        "state": {
+          "branch": null,
+          "revision": "e5b7cb4e862ba0381bd7efb826da82096f783963",
+          "version": "1.1.2"
+        }
+      },
+      {
+        "package": "SnapKit",
+        "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
+        "state": {
+          "branch": null,
+          "revision": "f222cbdf325885926566172f6f5f06af95473158",
+          "version": "5.6.0"
+        }
+      },
+      {
+        "package": "SwiftDocCPlugin",
+        "repositoryURL": "https://github.com/apple/swift-docc-plugin",
+        "state": {
+          "branch": null,
+          "revision": "3303b164430d9a7055ba484c8ead67a52f7b74f6",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "Toast",
+        "repositoryURL": "https://github.com/scalessec/Toast-Swift.git",
+        "state": {
+          "branch": null,
+          "revision": "0c9493eeacb102cc614da385cfaaf475379f4ab4",
+          "version": "5.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

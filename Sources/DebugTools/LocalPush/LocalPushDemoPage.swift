@@ -17,6 +17,7 @@ import Utils
 #endif
 import SnapKit
 
+/// 用来演示Local Push功能的Demo页面
 @objcMembers
 @available(iOS 10.0, *)
 open class LocalPushDemoPage: UIViewController {
@@ -60,25 +61,25 @@ open class LocalPushDemoPage: UIViewController {
         
         self.view.addSubview(self.slider)
         self.view.addSubview(self.payloadTextView)
-
+        
         self.slider.snp.makeConstraints { make in
             make.left.equalTo(20)
             make.right.equalTo(-20)
             make.height.equalTo(40)
             make.top.equalTo(88)
         }
-
+        
         self.payloadTextView.snp.makeConstraints { make in
             make.left.right.equalTo(0)
             make.bottom.equalTo(0)
             make.top.equalTo(self.slider.snp.bottom)
         }
-
+        
         self.sendAfterSecond = 5
         self.payloadTextView.text = payload
-
+        
         self.slider.addTarget(self, action: #selector(sliderValueChanged(sender:)), for: .valueChanged)
-
+        
         
         let backBarButtonItem = UIBarButtonItem(title: "返回", style: .plain, target: self, action: #selector(backAction(sender:)))
         self.navigationItem.leftBarButtonItem = backBarButtonItem
@@ -114,7 +115,7 @@ open class LocalPushDemoPage: UIViewController {
     @objc func panAction(gesture: UIPanGestureRecognizer) {
         self.payloadTextView.resignFirstResponder()
     }
-
+    
     deinit {
         LocalPushService.shared.restoreOriginalUserNotificationCenterDelegate()
     }
@@ -123,15 +124,18 @@ open class LocalPushDemoPage: UIViewController {
 @available(iOS 10.0, *)
 extension LocalPushDemoPage {
     var payload: String? {
-        guard let path = Bundle(for: Self.self).path(forResource: "apns_payload_test", ofType: "json")
-        else {
-            return nil
-        }
-        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path))
-        else {
-            return nil
-        }
-        return String(data: data, encoding: .utf8)
+"""
+{
+   "aps" : {
+      "alert" : {
+         "title" : "Notification Title",
+         "subtitle" : "Notification subtitle",
+         "body" : "This is the body of push notification :)"
+      },
+      "sound":"default"
+   }
+}
+"""
     }
     func showToast(with message: String) {
         guard !message.isEmpty

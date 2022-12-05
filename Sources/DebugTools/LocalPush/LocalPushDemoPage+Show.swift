@@ -13,8 +13,10 @@ import Utils
 
 @available(iOS 10.0, *)
 public extension LocalPushDemoPage {
+    
+    /// 触发Local Push功能展示Demo页面
     static func show() {
         let page = LocalPushDemoPage()
-        UIViewController.topViewController()?.navigationController?.pushViewController(page, animated: true)
+        page.pushOnTopViewController()
     }
 }

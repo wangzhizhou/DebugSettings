@@ -26,5 +26,5 @@ pod 'DebugSettings'
 
 ```
 
-
+### [文档链接](https://wangzhizhou.github.io/DebugSettings/documentation/debugsettings/)
 
