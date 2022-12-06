@@ -9,7 +9,6 @@
 import SwiftUI
 
 /// 用于SwiftUI类型App接入时的Demo页面
-@available(iOS 13, *)
 public final class DebugSettingsDemoSwiftUIPage: SwiftDebugSettingsPage {
     
     /// 定义页面内调试选项，同一个枚举中可以保证页面内部调试选项的Id唯一性
@@ -48,13 +47,18 @@ public final class DebugSettingsDemoSwiftUIPage: SwiftDebugSettingsPage {
         }
     }
     
-    public override class func show() {
-        let rootView = SettingsContentView(model: self.pageModel).navigationBarTitle(self.pageModel.title)
-        SettingsSwiftUIPage(rootView: rootView).pushOnTopViewController()
+    public override class func show()  {
+        
+        if #available(iOS 13.0, *) {
+            let rootView = SettingsContentView(model: self.pageModel).navigationBarTitle(self.pageModel.title)
+            SettingsSwiftUIPage(rootView: rootView).pushOnTopViewController()
+        } else {
+            // Fallback on earlier versions
+            fatalError("not available in this operation system version")
+        }
     }
 }
 
-@available(iOS 13, *)
 extension DebugSettingsDemoSwiftUIPage {
     
     public override class func switchValueChangeAction(_ entryItem: SettingsPageEntryModel, _ isOn: Bool, _ type: SettingsEntrySwitchValueChangeActionType) {
