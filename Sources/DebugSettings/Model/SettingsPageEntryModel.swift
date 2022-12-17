@@ -73,7 +73,6 @@ public class SettingsPageEntryModel: DSObjcBridgeClass, SettingsIdentifiable {
         subtitle: String? = nil,
         detailDescription: String? = nil,
         type: EntryType,
-        isSwitchOn: Bool = false,
         switchDefaultValue: Bool = false,
         switchValueChangeAction: SettingsEntrySwitchValueChangeAction? = nil,
         switchClickAction: SettingsEntrySwitchClickAction? = nil,

@@ -29,6 +29,17 @@ public extension SettingsManager {
         return Persistence.boolValueForId(id) ?? false
     }
     
+    /// 重置开关项
+    /// - Parameters:
+    ///   - id: 开关项id
+    static func resetSwitch(for id: String) {
+        guard !id.isEmpty
+        else {
+            return
+        }
+        Persistence.removeBoolValue(for: id)
+    }
+    
     /// 刷新指定页面
     /// - Parameters:
     ///   - pageId: 页面id

@@ -51,6 +51,10 @@ public struct SettingsPageSectionBuilder {
         return expression
     }
     
+    public static func buildExpression(_ expression: Void) -> [SettingsPageEntryModel] {
+        return []
+    }
+    
     public static func buildFinalResult(_ component: [SettingsPageEntryModel]) -> SettingsPageSectionModel {
         return SettingsPageSectionModel(title: "", items: component)
     }
