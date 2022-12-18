@@ -11,6 +11,12 @@ import Toast_Swift
 @objcMembers
 public class SettingsUIKitPage: UIViewController {
     
+    var currentSectionIndex: Int = 0 {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     public let pageModel: SettingsPageModel
     
     public init(pageModel: SettingsPageModel) {
@@ -127,6 +133,9 @@ extension SettingsUIKitPage: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        
+        self.currentSectionIndex = index
+        
         self.view.hideAllToasts()
         self.view.makeToast(pageModel.sections[index].title, duration: 1, position: .center)
         return index
@@ -137,9 +146,11 @@ extension SettingsUIKitPage: UITableViewDataSource {
             return nil
         }
         
-        return pageModel.sections.map { _ in
-            return "⦁"
+        var titles = pageModel.sections.map { _ in "⦁" }
+        if self.currentSectionIndex >= 0 && self.currentSectionIndex < titles.count {
+            titles[self.currentSectionIndex] = "◉"
         }
+        return titles
     }
 }
 
