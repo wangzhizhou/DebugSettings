@@ -189,5 +189,10 @@ extension SettingsUIKitPage: UITableViewDelegate {
         default:
             break
         }
+        
+        // 统计用户点击行为
+        if let userActionHandler = SettingsManager.shared.userActionHandler {
+            userActionHandler(entryItem, .click)
+        }
     }
 }

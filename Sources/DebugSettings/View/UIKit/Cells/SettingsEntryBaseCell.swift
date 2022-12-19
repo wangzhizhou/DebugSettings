@@ -149,5 +149,9 @@ class SettingsEntryBaseCell: UITableViewCell {
     
     @objc func switchAction(_ sender: UISwitch) {
         self.entryItem?.isSwitchOn = sender.isOn
+        
+        if let userActionHandler = SettingsManager.shared.userActionHandler, let entryItem = self.entryItem {
+            userActionHandler(entryItem, .valueChanged)
+        }
     }
 }
