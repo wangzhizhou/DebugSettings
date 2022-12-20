@@ -10,10 +10,20 @@ import Foundation
 import ObjcBridge
 #endif
 
+public enum UserActionType {
+    case click
+    case valueChanged
+}
+
+public typealias SettingsPageUserAction = (_ entryItem: SettingsPageEntryModel, _ actionType: UserActionType) -> Void
+
 /// 调试选项单例辅助类
 public class SettingsManager: DSObjcBridgeClass {
     static let shared = SettingsManager()
     private override init() {}
+    
+    /// 用户行为回调处理器
+    var userActionHandler: SettingsPageUserAction?
 }
 
 public extension SettingsManager {
@@ -27,6 +37,17 @@ public extension SettingsManager {
             return false
         }
         return Persistence.boolValueForId(id) ?? false
+    }
+    
+    /// 重置开关项
+    /// - Parameters:
+    ///   - id: 开关项id
+    static func resetSwitch(for id: String) {
+        guard !id.isEmpty
+        else {
+            return
+        }
+        Persistence.removeBoolValue(for: id)
     }
     
     /// 刷新指定页面
@@ -45,6 +66,13 @@ public extension SettingsManager {
                 refreshThrottling = false
             }
         }
+    }
+    
+    
+    /// 设置用户行为回调处理器
+    /// - Parameter handler: 处理器
+    static func setUserActionHandler(_ handler: @escaping SettingsPageUserAction) {
+        SettingsManager.shared.userActionHandler = handler
     }
     
     /// 页面连续刷新时，是否正在throttle状态中

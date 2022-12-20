@@ -30,6 +30,14 @@ public class Persistence {
         settingsStore?.set(value, forKey: id)
     }
     
+    
+    /// 移除指定ID对应的布尔值
+    /// - Parameter id: 对应的ID
+    static func removeBoolValue(for id: String) {
+        settingsStore?.removeObject(forKey: id)
+        settingsStore?.synchronize()
+    }
+    
     /// 清除所有存储的Key
     static func clearAll() {
         settingsStore?.dictionaryRepresentation().keys.forEach {
@@ -37,4 +45,5 @@ public class Persistence {
         }
         settingsStore?.synchronize()
     }
+    
 }

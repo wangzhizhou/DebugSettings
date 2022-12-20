@@ -11,6 +11,14 @@ import Toast_Swift
 @objcMembers
 public class SettingsUIKitPage: UIViewController {
     
+    var currentSectionIndex: Int? = nil {
+        didSet {
+            if oldValue != currentSectionIndex {
+                tableView.reloadSectionIndexTitles()
+            }
+        }
+    }
+    
     public let pageModel: SettingsPageModel
     
     public init(pageModel: SettingsPageModel) {
@@ -127,6 +135,7 @@ extension SettingsUIKitPage: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        self.currentSectionIndex = index
         self.view.hideAllToasts()
         self.view.makeToast(pageModel.sections[index].title, duration: 1, position: .center)
         return index
@@ -137,8 +146,16 @@ extension SettingsUIKitPage: UITableViewDataSource {
             return nil
         }
         
-        return pageModel.sections.map { _ in
-            return "⦁"
+        var titles = pageModel.sections.map { _ in "⦁" }
+        if let currentSectionIndex = self.currentSectionIndex, currentSectionIndex >= 0, currentSectionIndex < titles.count {
+            titles[currentSectionIndex] = "◉"
+        }
+        return titles
+    }
+    
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let firstIndexPath = tableView.indexPathsForVisibleRows?.first {
+            self.currentSectionIndex = firstIndexPath.section
         }
     }
 }
@@ -171,6 +188,11 @@ extension SettingsUIKitPage: UITableViewDelegate {
             }
         default:
             break
+        }
+        
+        // 统计用户点击行为
+        if let userActionHandler = SettingsManager.shared.userActionHandler {
+            userActionHandler(entryItem, .click)
         }
     }
 }

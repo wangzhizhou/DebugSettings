@@ -38,8 +38,13 @@ open class SwiftDebugSettingsPage: NSObject, SwiftDebugSettingsPageProtocol {
     
     /// 触发页面数据模型创建，用于调试页面数据初始化操作，一般在App启动时调用
     public static func setup() {
+        
+        beforeSetup()
+        
         // 触发一个数据模型创建过程，用来在启动时初始化调试选项逻辑
         _ = pageModel
+        
+        afterSetup()
     }
     
     /// 展示调试选项页面，业务在需要跳转展示调试页面时调用
@@ -48,10 +53,16 @@ open class SwiftDebugSettingsPage: NSObject, SwiftDebugSettingsPageProtocol {
         if let uikitVC = topVC as? SettingsUIKitPage, pageModel.id == uikitVC.pageModel.id {
             return
         }
+        beforeShow()
         let page = SettingsUIKitPage(pageModel: pageModel)
         weakPage = page
         page.pushOnTopViewController()
+        afterShow()
     }
+    
+
+    
+    
     
     /// 在调试页面展示Toast提示
     /// - Parameter message: Toast提示内容
@@ -62,4 +73,24 @@ open class SwiftDebugSettingsPage: NSObject, SwiftDebugSettingsPageProtocol {
     /// 防止被实例化，限制只使用类方法
     private override init() {}
     
+}
+
+
+extension SwiftDebugSettingsPage {
+    
+    open class func beforeSetup() {
+        
+    }
+    
+    open class func afterSetup() {
+        
+    }
+    
+    open class func beforeShow() {
+        
+    }
+    
+    open class func afterShow() {
+        
+    }
 }
