@@ -173,3 +173,61 @@
         }
     }
     ```
+## 数据统计
+
+- SwiftDebugSettingsPage提供四个生命周期事件，子类可以覆盖实现具体的业务逻辑：
+
+    - ``SwiftDebugSettingsPage/beforeSetup()``
+    - ``SwiftDebugSettingsPage/afterSetup()``
+    - ``SwiftDebugSettingsPage/beforeShow()``
+    - ``SwiftDebugSettingsPage/afterShow()``
+
+- 例如可以覆盖实现 ``SwiftDebugSettingsPage/beforeSetup()`` 方法，设置业务层的调试工具选项统计数据上报逻辑，``SettingsManager/setUserActionHandler(_:)`` 方法可以设置SDK上抛给业务层的调试选项数据回调处理器：
+
+    ```swift
+    extension DebugSettingsDemoUIKitMainPage {
+        
+        public override class func beforeSetup() {
+            
+            SettingsManager.setUserActionHandler { entryItem, actionType in
+                
+                var categoryDic = [String:String]()
+                categoryDic["entry_id"] = entryItem.id
+                
+                switch entryItem.type {
+                case .switch:
+                    categoryDic["entry_type"] = "switch"
+                case .button:
+                    categoryDic["entry_type"] = "button"
+                case .subpage:
+                    categoryDic["entry_type"] = "subpage"
+                }
+                
+                switch actionType {
+                case .click:
+                    categoryDic["action_type"] = "click"
+                case .valueChanged:
+                    categoryDic["action_type"] = "value_changed"
+
+                }
+                
+                var extraDict = [String: String]()
+                extraDict["entry_title"] = entryItem.title
+                if let isSwitchOn = entryItem.isSwitchOn {
+                    extraDict["switch_value"] = isSwitchOn ? "on" : "off"
+                }
+                
+                // 上报用户使用行为
+                print("Report Statistics Data To Biz Server")
+            }
+        }
+    }
+    ```
+
+## SourceOfTruth
+
+- 默认调试开关的开关状态值是以SDK内部维护的UserDefault值为数据来源的
+
+- 业务上有的调试模块内部自己维护了调试开关的状态值，如果需要DebugSettings中的调试开关状态值与业务模块维护的状态值保持一致，可以在创建 ``SettingsPageEntryModel`` 时使用 ``SettingsPageEntryModel/init(id:icon:title:subtitle:detailDescription:type:switchDefaultValue:sourceOfTruth:switchValueChangeAction:switchClickAction:buttonClickAction:subpageJumpAction:)`` 方法中的`sourceOfTruth`参数指定状态值的来源
+
+- ``SettingsPageEntryProtocol/switchEntryModel(title:icon:subtitle:detail:default:sourceOfTruth:)-97zse`` 便利方法中也有可选的参数 `sourceOfTruth` 可以使用
