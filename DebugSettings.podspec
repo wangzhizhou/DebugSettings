@@ -32,6 +32,7 @@ Pod::Spec.new do |spec|
       'DebugSettings' => ["Sources/DebugSettings/Resources/*.xcassets"]
     }
     cs.dependency "DebugSettings/DebugTools"
+    cs.dependency 'FHUIKit'
   end
   
   spec.subspec 'DebugTools' do |dt|
