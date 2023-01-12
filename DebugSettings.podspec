@@ -19,14 +19,20 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "10.0"
   spec.source       = { :git => "https://github.com/wangzhizhou/DebugSettings.git", :tag => "#{spec.version}" }
   spec.module_name   = 'DebugSettings'
-  spec.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
+  spec.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES',
+    'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) FH_TARGET_NAME=@\"${TARGET_NAME}\"'
+  }
   spec.requires_arc = true
   spec.swift_version = '5.0'
   
   spec.subspec 'Core' do |cs|
     cs.source_files  = "Sources/DebugSettings/**/*.{swift}"
-    cs.resources = "Sources/DebugSettings/Resources/**/*"
+#    cs.resources = "Sources/DebugSettings/Resources/**/*"
+    cs.resource_bundles = {
+      'DebugSettings' => ["Sources/DebugSettings/Resources/*.xcassets"]
+    }
     cs.dependency "DebugSettings/DebugTools"
+    cs.dependency 'FHUIKit'
   end
   
   spec.subspec 'DebugTools' do |dt|

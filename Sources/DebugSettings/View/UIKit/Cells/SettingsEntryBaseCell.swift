@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FHUIKit
 
 class SettingsEntryBaseCell: UITableViewCell {
     
@@ -43,7 +44,7 @@ class SettingsEntryBaseCell: UITableViewCell {
     
     lazy var rightArrowIcon: UIImageView = {
         let ret = UIImageView(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
-        ret.image = UIImage.image(named: "rightArrow")
+        ret.image = UIImage.fh_imageNamed("rightArrow", inSearchBundleName: "DebugSettings")
         ret.contentMode = .scaleAspectFit
         return ret
     }()

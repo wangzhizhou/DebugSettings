@@ -6,6 +6,7 @@
 //
 #if canImport(SwiftUI)
 import SwiftUI
+import FHUIKit
 
 /// SwiftUI版调试页面对应的视图，带页面导航
 @available(iOS 13, *)
@@ -19,7 +20,7 @@ public struct SettingsView: View {
                 .navigationBarItems(leading: Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
                 }, label: {
-                    if let backImage = UIImage.image(named: "leftArrow") {
+                    if let backImage = UIImage.fh_imageNamed("leftArrow", inSearchBundleName: "DebugSettings") {
                         Image(uiImage: backImage)
                     }
                 }))
