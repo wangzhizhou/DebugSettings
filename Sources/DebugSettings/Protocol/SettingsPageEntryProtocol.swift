@@ -23,7 +23,9 @@ public protocol SettingsPageEntryProtocol {
         icon: UIImage?,
         subtitle: String?,
         detail:String?,
-        default: Bool) -> SettingsPageEntryModel
+        default: Bool,
+        sourceOfTruth: Bool?
+    ) -> SettingsPageEntryModel
     
     func buttonEntryModel(
         title: String,
@@ -52,7 +54,9 @@ public extension SettingsPageEntryProtocol {
         icon: UIImage? = nil,
         subtitle: String? = nil,
         detail:String? = nil,
-        default: Bool = false) -> SettingsPageEntryModel {
+        default: Bool = false,
+        sourceOfTruth: Bool? = nil
+    ) -> SettingsPageEntryModel {
             SettingsPageEntryModel(
                 id: self.entryId,
                 icon: icon,
@@ -61,6 +65,7 @@ public extension SettingsPageEntryProtocol {
                 detailDescription: detail,
                 type: .switch,
                 switchDefaultValue: `default`,
+                sourceOfTruth: sourceOfTruth,
                 switchValueChangeAction: pageType.switchValueChangeAction,
                 switchClickAction: pageType.switchClickAction
             )

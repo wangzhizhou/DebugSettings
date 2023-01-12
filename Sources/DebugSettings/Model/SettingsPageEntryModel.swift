@@ -74,6 +74,7 @@ public class SettingsPageEntryModel: DSObjcBridgeClass, SettingsIdentifiable {
         detailDescription: String? = nil,
         type: EntryType,
         switchDefaultValue: Bool = false,
+        sourceOfTruth: Bool? = nil,
         switchValueChangeAction: SettingsEntrySwitchValueChangeAction? = nil,
         switchClickAction: SettingsEntrySwitchClickAction? = nil,
         buttonClickAction: SettingsEntryButtonAction? = nil,
@@ -90,6 +91,9 @@ public class SettingsPageEntryModel: DSObjcBridgeClass, SettingsIdentifiable {
             self.buttonClickAction = buttonClickAction
             self.subpageJumpAction = subpageJumpAction
             super.init()
+            if let sourceOfTruth = sourceOfTruth {
+                Persistence.saveBoolValue(sourceOfTruth, for: self.id)
+            }
             if self.isSwitchOn == nil {
                 self.isSwitchOn = switchDefaultValue
             }
