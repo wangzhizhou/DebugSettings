@@ -19,7 +19,7 @@ public struct SettingsView: View {
                 .navigationBarItems(leading: Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
                 }, label: {
-                    if let backImage = UIImage.fh_imageNamed("leftArrow", inSearchBundleName: "DebugSettings") {
+                    if let backImage = UIImage.image(named:"leftArrow") {
                         Image(uiImage: backImage)
                     }
                 }))

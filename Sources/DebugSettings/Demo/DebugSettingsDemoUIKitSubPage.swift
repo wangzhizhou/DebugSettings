@@ -85,3 +85,42 @@ extension DebugSettingsDemoUIKitSubPage {
         }
     }
 }
+
+
+extension DebugSettingsDemoUIKitMainPage {
+    
+    public override class func beforeSetup() {
+        
+        SettingsManager.setUserActionHandler { entryItem, actionType in
+            
+            var categoryDic = [String:String]()
+            categoryDic["entry_id"] = entryItem.id
+            
+            switch entryItem.type {
+            case .switch:
+                categoryDic["entry_type"] = "switch"
+            case .button:
+                categoryDic["entry_type"] = "button"
+            case .subpage:
+                categoryDic["entry_type"] = "subpage"
+            }
+            
+            switch actionType {
+            case .click:
+                categoryDic["action_type"] = "click"
+            case .valueChanged:
+                categoryDic["action_type"] = "value_changed"
+
+            }
+            
+            var extraDict = [String: String]()
+            extraDict["entry_title"] = entryItem.title
+            if let isSwitchOn = entryItem.isSwitchOn {
+                extraDict["switch_value"] = isSwitchOn ? "on" : "off"
+            }
+            
+            // 上报用户使用行为
+            print("Report Statistics Data To Biz Server")
+        }
+    }
+}
