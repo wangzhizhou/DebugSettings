@@ -1,9 +1,6 @@
 PODS:
   - DebugSettings (0.0.1):
     - DebugSettings/Core (= 0.0.1)
-    - DebugSettings/DebugTools (= 0.0.1)
-    - DebugSettings/OCBridge (= 0.0.1)
-    - DebugSettings/Utils (= 0.0.1)
   - DebugSettings/Core (0.0.1):
     - DebugSettings/DebugTools
   - DebugSettings/DebugTools (0.0.1):
@@ -13,9 +10,9 @@ PODS:
     - Toast-Swift (~> 5.0.1)
   - DebugSettings/OCBridge (0.0.1)
   - DebugSettings/Utils (0.0.1)
-  - LookinServer (1.1.2):
-    - LookinServer/Core (= 1.1.2)
-  - LookinServer/Core (1.1.2)
+  - LookinServer (1.1.5):
+    - LookinServer/Core (= 1.1.5)
+  - LookinServer/Core (1.1.5)
   - SnapKit (5.0.1)
   - Toast-Swift (5.0.1)
 
@@ -34,8 +31,8 @@ EXTERNAL SOURCES:
     :path: "../../DebugSettings.podspec"
 
 SPEC CHECKSUMS:
-  DebugSettings: accf6170ff53fd20552b53e00a839d5f8ec019fd
-  LookinServer: bb667a77f1ee594a8e91226e729dbe49f3401f5c
+  DebugSettings: 248a1071b1ed1d526ce7e2c0255353fa7c1ab677
+  LookinServer: 2893f2bae53cbf3fd49bbe1a8ea1745582ef1317
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 

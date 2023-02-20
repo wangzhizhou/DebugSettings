@@ -6,7 +6,6 @@
 //
 #if canImport(SwiftUI)
 import SwiftUI
-import FHUIKit
 
 /// SwiftUI版调试页面对应的视图，带页面导航
 @available(iOS 13, *)

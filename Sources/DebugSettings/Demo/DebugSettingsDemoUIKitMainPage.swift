@@ -27,7 +27,6 @@ public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsPage {
         
         // 子页面类
         case subpage1
-        case subpage2
         
         // SettingsPageEntryProtocol
         var id: String { self.rawValue }
@@ -51,9 +50,6 @@ public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsPage {
                 SettingPageEntry.button2.buttonEntryModel(title: "Test Button")
                 
                 SettingPageEntry.subpage1.subPageEntryModel(title: "UIKit子页面")
-                
-                SettingPageEntry.subpage2.subPageEntryModel(title: "SwiftUI子页面")
-                
             }
         }
     }
@@ -87,10 +83,6 @@ extension DebugSettingsDemoUIKitMainPage {
         switch entryItem.id {
         case SettingPageEntry.subpage1.entryId:
             DebugSettingsDemoUIKitSubPage.show()
-        case SettingPageEntry.subpage2.entryId:
-            if #available(iOS 13, *) {
-                DebugSettingsDemoSwiftUIPage.show()
-            }
         default:
             break
         }
