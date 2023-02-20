@@ -6,7 +6,6 @@ import Toast
 #if canImport(Toast_Swift)
 import Toast_Swift
 #endif
-import FHUIKit
 
 /// 用来定义调试页面UI布局样式的UIKit页面容器，收敛在SDK内部实现，方便调试页面UI样式的统一
 @objcMembers
@@ -36,7 +35,7 @@ public class SettingsUIKitPage: UIViewController {
         
         title = pageModel.title
         let backButton = UIButton(type: .custom)
-        let backImage = UIImage.fh_imageNamed("leftArrow", inSearchBundleName: "DebugSettings")
+        let backImage = UIImage.image(named: "leftArrow")
         backButton.setImage(backImage, for: .normal)
         backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)

@@ -10,6 +10,10 @@ import UIKit
 public extension UIImage {
     static func image(named name: String) -> UIImage? {
         let bundle = Bundle(for: SettingsUIKitPage.self)
-        return UIImage(named: name, in: bundle, compatibleWith: nil)
+        guard let resourceBundleUrl = bundle.url(forResource: "DebugSettings", withExtension: "bundle"), let resourceBundle = Bundle(url: resourceBundleUrl)
+        else {
+            return nil
+        }
+        return UIImage(named: name, in: resourceBundle, compatibleWith: nil)
     }
 }
