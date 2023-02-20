@@ -24,15 +24,26 @@ Pod::Spec.new do |spec|
   }
   spec.requires_arc = true
   spec.swift_version = '5.0'
+  spec.default_subspec = ['Core']
+  
+  swiftui_module_files = [
+  "Sources/DebugSettings/Demo/**/DebugSettingsDemoSwiftUIPage.swift",
+  "Sources/DebugSettings/View/SwiftUI/**/*.{swift}"
+  ]
   
   spec.subspec 'Core' do |cs|
     cs.source_files  = "Sources/DebugSettings/**/*.{swift}"
-#    cs.resources = "Sources/DebugSettings/Resources/**/*"
+    cs.exclude_files = swiftui_module_files
     cs.resource_bundles = {
       'DebugSettings' => ["Sources/DebugSettings/Resources/*.xcassets"]
     }
     cs.dependency "DebugSettings/DebugTools"
     cs.dependency 'FHUIKit'
+  end
+  
+  spec.subspec 'SwiftUI' do |swiftui|
+    swiftui.source_files  = swiftui_module_files
+    swiftui.dependency "DebugSettings/Core"
   end
   
   spec.subspec 'DebugTools' do |dt|
