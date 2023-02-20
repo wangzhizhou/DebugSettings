@@ -30,7 +30,8 @@ let package = Package(
                 "DebugTools",
                 .product(name: "SnapKit", package: "SnapKit"),
                 .product(name: "Toast", package: "Toast-Swift")
-            ]),
+            ],
+            resources: [.process("Resources")]),
         .testTarget(
             name: "DebugSettingsTests",
             dependencies: ["DebugSettings"]),
