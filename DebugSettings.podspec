@@ -22,11 +22,23 @@ Pod::Spec.new do |spec|
   spec.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   spec.requires_arc = true
   spec.swift_version = '5.0'
+  spec.default_subspec = ['Core']
+  
+  swiftui_module_files = [
+  "Sources/DebugSettings/Demo/**/DebugSettingsDemoSwiftUIPage.swift",
+  "Sources/DebugSettings/View/SwiftUI/**/*.{swift}"
+  ]
   
   spec.subspec 'Core' do |cs|
     cs.source_files  = "Sources/DebugSettings/**/*.{swift}"
+    cs.exclude_files = swiftui_module_files
     cs.resources = "Sources/DebugSettings/Resources/**/*"
     cs.dependency "DebugSettings/DebugTools"
+  end
+  
+  spec.subspec 'SwiftUI' do |swiftui|
+    swiftui.source_files  = swiftui_module_files
+    swiftui.dependency "DebugSettings/Core"
   end
   
   spec.subspec 'DebugTools' do |dt|
