@@ -113,7 +113,10 @@ extension DebugSettingsDemoUIKitMainPage {
                 categoryDic["action_type"] = "click"
             case .valueChanged:
                 categoryDic["action_type"] = "value_changed"
-
+            case .gotoHelpPageDefault:
+                categoryDic["action_type"] = "gotoHelpPageDefault"
+            case .gotoHelpPageBizCustom:
+                categoryDic["action_type"] = "gotoHelpPageBizCustom"
             }
             
             var extraDict = [String: String]()
@@ -124,6 +127,9 @@ extension DebugSettingsDemoUIKitMainPage {
             
             // 上报用户使用行为
             print("Report Statistics Data To Biz Server")
+            print("categoryDict: \(categoryDic)")
+            print("extraDict: \(extraDict)")
+            print("\n")
         }
     }
 }
