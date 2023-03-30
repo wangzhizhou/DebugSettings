@@ -23,7 +23,7 @@ extension SettingsUIKitPage {
         let entryItem = pageModel.sections[indexPath.section].items[indexPath.row]
         if entryItem.hasHelpInfo {
             let helpInfoAction = UIContextualAction(style: .normal, title: "使用说明") { action, view, completionHandler in
-                entryItem.gotoHelpPage()
+                entryItem.gotoHelpPage(navigationBarHeight: self.pageModel.navigationBarHeight)
                 completionHandler(true)
             }
             helpInfoAction.backgroundColor = .systemTeal
