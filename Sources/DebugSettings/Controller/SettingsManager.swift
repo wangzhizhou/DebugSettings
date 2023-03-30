@@ -13,6 +13,8 @@ import ObjcBridge
 public enum UserActionType {
     case click
     case valueChanged
+    case gotoHelpPageDefault
+    case gotoHelpPageBizCustom
 }
 
 public typealias SettingsPageUserAction = (_ entryItem: SettingsPageEntryModel, _ actionType: UserActionType) -> Void

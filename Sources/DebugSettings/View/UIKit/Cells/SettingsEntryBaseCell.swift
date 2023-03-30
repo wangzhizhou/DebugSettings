@@ -163,6 +163,7 @@ class SettingsEntryBaseCell: UITableViewCell {
     @objc func switchAction(_ sender: UISwitch) {
         self.entryItem?.isSwitchOn = sender.isOn
         
+        // 开关值变化事件上抛
         if let userActionHandler = SettingsManager.shared.userActionHandler, let entryItem = self.entryItem {
             userActionHandler(entryItem, .valueChanged)
         }

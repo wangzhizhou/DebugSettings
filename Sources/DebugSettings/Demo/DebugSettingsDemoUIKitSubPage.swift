@@ -10,6 +10,9 @@ import Foundation
 #if canImport(ObjcBridge)
 import ObjcBridge
 #endif
+#if canImport(Utils)
+import Utils
+#endif
 
 /// 用于UIKit类型App接入时的Demo页面
 public final class DebugSettingsDemoUIKitSubPage: SwiftDebugSettingsPage {

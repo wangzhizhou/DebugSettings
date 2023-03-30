@@ -8,20 +8,20 @@
 import UIKit
 import WebKit
 
-class WebPage: UIViewController, WKUIDelegate {
+public class WebPage: UIViewController, WKUIDelegate {
     
-    var pageURL: URL?
+    public var pageURL: URL?
     
-    var webView: WKWebView!
+    private var webView: WKWebView!
     
-    override func loadView() {
+    public override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
         view = webView
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         guard let pageURL = pageURL else {
             return

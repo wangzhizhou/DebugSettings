@@ -23,12 +23,6 @@ public extension String {
     }
 }
 
-public extension URL {
-    func gotoWebViewPage() {
-        WebPage().pushOnTopViewController()
-    }
-}
-
 public extension UIViewController {
     
     @objc func pushOnTopViewController() {

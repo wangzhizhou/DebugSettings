@@ -10,6 +10,9 @@ import UIKit
 #if canImport(DebugTools)
 import DebugTools
 #endif
+#if canImport(Utils)
+import Utils
+#endif
 
 /// 用于UIKit类型App接入时的Demo页面
 public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsPage {
@@ -53,22 +56,6 @@ public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsPage {
                 
                 SettingPageEntry.subpage1.subPageEntryModel(title: "UIKit子页面")
             }
-        }
-    }
-}
-
-extension DebugSettingsDemoUIKitMainPage {
-    
-    public override class func beforeSetup() {
-        
-        // 业务方实现用户行为数据统计上报
-        SettingsManager.setUserActionHandler { entryItem, actionType in
-            
-        }
-        
-        // 业务方实现自定义的webView跳转逻辑, 返回false使用组件内部默认WebPage跳转逻辑
-        SettingsManager.setBizWebPageJumpAction { pageURL, pageTitle in
-            return false
         }
     }
 }

@@ -5,6 +5,12 @@
 //  Created by joker on 2023/3/30.
 //
 
+import Foundation
+
+#if canImport(Utils)
+import Utils
+#endif
+
 extension SettingsPageEntryModel {
     
     var hasHelpInfo: Bool {
@@ -27,7 +33,18 @@ extension SettingsPageEntryModel {
             helpPage.title = title
             helpPage.pageURL = self.helpURL
             helpPage.pushOnTopViewController()
+            
+            // 走组件默认跳转逻辑事件回调业务方
+            if let userActionHandler = SettingsManager.shared.userActionHandler {
+                userActionHandler(self, .gotoHelpPageDefault)
+            }
+            
             return
+        }
+        
+        // 走业务侧自定义跳转逻辑事件回调业务方
+        if let userActionHandler = SettingsManager.shared.userActionHandler {
+            userActionHandler(self, .gotoHelpPageBizCustom)
         }
     }
 }

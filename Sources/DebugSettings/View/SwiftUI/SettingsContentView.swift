@@ -21,7 +21,7 @@ public struct SettingsContentView: View {
         self.model = model
     }
     public var body: some View {
-        VStack {
+        List {
             ForEach(model.sections) { section in
                 VStack {
                     HStack {
@@ -36,12 +36,10 @@ public struct SettingsContentView: View {
                                 if let iconImage = item.icon {
                                     Image(uiImage: iconImage)
                                 }
-                                if let title = item.title {
-                                    Text(title)
-                                        .font(.init(.system(size: 16)))
-                                        .bold()
-                                        .frame(height: 20)
-                                }
+                                Text(item.title)
+                                    .font(.init(.system(size: 16)))
+                                    .bold()
+                                    .frame(height: 20)
                                 if let subtitle = item.subtitle {
                                     Text(subtitle)
                                         .foregroundColor(.gray)
@@ -59,6 +57,11 @@ public struct SettingsContentView: View {
                                     item.isSwitchOn ?? false
                                 }, set: { newValue in
                                     item.isSwitchOn = newValue
+                                    
+                                    // 开关值变化事件上抛
+                                    if let userActionHandler = SettingsManager.shared.userActionHandler {
+                                        userActionHandler(item, .valueChanged)
+                                    }
                                 }))
                                 .frame(width: 64, height: 24)
                             }
@@ -79,13 +82,18 @@ public struct SettingsContentView: View {
                                     subPageJumpAction(item, nil)
                                 }
                             }
+                            
+                            // 统计用户点击行为
+                            if let userActionHandler = SettingsManager.shared.userActionHandler {
+                                userActionHandler(item, .click)
+                            }
                         }
                     }
                 }
                 .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
             }
-            Spacer()
         }
+        .listStyle(PlainListStyle())
         
     }
 }
