@@ -13,8 +13,10 @@
 # --hosting-base-path DebugSettings \
 # --output-path ./docs
 
-# SwiftDocCPlugin 1.0.0版本有bug，无法生成Documentation目录，临时替换方案，使用Xcodebuild docbuild编译文档
-# 详情可稳步链接：https://github.com/apple/swift-docc-plugin/issues/29
+# SwiftDocCPlugin 1.0.0版本有bug，无法生成Documentation目录，临时替换方案，
+# 使用Xcodebuild docbuild编译文档
+# 详情可移步链接：https://github.com/apple/swift-docc-plugin/issues/29
 xcodebuild docbuild -scheme DebugSettings \
     -destination generic/platform=iphoneos \
-    OTHER_DOCC_FLAGS="--transform-for-static-hosting --hosting-base-path DebugSettings --output-path ./docs"
+    OTHER_DOCC_FLAGS="--transform-for-static-hosting \
+    --hosting-base-path DebugSettings --output-path ./docs"
