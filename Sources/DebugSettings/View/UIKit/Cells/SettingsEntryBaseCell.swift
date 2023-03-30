@@ -9,6 +9,12 @@ import UIKit
 
 class SettingsEntryBaseCell: UITableViewCell {
     
+    lazy var indictorBar: UIView = {
+        let vBar = UIView()
+        vBar.backgroundColor = .systemTeal
+        return vBar
+    }()
+    
     lazy var icon = UIImageView()
     
     lazy var titleLabel: UILabel = {
@@ -61,12 +67,18 @@ class SettingsEntryBaseCell: UITableViewCell {
         self.selectionStyle = .none
         self.backgroundColor = .white
         
+        self.contentView.addSubview(self.indictorBar)
         self.contentView.addSubview(self.icon)
         self.contentView.addSubview(self.titleLabel)
         self.contentView.addSubview(self.subtitleLabel)
         self.contentView.addSubview(self.detailDescriptionLabel)
         self.contentView.addSubview(self.rightContainer)
         self.contentView.addSubview(self.bottomLine)
+        
+        self.indictorBar.snp.makeConstraints { make in
+            make.top.left.bottom.equalTo(self.contentView)
+            make.width.equalTo(2)
+        }
         
         self.icon.snp.makeConstraints { make in
             make.left.equalTo(self.contentView).offset(5)
@@ -117,6 +129,7 @@ class SettingsEntryBaseCell: UITableViewCell {
     func bindEntryItem(_ entryItem: SettingsPageEntryModel) {
         self.entryItem = entryItem
         
+        self.indictorBar.isHidden = !entryItem.hasHelpInfo
         self.icon.image = entryItem.icon
         self.titleLabel.text = entryItem.title
         self.subtitleLabel.text = entryItem.subtitle
@@ -150,6 +163,7 @@ class SettingsEntryBaseCell: UITableViewCell {
     @objc func switchAction(_ sender: UISwitch) {
         self.entryItem?.isSwitchOn = sender.isOn
         
+        // 开关值变化事件上抛
         if let userActionHandler = SettingsManager.shared.userActionHandler, let entryItem = self.entryItem {
             userActionHandler(entryItem, .valueChanged)
         }

@@ -9,6 +9,9 @@ import SwiftUI
 import DebugSettings
 
 struct ContentView: View {
+    
+    @Environment(\.scenePhase) var scenePhase: ScenePhase
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -28,14 +31,21 @@ struct ContentView: View {
             .navigationTitle("SwiftUI Demo")
             .navigationBarTitleDisplayMode(.inline)
         }
+        .onChange(of: scenePhase) { newScenePhase in
+            switch newScenePhase {
+            case .active:
+                SettingsManager.defaultSetup()
+            default:
+                break
+            }
+        }
     }
 }
 
 struct DebugSettingsDemoUIKitPage: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> some UIViewController {
-        let model = DebugSettingsDemoUIKitMainPage.pageModel
-        let uikitVC = SettingsUIKitPage(pageModel: model)
+        let uikitVC = SettingsUIKitPage(pageModel: DebugSettingsDemoUIKitMainPage.pageModel)
         return uikitVC
     }
     

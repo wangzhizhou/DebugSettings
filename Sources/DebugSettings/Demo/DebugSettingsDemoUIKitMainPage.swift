@@ -10,6 +10,9 @@ import UIKit
 #if canImport(DebugTools)
 import DebugTools
 #endif
+#if canImport(Utils)
+import Utils
+#endif
 
 /// 用于UIKit类型App接入时的Demo页面
 public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsPage {
@@ -41,11 +44,13 @@ public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsPage {
                 SettingPageEntry.switch1.switchEntryModel(
                     title: "switch1",
                     subtitle: "只是一个测试开关 只是一个测试开关 只是一个测试开关",
-                    detail: "description description description description")
+                    detail: "description description description description",
+                    helpInfoUrl: "https://www.baidu.com")
                 
                 SettingPageEntry.button1.buttonEntryModel(
                     title: "Local Push",
-                    subtitle: "本地模拟远程推送，测试通知跳转逻辑")
+                    subtitle: "本地模拟远程推送，测试通知跳转逻辑",
+                    detail: "仅支持本地普通Alert推送模拟，不支持 静默推送、VoIP推送、地理位置推等其它特殊类型推送，同时实现方案使用Apple私有API实现，上架应用需要排除这部分工具实现的代码，否则有审核风险")
                 
                 SettingPageEntry.button2.buttonEntryModel(title: "Test Button")
                 
@@ -54,7 +59,6 @@ public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsPage {
         }
     }
 }
-
 
 extension DebugSettingsDemoUIKitMainPage {
     

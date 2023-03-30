@@ -23,6 +23,7 @@ public protocol SettingsPageEntryProtocol {
         icon: UIImage?,
         subtitle: String?,
         detail:String?,
+        helpInfoUrl: String?,
         default: Bool,
         sourceOfTruth: Bool?
     ) -> SettingsPageEntryModel
@@ -31,14 +32,16 @@ public protocol SettingsPageEntryProtocol {
         title: String,
         icon: UIImage?,
         subtitle: String?,
-        detail:String?
+        detail:String?,
+        helpInfoUrl: String?
     ) -> SettingsPageEntryModel
     
     func subPageEntryModel(
         title: String,
         icon: UIImage?,
         subtitle: String?,
-        detail:String?
+        detail:String?,
+        helpInfoUrl: String?
     ) -> SettingsPageEntryModel
     
 }
@@ -54,6 +57,7 @@ public extension SettingsPageEntryProtocol {
         icon: UIImage? = nil,
         subtitle: String? = nil,
         detail:String? = nil,
+        helpInfoUrl: String? = nil,
         default: Bool = false,
         sourceOfTruth: Bool? = nil
     ) -> SettingsPageEntryModel {
@@ -63,6 +67,7 @@ public extension SettingsPageEntryProtocol {
                 title: title,
                 subtitle: subtitle,
                 detailDescription: detail,
+                helpInfoUrl: helpInfoUrl,
                 type: .switch,
                 switchDefaultValue: `default`,
                 sourceOfTruth: sourceOfTruth,
@@ -76,7 +81,8 @@ public extension SettingsPageEntryProtocol {
         title: String,
         icon: UIImage? = nil,
         subtitle: String? = nil,
-        detail:String? = nil
+        detail:String? = nil,
+        helpInfoUrl: String? = nil
     ) -> SettingsPageEntryModel {
         SettingsPageEntryModel(
             id: self.entryId,
@@ -84,6 +90,7 @@ public extension SettingsPageEntryProtocol {
             title: title,
             subtitle: subtitle,
             detailDescription: detail,
+            helpInfoUrl: helpInfoUrl,
             type: .button,
             buttonClickAction: pageType.buttonClickAction)
     }
@@ -93,7 +100,8 @@ public extension SettingsPageEntryProtocol {
         title: String,
         icon: UIImage? = nil,
         subtitle: String? = nil,
-        detail:String? = nil
+        detail:String? = nil,
+        helpInfoUrl: String? = nil
     ) -> SettingsPageEntryModel {
         SettingsPageEntryModel(
             id: self.entryId,
@@ -101,6 +109,7 @@ public extension SettingsPageEntryProtocol {
             title: title,
             subtitle: subtitle,
             detailDescription: detail,
+            helpInfoUrl: helpInfoUrl,
             type: .subpage,
             subpageJumpAction: pageType.subpageJumpAction)
     }

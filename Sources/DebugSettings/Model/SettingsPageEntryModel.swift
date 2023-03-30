@@ -29,6 +29,9 @@ public class SettingsPageEntryModel: DSObjcBridgeClass, SettingsIdentifiable {
     /// 调试选项详情
     public var detailDescription: String?
     
+    /// 调试选项使用说明h5页面链接
+    public var helpInfoUrl: String?
+    
     /// 调试选项类型
     public let type: EntryType
     
@@ -72,6 +75,7 @@ public class SettingsPageEntryModel: DSObjcBridgeClass, SettingsIdentifiable {
         title: String,
         subtitle: String? = nil,
         detailDescription: String? = nil,
+        helpInfoUrl: String? = nil,
         type: EntryType,
         switchDefaultValue: Bool = false,
         sourceOfTruth: Bool? = nil,
@@ -85,6 +89,7 @@ public class SettingsPageEntryModel: DSObjcBridgeClass, SettingsIdentifiable {
             self.title = title
             self.subtitle = subtitle
             self.detailDescription = detailDescription
+            self.helpInfoUrl = helpInfoUrl
             self.type = type
             self.switchValueChangeAction = switchValueChangeAction
             self.switchClickAction = switchClickAction

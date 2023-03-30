@@ -10,6 +10,9 @@ import Foundation
 #if canImport(ObjcBridge)
 import ObjcBridge
 #endif
+#if canImport(Utils)
+import Utils
+#endif
 
 /// 用于UIKit类型App接入时的Demo页面
 public final class DebugSettingsDemoUIKitSubPage: SwiftDebugSettingsPage {
@@ -110,7 +113,10 @@ extension DebugSettingsDemoUIKitMainPage {
                 categoryDic["action_type"] = "click"
             case .valueChanged:
                 categoryDic["action_type"] = "value_changed"
-
+            case .gotoHelpPageDefault:
+                categoryDic["action_type"] = "gotoHelpPageDefault"
+            case .gotoHelpPageBizCustom:
+                categoryDic["action_type"] = "gotoHelpPageBizCustom"
             }
             
             var extraDict = [String: String]()
@@ -121,6 +127,9 @@ extension DebugSettingsDemoUIKitMainPage {
             
             // 上报用户使用行为
             print("Report Statistics Data To Biz Server")
+            print("categoryDict: \(categoryDic)")
+            print("extraDict: \(extraDict)")
+            print("\n")
         }
     }
 }
