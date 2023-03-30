@@ -13,9 +13,13 @@ import ObjcBridge
 public enum UserActionType {
     case click
     case valueChanged
+    case gotoHelpPageDefault
+    case gotoHelpPageBizCustom
 }
 
 public typealias SettingsPageUserAction = (_ entryItem: SettingsPageEntryModel, _ actionType: UserActionType) -> Void
+
+public typealias SettingsPageWebPageJumpAction = (_ pageURL: URL, _ pageTitle: String?) -> Bool
 
 /// 调试选项单例辅助类
 public class SettingsManager: DSObjcBridgeClass {
@@ -24,6 +28,9 @@ public class SettingsManager: DSObjcBridgeClass {
     
     /// 用户行为回调处理器
     var userActionHandler: SettingsPageUserAction?
+    
+    /// 业务侧实现自定义Web页面跳转逻辑
+    var bizWebPageJumpAction: SettingsPageWebPageJumpAction?
 }
 
 public extension SettingsManager {
@@ -75,6 +82,11 @@ public extension SettingsManager {
         SettingsManager.shared.userActionHandler = handler
     }
     
+    /// 设置业务方跳转WebView的自定义实现方式
+    /// - Parameter action: 跳转处理动作闭包
+    static func setBizWebPageJumpAction(_ action: @escaping SettingsPageWebPageJumpAction) {
+        SettingsManager.shared.bizWebPageJumpAction = action
+    }
     /// 页面连续刷新时，是否正在throttle状态中
     private static var refreshThrottling = false
 }

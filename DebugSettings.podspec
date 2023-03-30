@@ -25,8 +25,8 @@ Pod::Spec.new do |spec|
   spec.default_subspec = ['Core']
   
   swiftui_module_files = [
-  "Sources/DebugSettings/Demo/**/DebugSettingsDemoSwiftUIPage.swift",
-  "Sources/DebugSettings/View/SwiftUI/**/*.{swift}"
+    "Sources/DebugSettings/Demo/**/DebugSettingsDemoSwiftUIPage.swift",
+    "Sources/DebugSettings/View/SwiftUI/**/*.{swift}"
   ]
   
   spec.subspec 'Core' do |cs|
@@ -58,4 +58,5 @@ Pod::Spec.new do |spec|
   spec.subspec 'Utils' do |us|
     us.source_files = "Sources/Utils/**/*.{h,m,swift}"
   end
+  
 end

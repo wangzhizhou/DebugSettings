@@ -7,7 +7,9 @@
 
 import Foundation
 import UIKit
-
+#if canImport(Utils)
+import Utils
+#endif
 extension SwiftDebugSettingsPage {
     
     /// 处理开关值变化事件
