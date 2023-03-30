@@ -32,8 +32,8 @@ extension SettingsPageEntryModel {
             let helpPage = WebPage()
             helpPage.title = title
             helpPage.pageURL = self.helpURL
-            helpPage.pushOnTopViewController()
             helpPage.navigationBarHeight = navigationBarHeight
+            helpPage.pushOnTopViewController()
             // 走组件默认跳转逻辑事件回调业务方
             if let userActionHandler = SettingsManager.shared.userActionHandler {
                 userActionHandler(self, .gotoHelpPageDefault)
