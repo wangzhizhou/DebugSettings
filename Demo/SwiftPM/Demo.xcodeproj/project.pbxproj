@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2BC3FD30293099BD008B73EC /* DebugSettings */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DebugSettings; path = ../..; sourceTree = "<group>"; };
+		2B214D8F29D5E01200A1EB8A /* DebugSettings */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DebugSettings; path = ../..; sourceTree = "<group>"; };
 		F3D012BA291ABB0F00875334 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3D012BD291ABB0F00875334 /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
 		F3D012BF291ABB0F00875334 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,10 +38,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2BC3FD2F293099BD008B73EC /* Packages */ = {
+		2B214D8E29D5E01200A1EB8A /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				2BC3FD30293099BD008B73EC /* DebugSettings */,
+				2B214D8F29D5E01200A1EB8A /* DebugSettings */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -49,7 +49,7 @@
 		F3D012B1291ABB0E00875334 = {
 			isa = PBXGroup;
 			children = (
-				2BC3FD2F293099BD008B73EC /* Packages */,
+				2B214D8E29D5E01200A1EB8A /* Packages */,
 				F3D012BC291ABB0F00875334 /* Demo */,
 				F3D012BB291ABB0F00875334 /* Products */,
 			);
@@ -115,7 +115,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					F3D012B9291ABB0F00875334 = {
 						CreatedOnToolsVersion = 14.1;
@@ -202,6 +202,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -260,6 +261,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -287,6 +289,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Demo/Preview Content\"";
 				DEVELOPMENT_TEAM = 2N62934Y28;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -327,6 +330,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Demo/Preview Content\"";
 				DEVELOPMENT_TEAM = 2N62934Y28;
 				ENABLE_HARDENED_RUNTIME = YES;

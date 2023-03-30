@@ -32,9 +32,6 @@ Pod::Spec.new do |spec|
   spec.subspec 'Core' do |cs|
     cs.source_files  = "Sources/DebugSettings/**/*.{swift}"
     cs.exclude_files = swiftui_module_files
-    cs.resource_bundles = {
-      'DebugSettings' => ["Sources/DebugSettings/Resources/*.xcassets"]
-    }
     cs.dependency "DebugSettings/DebugTools"
   end
   

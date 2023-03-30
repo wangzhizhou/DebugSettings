@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/QMUI/LookinServer/",
         "state": {
           "branch": null,
-          "revision": "99f718eb68f5541007896f50215ecf76ad10f433",
-          "version": "1.1.4"
+          "revision": "b45e90cb3c1c59c0ad29f5eab13e696bb9034d8c",
+          "version": "1.1.5"
         }
       },
       {
@@ -24,7 +24,16 @@
         "repositoryURL": "https://github.com/apple/swift-docc-plugin",
         "state": {
           "branch": null,
-          "revision": "3303b164430d9a7055ba484c8ead67a52f7b74f6",
+          "revision": "9b1258905c21fc1b97bf03d1b4ca12c4ec4e5fda",
+          "version": "1.2.0"
+        }
+      },
+      {
+        "package": "SymbolKit",
+        "repositoryURL": "https://github.com/apple/swift-docc-symbolkit",
+        "state": {
+          "branch": null,
+          "revision": "b45d1f2ed151d057b54504d653e0da5552844e34",
           "version": "1.0.0"
         }
       },
