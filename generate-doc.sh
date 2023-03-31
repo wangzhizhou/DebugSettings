@@ -12,6 +12,11 @@ xcodebuild docbuild -scheme DebugSettings \
     OTHER_DOCC_FLAGS="--transform-for-static-hosting \
     --hosting-base-path DebugSettings --output-path docs"
 
+if [ $? -ne 0 ]; 
+  echo compile docc failed!
+  exit 1
+fi
+
 if [ -d "gh-pages/docs" ]; then
   rm -rf gh-pages/docs
 fi
