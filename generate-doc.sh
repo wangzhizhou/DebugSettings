@@ -3,6 +3,10 @@
 
 set -eu
 
+if [ -d gh-pages ]; then
+  git worktree remove gh-pages
+fi
+
 # Use git worktree to checkout the gh-pages branch of this repository in a gh-pages sub-directory
 git fetch
 git worktree add --checkout gh-pages origin/gh-pages
@@ -11,12 +15,6 @@ xcodebuild docbuild -scheme DebugSettings \
     -destination generic/platform=iphoneos \
     OTHER_DOCC_FLAGS="--transform-for-static-hosting \
     --hosting-base-path DebugSettings --output-path docs"
-
-if [ $? -ne 0 ]; then
-  git worktree remove gh-pages
-  echo compile docc failed!
-  exit 1
-fi
 
 if [ -d "gh-pages/docs" ]; then
   rm -rf gh-pages/docs
