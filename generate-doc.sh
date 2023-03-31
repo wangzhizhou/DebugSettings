@@ -7,12 +7,12 @@ set -eu
 git fetch
 git worktree add --checkout gh-pages origin/gh-pages
 
-DOC_DIR="gh-pages/docs"
 xcodebuild docbuild -scheme DebugSettings \
     -destination generic/platform=iphoneos \
     OTHER_DOCC_FLAGS="--transform-for-static-hosting \
-    --hosting-base-path DebugSettings --allow-writing-to-directory ${DOC_DIR} --output-path ${DOC_DIR}"
+    --hosting-base-path DebugSettings --output-path docs"
 
+mv docs/  gh-pages/
 # Save the current commit we've just built documentation from in a variable
 CURRENT_COMMIT_HASH=`git rev-parse --short HEAD`
 
