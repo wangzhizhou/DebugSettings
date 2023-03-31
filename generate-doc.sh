@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 
 # swift package \
+# --disable-sandbox \
 # -Xswiftc "-sdk" \
 # -Xswiftc "`xcrun --sdk iphonesimulator --show-sdk-path`" \
 # -Xswiftc "-target" \
-# -Xswiftc "x86_64-apple-ios13.0-simulator" \
+# -Xswiftc "arm64-apple-ios13.0-simulator" \
 # --allow-writing-to-directory ./docs \
 # generate-documentation --target DebugSettings \
 # --disable-indexing \
