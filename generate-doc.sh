@@ -10,7 +10,7 @@ git worktree add --checkout gh-pages origin/gh-pages
 xcodebuild docbuild -scheme DebugSettings \
     -destination generic/platform=iphoneos \
     OTHER_DOCC_FLAGS="--transform-for-static-hosting \
-    --hosting-base-path DebugSettings --output-path gh-pages/docs"
+    --hosting-base-path DebugSettings --output-path docs"
 
 # Save the current commit we've just built documentation from in a variable
 CURRENT_COMMIT_HASH=`git rev-parse --short HEAD`
