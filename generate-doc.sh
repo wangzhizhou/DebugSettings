@@ -16,12 +16,13 @@ xcodebuild docbuild -scheme DebugSettings \
     OTHER_DOCC_FLAGS="--transform-for-static-hosting \
     --hosting-base-path DebugSettings --output-path ./docs"
 
-if [ -d "gh-pages/docs" ]; then
-  rm -rf gh-pages/docs
-fi
-
 if [ -d "docs" ]; then
+  if [ -d "gh-pages/docs" ]; then
+    rm -rf gh-pages/docs
+  fi
   mv -f docs/  gh-pages/
+else
+  exit -1
 fi
 
 # Save the current commit we've just built documentation from in a variable
