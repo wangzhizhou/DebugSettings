@@ -14,7 +14,7 @@ git worktree add --checkout gh-pages origin/gh-pages
 xcodebuild docbuild -scheme DebugSettings \
     -destination generic/platform=iphoneos \
     OTHER_DOCC_FLAGS="--transform-for-static-hosting \
-    --hosting-base-path DebugSettings --output-path docs"
+    --hosting-base-path DebugSettings --output-path ./docs"
 
 if [ -d "gh-pages/docs" ]; then
   rm -rf gh-pages/docs
