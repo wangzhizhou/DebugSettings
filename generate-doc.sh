@@ -12,7 +12,8 @@ xcodebuild docbuild -scheme DebugSettings \
     OTHER_DOCC_FLAGS="--transform-for-static-hosting \
     --hosting-base-path DebugSettings --output-path docs"
 
-if [ $? -ne 0 ]; 
+if [ $? -ne 0 ]; then
+  git worktree remove gh-pages
   echo compile docc failed!
   exit 1
 fi
