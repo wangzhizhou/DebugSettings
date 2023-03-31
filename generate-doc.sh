@@ -22,6 +22,10 @@ if [ -d "docs" ]; then
   fi
   mv -f docs/  gh-pages/
 else
+  echo compile docc failed
+  if [ -d gh-pages ]; then
+    git worktree remove gh-pages
+  fi
   exit -1
 fi
 
