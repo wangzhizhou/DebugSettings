@@ -1,5 +1,8 @@
 import SnapKit
 import UIKit
+#if canImport(Utils)
+import Utils
+#endif
 #if canImport(Toast)
 import Toast
 #endif
@@ -9,7 +12,7 @@ import Toast_Swift
 
 /// 用来定义调试页面UI布局样式的UIKit页面容器，收敛在SDK内部实现，方便调试页面UI样式的统一
 @objcMembers
-public class SettingsUIKitPage: UIViewController {
+public class SettingsUIKitPage: BasePage {
     
     var currentSectionIndex: Int? = nil {
         didSet {
@@ -34,23 +37,10 @@ public class SettingsUIKitPage: UIViewController {
         super.viewDidLoad()
         
         title = pageModel.title
-        let backButton = UIButton(type: .custom)
-        let backImage = UIImage.leftArrowImage
-        backButton.setImage(backImage, for: .normal)
-        backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+        navigationBarHeight = pageModel.navigationBarHeight
         
         self.view.addSubview(tableView)
-        tableView.snp.makeConstraints { make in
-            make.left.right.equalTo(self.view)
-            if #available(iOS 11.0, *) {
-                make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(pageModel.navigationBarHeight)
-                make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
-            } else {
-                make.top.equalTo(self.topLayoutGuide.snp.bottom)
-                make.bottom.equalTo(self.bottomLayoutGuide.snp.top)
-            }
-        }
+        adjustFullPageView(tableView)
         
         NotificationCenter.default.addObserver(self, selector:#selector(refreshPage) , name: .SettingsPageRefresh, object: nil)
     }
@@ -62,11 +52,7 @@ public class SettingsUIKitPage: UIViewController {
         }
         tableView.reloadData()
     }
-    
-    func backAction(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
+
     lazy var tableView: UITableView = {
         let ret = UITableView(frame: .zero, style: .grouped)
         ret.dataSource = self

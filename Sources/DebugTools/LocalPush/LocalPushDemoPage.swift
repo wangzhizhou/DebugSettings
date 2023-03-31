@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SnapKit
+
 #if canImport(Toast)
 import Toast
 #endif
@@ -15,12 +17,11 @@ import Toast_Swift
 #if canImport(Utils)
 import Utils
 #endif
-import SnapKit
 
 /// 用来演示Local Push功能的Demo页面
 @objcMembers
 @available(iOS 10.0, *)
-open class LocalPushDemoPage: UIViewController {
+open class LocalPushDemoPage: BasePage {
     
     var sendAfterSecond: Float = 5 {
         didSet {
@@ -47,18 +48,6 @@ open class LocalPushDemoPage: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        if #available(iOS 13.0, *) {
-            self.view.backgroundColor = UIColor(dynamicProvider: { trait in
-                if trait.userInterfaceStyle == .light {
-                    return .white
-                } else {
-                    return .clear
-                }
-            })
-        } else {
-            self.view.backgroundColor = .white
-        }
-        
         self.view.addSubview(self.slider)
         self.view.addSubview(self.payloadTextView)
         
@@ -80,20 +69,12 @@ open class LocalPushDemoPage: UIViewController {
         
         self.slider.addTarget(self, action: #selector(sliderValueChanged(sender:)), for: .valueChanged)
         
-        
-        let backBarButtonItem = UIBarButtonItem(title: "返回", style: .plain, target: self, action: #selector(backAction(sender:)))
-        self.navigationItem.leftBarButtonItem = backBarButtonItem
-        
         let sendBarButtonItem = UIBarButtonItem(title: "发送", style: .done, target: self, action: #selector(sendAction(sender:)))
         self.navigationItem.rightBarButtonItem = sendBarButtonItem
     }
     
     @objc func sliderValueChanged(sender: UISlider) {
         self.sendAfterSecond = sender.value
-    }
-    
-    @objc func backAction(sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func sendAction(sender: UIBarButtonItem) {

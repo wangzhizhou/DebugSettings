@@ -44,8 +44,6 @@ Pod::Spec.new do |spec|
     dt.source_files = "Sources/DebugTools/**/*.{h,m,swift}"
     dt.dependency "DebugSettings/OCBridge"
     dt.dependency "DebugSettings/Utils"
-    dt.dependency "Toast-Swift", "~> 5.0.1"
-    dt.dependency "SnapKit", "~> 5.0.0"
   end
   
   spec.subspec 'OCBridge' do |oc|
@@ -54,6 +52,8 @@ Pod::Spec.new do |spec|
   
   spec.subspec 'Utils' do |us|
     us.source_files = "Sources/Utils/**/*.{h,m,swift}"
+    us.dependency "Toast-Swift", "~> 5.0.1"
+    us.dependency "SnapKit", "~> 5.0.0"
   end
   
 end
