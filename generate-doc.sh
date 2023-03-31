@@ -12,7 +12,7 @@ xcodebuild docbuild -scheme DebugSettings \
     OTHER_DOCC_FLAGS="--transform-for-static-hosting \
     --hosting-base-path DebugSettings --output-path docs"
 
-mv docs/  gh-pages/
+mv -f docs/  gh-pages/
 # Save the current commit we've just built documentation from in a variable
 CURRENT_COMMIT_HASH=`git rev-parse --short HEAD`
 
