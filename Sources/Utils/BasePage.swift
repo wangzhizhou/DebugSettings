@@ -10,9 +10,9 @@ import SnapKit
 
 open class BasePage: UIViewController {
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if #available(iOS 13.0, *) {
             self.view.backgroundColor = UIColor(dynamicProvider: { trait in
                 if trait.userInterfaceStyle == .light {
@@ -24,7 +24,7 @@ open class BasePage: UIViewController {
         } else {
             self.view.backgroundColor = .white
         }
-        
+
         let backButton = UIButton(type: .custom)
         backButton.setImage(UIImage.leftArrowImage, for: .normal)
         backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)

@@ -8,6 +8,10 @@
 #if canImport(SwiftUI)
 import SwiftUI
 
+#if canImport(Utils)
+import Utils
+#endif
+
 extension SettingsPageSectionModel: Identifiable {
     public var id: String { UUID().uuidString }
 }
@@ -64,6 +68,9 @@ public struct SettingsContentView: View {
                                     }
                                 }))
                                 .frame(width: 64, height: 24)
+                            }
+                            if item.type == .subpage, let uiImage = UIImage.rightArrowImage {
+                                Image(uiImage: uiImage)
                             }
                         }
                         .onTapGesture {

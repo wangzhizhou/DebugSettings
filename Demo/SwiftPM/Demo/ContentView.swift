@@ -21,14 +21,11 @@ struct ContentView: View {
                 Text("Hello, world!")
             }
             .padding()
-            .navigationBarItems(trailing:NavigationLink("SwiftUI") {
+            .navigationBarItems(trailing:NavigationLink("调试设置") {
                 SettingsContentView(model: DebugSettingsDemoSwiftUIPage.pageModel)
                     .navigationTitle("高级调试")
             })
-            .navigationBarItems(leading:NavigationLink("UIKit") {
-                DebugSettingsDemoUIKitPage()
-            })
-            .navigationTitle("SwiftUI Demo")
+            .navigationTitle("SwiftPM SwiftUI Demo")
             .navigationBarTitleDisplayMode(.inline)
         }
         .onChange(of: scenePhase) { newScenePhase in
@@ -39,17 +36,6 @@ struct ContentView: View {
                 break
             }
         }
-    }
-}
-
-struct DebugSettingsDemoUIKitPage: UIViewControllerRepresentable {
-    
-    func makeUIViewController(context: Context) -> some UIViewController {
-        let uikitVC = SettingsUIKitPage(pageModel: DebugSettingsDemoUIKitMainPage.pageModel)
-        return uikitVC
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
     }
 }
 

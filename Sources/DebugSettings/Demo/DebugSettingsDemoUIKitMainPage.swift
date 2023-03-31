@@ -27,9 +27,12 @@ public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsPage {
         // 按钮类
         case button1
         case button2
+        case button3
+        case button4
         
         // 子页面类
         case subpage1
+        case subpage2
         
         // SettingsPageEntryProtocol
         var id: String { self.rawValue }
@@ -39,10 +42,10 @@ public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsPage {
     public override class var pageId: String { SettingsPage.main.id }
     public override class var pageModel: SettingsPageModel {
         SettingsPageModel(id: self.pageId, name: "调试页面") {
-            SettingsPageSectionModel(name: "Section1") {
+            SettingsPageSectionModel(name: "Section 1") {
                 
                 SettingPageEntry.switch1.switchEntryModel(
-                    title: "switch1",
+                    title: "switch 1",
                     subtitle: "只是一个测试开关 只是一个测试开关 只是一个测试开关",
                     detail: "description description description description",
                     helpInfoUrl: "https://www.baidu.com")
@@ -55,6 +58,24 @@ public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsPage {
                 SettingPageEntry.button2.buttonEntryModel(title: "Test Button")
                 
                 SettingPageEntry.subpage1.subPageEntryModel(title: "UIKit子页面")
+            }
+            
+            SettingsPageSectionModel(name: "Section 2") {
+                
+                SettingPageEntry.switch2.switchEntryModel(
+                    title: "switch 2",
+                    subtitle: "只是一个测试开关 只是一个测试开关 只是一个测试开关",
+                    detail: "description description description description",
+                    helpInfoUrl: "https://www.baidu.com")
+                
+                SettingPageEntry.button3.buttonEntryModel(
+                    title: "Local Push",
+                    subtitle: "本地模拟远程推送，测试通知跳转逻辑",
+                    detail: "仅支持本地普通Alert推送模拟，不支持 静默推送、VoIP推送、地理位置推等其它特殊类型推送，同时实现方案使用Apple私有API实现，上架应用需要排除这部分工具实现的代码，否则有审核风险")
+                
+                SettingPageEntry.button4.buttonEntryModel(title: "Test Button")
+                
+                SettingPageEntry.subpage2.subPageEntryModel(title: "UIKit子页面")
             }
         }
     }

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Cocoapods Demo-->
+        <!--Cocoapods UIKit Demo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,8 +19,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Cocoapods Demo" id="sco-ym-612">
-                        <barButtonItem key="rightBarButtonItem" title="高级调试" id="FaR-sJ-W3X">
+                    <navigationItem key="navigationItem" title="Cocoapods UIKit Demo" id="sco-ym-612">
+                        <barButtonItem key="rightBarButtonItem" title="调试设置" id="FaR-sJ-W3X">
                             <connections>
                                 <action selector="showDebugTools:" destination="BYZ-38-t0r" id="S5v-Xf-Ctc"/>
                             </connections>
