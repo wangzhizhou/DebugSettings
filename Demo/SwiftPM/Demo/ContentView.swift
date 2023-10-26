@@ -9,9 +9,6 @@ import SwiftUI
 import DebugSettings
 
 struct ContentView: View {
-    
-    @Environment(\.scenePhase) var scenePhase: ScenePhase
-    
     var body: some View {
         NavigationView {
             VStack {
@@ -27,14 +24,6 @@ struct ContentView: View {
             })
             .navigationTitle("SwiftPM SwiftUI Demo")
             .navigationBarTitleDisplayMode(.inline)
-        }
-        .onChange(of: scenePhase) { newScenePhase in
-            switch newScenePhase {
-            case .active:
-                SettingsManager.defaultSetup()
-            default:
-                break
-            }
         }
     }
 }

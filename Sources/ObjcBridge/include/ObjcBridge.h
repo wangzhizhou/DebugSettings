@@ -11,3 +11,4 @@
 #import "DSObjcBridgeProtocol.h"
 #import "DebugSettings.h"
 #import "DSLocalPushOCBridge.h"
+#import "DSEventEmitter.h"

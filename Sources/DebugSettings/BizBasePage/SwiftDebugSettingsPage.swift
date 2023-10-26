@@ -60,10 +60,6 @@ open class SwiftDebugSettingsPage: NSObject, SwiftDebugSettingsPageProtocol {
         afterShow()
     }
     
-
-    
-    
-    
     /// 在调试页面展示Toast提示
     /// - Parameter message: Toast提示内容
     public static func showToast(_ message: String) {
