@@ -13,3 +13,10 @@ import SwiftUI
 public class SettingsSwiftUIPage<Content>: UIHostingController<Content> where Content : View {
 }
 #endif
+
+public func show(with pageModel: SettingsPageModel) {
+    if #available(iOS 13, *) {
+        let rootView = SettingsContentView(model: pageModel).navigationBarTitle(pageModel.title)
+        SettingsSwiftUIPage(rootView: rootView).pushOnTopViewController()
+    }
+}

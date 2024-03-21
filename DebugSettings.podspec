@@ -42,6 +42,7 @@ Pod::Spec.new do |spec|
     dt.dependency 'DebugSettings/OCBridge'
     dt.dependency 'DebugSettings/Utils'
     dt.dependency 'LookinServer' # [LookIn官网](https://lookin.work/)
+    dt.dependency 'FLEX' # [FLEX](https://github.com/FLEXTool/FLEX)
   end
 
   spec.subspec 'OCBridge' do |oc|

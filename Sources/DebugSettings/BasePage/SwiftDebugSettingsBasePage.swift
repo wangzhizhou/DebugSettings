@@ -54,13 +54,6 @@ open class SwiftDebugSettingsBasePage: NSObject, SwiftDebugSettingsPageProtocol 
         }
         beforeShow()
         let page = SettingsUIKitPage(pageModel: pageModel)
-        if #available(iOS 13.0, *) {
-            let rootView = SettingsContentView(model: self.pageModel).navigationBarTitle(self.pageModel.title)
-            SettingsSwiftUIPage(rootView: rootView).pushOnTopViewController()
-        } else {
-            // Fallback on earlier versions
-            fatalError("not available in this operation system version")
-        }
         weakPage = page
         page.pushOnTopViewController()
         afterShow()
