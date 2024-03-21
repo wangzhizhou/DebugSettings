@@ -13,6 +13,9 @@ import ObjcBridge
 #if canImport(Utils)
 import Utils
 #endif
+#if canImport(Core)
+import Core
+#endif
 
 /// 用于UIKit类型App接入时的Demo页面
 public final class DebugSettingsDemoUIKitSubPage: SwiftDebugSettingsPage {

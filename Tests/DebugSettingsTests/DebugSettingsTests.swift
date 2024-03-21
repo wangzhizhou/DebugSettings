@@ -1,5 +1,5 @@
 import XCTest
-@testable import DebugSettings
+@testable import Core
 
 final class DebugSettingsTests: XCTestCase {
     func testExample() throws {

@@ -9,6 +9,9 @@ import Foundation
 #if canImport(ObjcBridge)
 import ObjcBridge
 #endif
+#if canImport(Persistence)
+import Persistence
+#endif
 
 /// 调试页面中对应每一个调试选项的数据模型定义
 @objcMembers

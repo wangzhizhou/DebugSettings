@@ -9,6 +9,9 @@ import Foundation
 #if canImport(ObjcBridge)
 import ObjcBridge
 #endif
+#if canImport(Persistence)
+import Persistence
+#endif
 
 public enum UserActionType {
     case click

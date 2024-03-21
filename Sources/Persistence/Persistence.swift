@@ -15,7 +15,7 @@ public class Persistence {
     /// 获取指定id对应的存储布尔值
     /// - Parameter identifier: 存储Id
     /// - Returns: 存储id对应的布尔值
-    static func boolValueForId(_ identifier: String) -> Bool? {
+    public static func boolValueForId(_ identifier: String) -> Bool? {
         guard let obj = settingsStore?.object(forKey: identifier) else {
             return nil
         }
@@ -26,20 +26,20 @@ public class Persistence {
     /// - Parameters:
     ///   - value: 需要存储的布尔值
     ///   - id: 对应的Id
-    static func saveBoolValue(_ value: Bool, for id: String) {
+    public static func saveBoolValue(_ value: Bool, for id: String) {
         settingsStore?.set(value, forKey: id)
     }
     
     
     /// 移除指定ID对应的布尔值
     /// - Parameter id: 对应的ID
-    static func removeBoolValue(for id: String) {
+    public static func removeBoolValue(for id: String) {
         settingsStore?.removeObject(forKey: id)
         settingsStore?.synchronize()
     }
     
     /// 清除所有存储的Key
-    static func clearAll() {
+    public static func clearAll() {
         settingsStore?.dictionaryRepresentation().keys.forEach {
             settingsStore?.removeObject(forKey: $0)
         }

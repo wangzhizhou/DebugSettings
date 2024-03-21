@@ -6,7 +6,8 @@
 //
 #if canImport(SwiftUI)
 import SwiftUI
-import DebugSettings
+import DemoPages
+import Core
 
 struct ContentView: View {
     

@@ -1,52 +1,32 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "LookinServer",
-        "repositoryURL": "https://github.com/QMUI/LookinServer/",
-        "state": {
-          "branch": null,
-          "revision": "b45e90cb3c1c59c0ad29f5eab13e696bb9034d8c",
-          "version": "1.1.5"
-        }
-      },
-      {
-        "package": "SnapKit",
-        "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
-        "state": {
-          "branch": null,
-          "revision": "f222cbdf325885926566172f6f5f06af95473158",
-          "version": "5.6.0"
-        }
-      },
-      {
-        "package": "SwiftDocCPlugin",
-        "repositoryURL": "https://github.com/apple/swift-docc-plugin",
-        "state": {
-          "branch": null,
-          "revision": "9b1258905c21fc1b97bf03d1b4ca12c4ec4e5fda",
-          "version": "1.2.0"
-        }
-      },
-      {
-        "package": "SymbolKit",
-        "repositoryURL": "https://github.com/apple/swift-docc-symbolkit",
-        "state": {
-          "branch": null,
-          "revision": "b45d1f2ed151d057b54504d653e0da5552844e34",
-          "version": "1.0.0"
-        }
-      },
-      {
-        "package": "Toast",
-        "repositoryURL": "https://github.com/scalessec/Toast-Swift.git",
-        "state": {
-          "branch": null,
-          "revision": "0c9493eeacb102cc614da385cfaaf475379f4ab4",
-          "version": "5.0.1"
-        }
+  "pins" : [
+    {
+      "identity" : "lookinserver",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/QMUI/LookinServer/",
+      "state" : {
+        "revision" : "985e8afe77aa2f3fab599da4f9882f6e43eed919",
+        "version" : "1.2.7"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit.git",
+      "state" : {
+        "revision" : "2842e6e84e82eb9a8dac0100ca90d9444b0307f4",
+        "version" : "5.7.1"
+      }
+    },
+    {
+      "identity" : "toast-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/scalessec/Toast-Swift.git",
+      "state" : {
+        "revision" : "404ac98e0080a3d9f0630e007838284e04528bcd",
+        "version" : "5.1.0"
+      }
+    }
+  ],
+  "version" : 2
 }

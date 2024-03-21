@@ -10,6 +10,9 @@ import SwiftUI
 #if canImport(Utils)
 import Utils
 #endif
+#if canImport(Core)
+import Core
+#endif
 /// 用于SwiftUI类型App接入时的Demo页面
 public final class DebugSettingsDemoSwiftUIPage: SwiftDebugSettingsPage {
     
