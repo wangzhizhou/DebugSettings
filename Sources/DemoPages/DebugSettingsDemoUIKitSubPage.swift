@@ -13,8 +13,8 @@ import ObjcBridge
 #if canImport(Utils)
 import Utils
 #endif
-#if canImport(Core)
-import Core
+#if canImport(DebugSettings)
+import DebugSettings
 #endif
 
 /// 用于UIKit类型App接入时的Demo页面

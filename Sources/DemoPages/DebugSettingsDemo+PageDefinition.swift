@@ -6,8 +6,8 @@
 //
 
 import Foundation
-#if canImport(Core)
-import Core
+#if canImport(DebugSettings)
+import DebugSettings
 #endif
 
 /// 定义页面ID，在同一个枚举中定义，保证ID唯一

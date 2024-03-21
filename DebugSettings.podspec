@@ -26,19 +26,13 @@ Pod::Spec.new do |spec|
   spec.swift_version = '5.0'
   spec.default_subspec = ['Core']
 
-  swiftui_module_files = [
-  'Sources/DemoPages/**/DebugSettingsDemoSwiftUIPage.swift',
-  'Sources/DebugSettings/View/SwiftUI/**/*.{swift}'
-  ]
-
   spec.subspec 'DemoPages' do |demo|
     demo.source_files = 'Sources/DemoPages/**/*.swift'
     demo.dependency 'DebugSettings/Core'
   end
 
   spec.subspec 'Core' do |cs|
-    cs.source_files  = 'Sources/Core/**/*.{swift}'
-    cs.exclude_files = swiftui_module_files
+    cs.source_files  = 'Sources/DebugSettings/**/*.{swift}'
     cs.dependency 'DebugSettings/DebugTools'
     cs.dependency 'DebugSettings/Persistence'
   end
@@ -62,11 +56,6 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'Persistence' do |ps|
     ps.source_files = 'Sources/Persistence/**/*.swift'
-  end
-
-  spec.subspec 'SwiftUI' do |swiftui|
-    swiftui.source_files  = swiftui_module_files
-    swiftui.dependency 'DebugSettings/Core'
   end
 
 end

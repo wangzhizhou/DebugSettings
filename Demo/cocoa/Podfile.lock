@@ -33,7 +33,7 @@ EXTERNAL SOURCES:
     :path: "../../DebugSettings.podspec"
 
 SPEC CHECKSUMS:
-  DebugSettings: f2bf95e7c101f2dd5b9a3f8ab6eb030c06a0aad7
+  DebugSettings: 3fcef760ed76e9446b104a362c05f1402b723c1e
   LookinServer: 36f1a0ad280de34b9794cf8825867fcc2dd93e75
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Toast-Swift: dd369e68ee529f542c65bd0d0c6c50cd743cf6f2
