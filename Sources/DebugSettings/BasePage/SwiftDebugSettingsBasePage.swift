@@ -1,5 +1,5 @@
 //
-//  SwiftDebugSettingsPage.swift
+//  SwiftDebugSettingsBasePage.swift
 //  FHDebug
 //
 //  Created by joker on 2022/11/11.
@@ -16,7 +16,7 @@ import Toast_Swift
 
 /// 业务侧调试设置页面继承的基类，封装了通用能力，部分API由子类覆盖
 @objcMembers
-open class SwiftDebugSettingsPage: NSObject, SwiftDebugSettingsPageProtocol {
+open class SwiftDebugSettingsBasePage: NSObject, SwiftDebugSettingsPageProtocol {
 
     /// 定义pageId，子类覆盖实现，这里的默认值为兜底
     open class var pageId: String {
@@ -54,6 +54,13 @@ open class SwiftDebugSettingsPage: NSObject, SwiftDebugSettingsPageProtocol {
         }
         beforeShow()
         let page = SettingsUIKitPage(pageModel: pageModel)
+        if #available(iOS 13.0, *) {
+            let rootView = SettingsContentView(model: self.pageModel).navigationBarTitle(self.pageModel.title)
+            SettingsSwiftUIPage(rootView: rootView).pushOnTopViewController()
+        } else {
+            // Fallback on earlier versions
+            fatalError("not available in this operation system version")
+        }
         weakPage = page
         page.pushOnTopViewController()
         afterShow()

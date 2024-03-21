@@ -1,5 +1,5 @@
 //
-//  SwiftDebugSettingsPage+EventHandler.swift
+//  SwiftDebugSettingsBasePage+EventHandler.swift
 //  FHDebug
 //
 //  Created by joker on 2022/11/11.
@@ -10,7 +10,7 @@ import UIKit
 #if canImport(Utils)
 import Utils
 #endif
-extension SwiftDebugSettingsPage {
+extension SwiftDebugSettingsBasePage {
 
     /// 处理开关值变化事件
     /// - Parameter entryItem: 开关类调试选项数据模型
@@ -27,25 +27,25 @@ extension SwiftDebugSettingsPage {
     open class func switchClickAction(_ entryItem: SettingsPageEntryModel) {}
 }
 
-extension SwiftDebugSettingsPage {
+extension SwiftDebugSettingsBasePage {
 
     /// 处理按钮类设置项的事件处理器
     /// - Parameter entryItem: 按钮类调试选项数据模型
     open class func buttonClickAction(_ entryItem: SettingsPageEntryModel) {}
 }
 
-extension SwiftDebugSettingsPage {
+extension SwiftDebugSettingsBasePage {
 
     /// 处理跳转子页面事件
     /// - Parameter entryItem: 子页面类设置项数据模型
     /// - Parameter from: 发生跳转时所在的页面VC
     open class func subpageJumpAction(
         _ entryItem: SettingsPageEntryModel,
-        _ from: UIViewController? = UIViewController.topViewController()
+        _ from: UIViewController?
     ) {}
 }
 
-extension SwiftDebugSettingsPage {
+extension SwiftDebugSettingsBasePage {
 
     open class func beforeSetup() {}
 

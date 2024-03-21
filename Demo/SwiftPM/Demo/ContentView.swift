@@ -23,7 +23,7 @@ struct ContentView: View {
             }
             .padding()
             .navigationBarItems(trailing:NavigationLink("调试设置") {
-                SettingsContentView(model: DebugSettingsDemoSwiftUIPage.pageModel)
+                SettingsContentView(model: DebugSettingsDemoUIKitMainPage.pageModel)
                     .navigationTitle("高级调试")
             })
             .navigationTitle("SwiftPM SwiftUI Demo")

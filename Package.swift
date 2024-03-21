@@ -25,6 +25,9 @@ let package = Package(
         // [MacOS App](https://github.com/hughkli/Lookin/)
         // [LookInServer](https://github.com/QMUI/LookinServer)
         .package(url: "https://github.com/QMUI/LookinServer/", .upToNextMajor(from: "1.0.0")),
+
+        //
+        .package(url: "https://github.com/FLEXTool/FLEX.git", .upToNextMajor(from: "5.22.10")),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -32,7 +35,7 @@ let package = Package(
         .target(name: "DemoPages", dependencies: ["DebugSettings"]),
         .target(name: "DebugSettings", dependencies: ["DebugTools", "Persistence"]),
         .testTarget(name: "DebugSettingsTests", dependencies: ["DebugSettings"]),
-        .target(name: "DebugTools", dependencies: ["LookinServer", "Utils", "ObjcBridge"]),
+        .target(name: "DebugTools", dependencies: ["LookinServer", "Utils", "ObjcBridge", "FLEX"]),
         .target(name: "ObjcBridge"),
         .target(name: "Persistence"),
         .target(name: "Utils", dependencies: [

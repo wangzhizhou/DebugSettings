@@ -14,8 +14,8 @@ import DebugSettings
 enum SettingsPage: String, CaseIterable, SettingsPageIdentifiable {
     
     case main
+
     case subpage
-    case swiftui
-    
+
     var id: String { self.rawValue }
 }

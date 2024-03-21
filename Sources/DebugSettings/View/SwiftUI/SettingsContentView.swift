@@ -1,6 +1,6 @@
 //
 //  SwiftUIView.swift
-//  
+//
 //
 //  Created by joker on 2022/11/9.
 //
@@ -61,7 +61,7 @@ public struct SettingsContentView: View {
                                     item.isSwitchOn ?? false
                                 }, set: { newValue in
                                     item.isSwitchOn = newValue
-                                    
+
                                     // 开关值变化事件上抛
                                     if let userActionHandler = SettingsManager.shared.userActionHandler {
                                         userActionHandler(item, .valueChanged)
@@ -73,6 +73,7 @@ public struct SettingsContentView: View {
                                 Image(uiImage: uiImage)
                             }
                         }
+                        .contentShape(Rectangle())
                         .onTapGesture {
                             UIImpactFeedbackGenerator().impactOccurred()
                             switch item.type {
@@ -86,10 +87,10 @@ public struct SettingsContentView: View {
                                 }
                             case .subpage:
                                 if let subPageJumpAction = item.subpageJumpAction {
-                                    subPageJumpAction(item, nil)
+                                    subPageJumpAction(item, UIViewController.topViewController())
                                 }
                             }
-                            
+
                             // 统计用户点击行为
                             if let userActionHandler = SettingsManager.shared.userActionHandler {
                                 userActionHandler(item, .click)
@@ -101,7 +102,7 @@ public struct SettingsContentView: View {
             }
         }
         .listStyle(PlainListStyle())
-        
+
     }
 }
 #endif

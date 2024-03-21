@@ -15,7 +15,7 @@ public protocol SettingsPageEntryProtocol {
     var id: String { get }
     
     /// 绑定调试选项所在的页面类型，用于生成调试选项的全局唯一Id，从而支持开关类调试选项开关值的持久化存储
-    var pageType: SwiftDebugSettingsPage.Type { get }
+    var pageType: SwiftDebugSettingsBasePage.Type { get }
     
     func switchEntryModel(
         title: String,

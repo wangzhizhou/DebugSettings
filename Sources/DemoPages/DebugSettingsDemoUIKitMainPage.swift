@@ -16,30 +16,22 @@ import Utils
 #if canImport(DebugSettings)
 import DebugSettings
 #endif
+import FLEX
 
 /// 用于UIKit类型App接入时的Demo页面
-public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsPage {
+public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsBasePage {
     
     /// 定义页面内调试选项，同一个枚举中可以保证页面内部调试选项的Id唯一性
     private enum SettingPageEntry: String, CaseIterable, SettingsPageEntryProtocol {
         
         // 开关类
-        case switch1
-        case switch2
-        
-        // 按钮类
-        case button1
-        case button2
-        case button3
-        case button4
-        
-        // 子页面类
-        case subpage1
-        case subpage2
-        
+        case FLEX
+        case LocalPush
+        case uikitSubPage
+
         // SettingsPageEntryProtocol
         var id: String { self.rawValue }
-        var pageType: SwiftDebugSettingsPage.Type { DebugSettingsDemoUIKitMainPage.self }
+        var pageType: SwiftDebugSettingsBasePage.Type { DebugSettingsDemoUIKitMainPage.self }
     }
     
     public override class var pageId: String { SettingsPage.main.id }
@@ -47,38 +39,19 @@ public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsPage {
         SettingsPageModel(id: self.pageId, name: "调试页面") {
             SettingsPageSectionModel(name: "Section 1") {
                 
-                SettingPageEntry.switch1.switchEntryModel(
-                    title: "switch 1",
-                    subtitle: "只是一个测试开关 只是一个测试开关 只是一个测试开关",
-                    detail: "description description description description",
-                    helpInfoUrl: "https://www.baidu.com")
-                
-                SettingPageEntry.button1.buttonEntryModel(
+                SettingPageEntry.FLEX.buttonEntryModel(
+                    title: "FLEX",
+                    detail: "FLEX (Flipboard Explorer) is a set of in-app debugging and exploration tools for iOS development. When presented, FLEX shows a toolbar that lives in a window above your application. From this toolbar, you can view and modify nearly every piece of state in your running application.",
+                    helpInfoUrl: "https://github.com/FLEXTool/FLEX"
+                )
+
+                SettingPageEntry.LocalPush.subPageEntryModel(
                     title: "Local Push",
                     subtitle: "本地模拟远程推送，测试通知跳转逻辑",
-                    detail: "仅支持本地普通Alert推送模拟，不支持 静默推送、VoIP推送、地理位置推等其它特殊类型推送，同时实现方案使用Apple私有API实现，上架应用需要排除这部分工具实现的代码，否则有审核风险")
-                
-                SettingPageEntry.button2.buttonEntryModel(title: "Test Button")
-                
-                SettingPageEntry.subpage1.subPageEntryModel(title: "UIKit子页面")
-            }
-            
-            SettingsPageSectionModel(name: "Section 2") {
-                
-                SettingPageEntry.switch2.switchEntryModel(
-                    title: "switch 2",
-                    subtitle: "只是一个测试开关 只是一个测试开关 只是一个测试开关",
-                    detail: "description description description description",
-                    helpInfoUrl: "https://www.baidu.com")
-                
-                SettingPageEntry.button3.buttonEntryModel(
-                    title: "Local Push",
-                    subtitle: "本地模拟远程推送，测试通知跳转逻辑",
-                    detail: "仅支持本地普通Alert推送模拟，不支持 静默推送、VoIP推送、地理位置推等其它特殊类型推送，同时实现方案使用Apple私有API实现，上架应用需要排除这部分工具实现的代码，否则有审核风险")
-                
-                SettingPageEntry.button4.buttonEntryModel(title: "Test Button")
-                
-                SettingPageEntry.subpage2.subPageEntryModel(title: "UIKit子页面")
+                    detail: "仅支持本地普通Alert推送模拟，不支持 静默推送、VoIP推送、地理位置推等其它特殊类型推送，同时实现方案使用Apple私有API实现，上架应用需要排除这部分工具实现的代码，否则有审核风险"
+                )
+
+                SettingPageEntry.uikitSubPage.subPageEntryModel(title: "UIKit 子页面")
             }
         }
     }
@@ -98,18 +71,20 @@ extension DebugSettingsDemoUIKitMainPage {
         print("id: \(entryItem.id) action")
         
         switch entryItem.id {
-        case SettingPageEntry.button1.entryId:
-            LocalPushDemoPage.show()
+        case SettingPageEntry.FLEX.entryId:
+            FLEXManager.shared.toggleExplorer()
         default:
             break
         }
     }
     
-    public override class func subpageJumpAction(_ entryItem: SettingsPageEntryModel, _ from: UIViewController? = UIViewController.topViewController()) {
+    public override class func subpageJumpAction(_ entryItem: SettingsPageEntryModel, _ from: UIViewController?) {
         print("id: \(entryItem.id) subpage jump")
         
         switch entryItem.id {
-        case SettingPageEntry.subpage1.entryId:
+        case SettingPageEntry.LocalPush.entryId:
+            LocalPushDemoPage.show()
+        case SettingPageEntry.uikitSubPage.entryId:
             DebugSettingsDemoUIKitSubPage.show()
         default:
             break

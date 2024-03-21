@@ -18,7 +18,7 @@ import DebugSettings
 #endif
 
 /// 用于UIKit类型App接入时的Demo页面
-public final class DebugSettingsDemoUIKitSubPage: SwiftDebugSettingsPage {
+public final class DebugSettingsDemoUIKitSubPage: SwiftDebugSettingsBasePage {
     
     /// 定义页面内调试选项，同一个枚举中可以保证页面内部调试选项的Id唯一性
     private enum SettingPageEntry: String, CaseIterable, SettingsPageEntryProtocol {
@@ -37,7 +37,7 @@ public final class DebugSettingsDemoUIKitSubPage: SwiftDebugSettingsPage {
         
         // SettingsPageEntryProtocol
         var id: String { self.rawValue }
-        var pageType: SwiftDebugSettingsPage.Type { DebugSettingsDemoUIKitSubPage.self }
+        var pageType: SwiftDebugSettingsBasePage.Type { DebugSettingsDemoUIKitSubPage.self }
     }
     
     public override class var pageId: String { SettingsPage.subpage.id }
@@ -78,7 +78,7 @@ extension DebugSettingsDemoUIKitSubPage {
         }
     }
     
-    public override class func subpageJumpAction(_ entryItem: SettingsPageEntryModel, _ from: UIViewController? = UIViewController.topViewController()) {
+    public override class func subpageJumpAction(_ entryItem: SettingsPageEntryModel, _ from: UIViewController?) {
         print("id: \(entryItem.id) subpage jump")
         
         switch entryItem.id {

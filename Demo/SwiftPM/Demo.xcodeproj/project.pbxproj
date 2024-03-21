@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B419B6B2BAC30790021DA4D /* DebugSettings in Frameworks */ = {isa = PBXBuildFile; productRef = 2B419B6A2BAC30790021DA4D /* DebugSettings */; };
 		2B419B6E2BAC30E30021DA4D /* DemoPages in Frameworks */ = {isa = PBXBuildFile; productRef = 2B419B6D2BAC30E30021DA4D /* DemoPages */; };
+		2B419B722BAC5C9A0021DA4D /* DemoPages in Frameworks */ = {isa = PBXBuildFile; productRef = 2B419B712BAC5C9A0021DA4D /* DemoPages */; };
 		F3D012BE291ABB0F00875334 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D012BD291ABB0F00875334 /* DemoApp.swift */; };
 		F3D012C0291ABB0F00875334 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D012BF291ABB0F00875334 /* ContentView.swift */; };
 		F3D012C2291ABB1000875334 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3D012C1291ABB1000875334 /* Assets.xcassets */; };
@@ -16,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B419B732BAC5CB00021DA4D /* DebugSettings */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DebugSettings; path = ../..; sourceTree = "<group>"; };
 		F3D012BA291ABB0F00875334 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3D012BD291ABB0F00875334 /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
 		F3D012BF291ABB0F00875334 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -30,7 +31,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B419B6E2BAC30E30021DA4D /* DemoPages in Frameworks */,
-				2B419B6B2BAC30790021DA4D /* DebugSettings in Frameworks */,
+				2B419B722BAC5C9A0021DA4D /* DemoPages in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +41,7 @@
 		F3D012B1291ABB0E00875334 = {
 			isa = PBXGroup;
 			children = (
+				2B419B732BAC5CB00021DA4D /* DebugSettings */,
 				F3D012BC291ABB0F00875334 /* Demo */,
 				F3D012BB291ABB0F00875334 /* Products */,
 			);
@@ -90,8 +92,8 @@
 			);
 			name = Demo;
 			packageProductDependencies = (
-				2B419B6A2BAC30790021DA4D /* DebugSettings */,
 				2B419B6D2BAC30E30021DA4D /* DemoPages */,
+				2B419B712BAC5C9A0021DA4D /* DemoPages */,
 			);
 			productName = Demo;
 			productReference = F3D012BA291ABB0F00875334 /* Demo.app */;
@@ -122,7 +124,7 @@
 			);
 			mainGroup = F3D012B1291ABB0E00875334;
 			packageReferences = (
-				2B419B6C2BAC30E30021DA4D /* XCLocalSwiftPackageReference "../.." */,
+				2B419B702BAC5C9A0021DA4D /* XCRemoteSwiftPackageReference "DebugSettings" */,
 			);
 			productRefGroup = F3D012BB291ABB0F00875334 /* Products */;
 			projectDirPath = "";
@@ -374,20 +376,25 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		2B419B6C2BAC30E30021DA4D /* XCLocalSwiftPackageReference "../.." */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../..;
+/* Begin XCRemoteSwiftPackageReference section */
+		2B419B702BAC5C9A0021DA4D /* XCRemoteSwiftPackageReference "DebugSettings" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wangzhizhou/DebugSettings.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2B419B6A2BAC30790021DA4D /* DebugSettings */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = DebugSettings;
-		};
 		2B419B6D2BAC30E30021DA4D /* DemoPages */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = DemoPages;
+		};
+		2B419B712BAC5C9A0021DA4D /* DemoPages */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B419B702BAC5C9A0021DA4D /* XCRemoteSwiftPackageReference "DebugSettings" */;
 			productName = DemoPages;
 		};
 /* End XCSwiftPackageProductDependency section */
