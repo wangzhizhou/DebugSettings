@@ -41,6 +41,10 @@ public class LocalPushService: NSObject {
     public static let localPushIdentifier = "com.debug.settings.local.push.identifier"
     weak var originalUserNotificationCenterDelegate: UNUserNotificationCenterDelegate?
     public func restoreOriginalUserNotificationCenterDelegate() {
+        guard self.originalUserNotificationCenterDelegate != nil
+        else {
+            return
+        }
         UNUserNotificationCenter.current().delegate = self.originalUserNotificationCenterDelegate
     }
     deinit {

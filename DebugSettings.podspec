@@ -35,6 +35,7 @@ Pod::Spec.new do |spec|
   spec.subspec 'Core' do |cs|
     cs.source_files  = 'Sources/DebugSettings/**/*.{swift}'
     cs.dependency 'DebugSettings/Persistence'
+    cs.dependency 'DebugSettings/OCBridge'
   end
 
   spec.subspec 'Persistence' do |ps|

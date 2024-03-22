@@ -26,18 +26,18 @@ let package = Package(
         // [LookInServer](https://github.com/QMUI/LookinServer)
         .package(url: "https://github.com/QMUI/LookinServer/", .upToNextMajor(from: "1.0.0")),
 
-        //
+        // [FLEX](https://github.com/FLEXTool/FLEX)
         .package(url: "https://github.com/FLEXTool/FLEX.git", .upToNextMajor(from: "5.22.10")),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
-        .target(name: "DemoPages", dependencies: ["DebugSettings"]),
-        .target(name: "DebugSettings", dependencies: ["DebugTools", "Persistence"]),
+        .target(name: "DemoPages", dependencies: ["DebugSettings", "DebugTools"]),
+        .target(name: "DebugSettings", dependencies: ["Persistence", "ObjcBridge"]),
+        .target(name: "Persistence"),
         .testTarget(name: "DebugSettingsTests", dependencies: ["DebugSettings"]),
         .target(name: "DebugTools", dependencies: ["LookinServer", "Utils", "ObjcBridge", "FLEX"]),
         .target(name: "ObjcBridge"),
-        .target(name: "Persistence"),
         .target(name: "Utils", dependencies: [
             .product(name: "Toast", package: "Toast-Swift"),
             .product(name: "SnapKit", package: "SnapKit")
