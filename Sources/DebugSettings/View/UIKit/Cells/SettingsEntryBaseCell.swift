@@ -67,19 +67,14 @@ class SettingsEntryBaseCell: UITableViewCell {
         self.selectionStyle = .none
         self.backgroundColor = .white
         
-        self.contentView.addSubview(self.indictorBar)
         self.contentView.addSubview(self.icon)
         self.contentView.addSubview(self.titleLabel)
         self.contentView.addSubview(self.subtitleLabel)
         self.contentView.addSubview(self.detailDescriptionLabel)
         self.contentView.addSubview(self.rightContainer)
         self.contentView.addSubview(self.bottomLine)
-        
-        self.indictorBar.snp.makeConstraints { make in
-            make.top.left.bottom.equalTo(self.contentView)
-            make.width.equalTo(2)
-        }
-        
+        self.contentView.addSubview(self.indictorBar)
+
         self.icon.snp.makeConstraints { make in
             make.left.equalTo(self.contentView).offset(5)
             make.width.equalTo(self.icon.snp.height)
@@ -111,15 +106,20 @@ class SettingsEntryBaseCell: UITableViewCell {
             make.centerY.equalTo(self.contentView)
             make.width.equalTo(0)
         }
-        
+
         self.bottomLine.snp.makeConstraints { make in
             make.left.equalTo(self.icon)
             make.right.equalTo(self.rightContainer)
             make.height.equalTo(0.5)
             make.bottom.equalTo(self.contentView)
         }
+
+        self.indictorBar.snp.makeConstraints { make in
+            make.top.right.bottom.equalTo(self.contentView)
+            make.width.equalTo(2)
+        }
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

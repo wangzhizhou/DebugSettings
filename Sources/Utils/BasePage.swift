@@ -24,18 +24,8 @@ open class BasePage: UIViewController {
         } else {
             self.view.backgroundColor = .white
         }
+    }
 
-        let backButton = UIButton(type: .custom)
-        backButton.setImage(UIImage.leftArrowImage, for: .normal)
-        backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
-    }
-    
-    @objc func backAction(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    
     public var navigationBarHeight: Int = 0
     public func adjustFullPageView(_ fullPageView: UIView) {
         

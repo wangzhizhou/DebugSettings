@@ -10,15 +10,10 @@ import UIKit
 extension SettingsUIKitPage {
     
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if #available(iOS 11.0, *) {
-            return true
-        } else {
-            return false
-        }
+        return true
     }
-    
-    @available(iOS 11.0, *)
-    public func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+
+    public func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         var actions = [UIContextualAction]()
         let entryItem = pageModel.sections[indexPath.section].items[indexPath.row]
         if entryItem.hasHelpInfo {
