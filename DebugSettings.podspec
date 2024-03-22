@@ -29,12 +29,16 @@ Pod::Spec.new do |spec|
   spec.subspec 'DemoPages' do |demo|
     demo.source_files = 'Sources/DemoPages/**/*.swift'
     demo.dependency 'DebugSettings/Core'
+    demo.dependency 'DebugSettings/DebugTools'
   end
 
   spec.subspec 'Core' do |cs|
     cs.source_files  = 'Sources/DebugSettings/**/*.{swift}'
-    cs.dependency 'DebugSettings/DebugTools'
     cs.dependency 'DebugSettings/Persistence'
+  end
+
+  spec.subspec 'Persistence' do |ps|
+    ps.source_files = 'Sources/Persistence/**/*.swift'
   end
 
   spec.subspec 'DebugTools' do |dt|
@@ -53,10 +57,6 @@ Pod::Spec.new do |spec|
     us.source_files = 'Sources/Utils/**/*.{h,m,swift}'
     us.dependency 'Toast-Swift', '~> 5.1.0'
     us.dependency 'SnapKit', '~> 5.0.0'
-  end
-
-  spec.subspec 'Persistence' do |ps|
-    ps.source_files = 'Sources/Persistence/**/*.swift'
   end
 
 end
