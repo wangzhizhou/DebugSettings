@@ -28,6 +28,9 @@ let package = Package(
 
         // [FLEX](https://github.com/FLEXTool/FLEX)
         .package(url: "https://github.com/FLEXTool/FLEX.git", .upToNextMajor(from: "5.22.10")),
+
+        // [atlantis with proxyman](https://github.com/ProxymanApp/atlantis.git)
+        .package(url: "https://github.com/ProxymanApp/atlantis", .upToNextMajor(from: "2.0.0"))
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
