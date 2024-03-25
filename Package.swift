@@ -30,7 +30,7 @@ let package = Package(
         .package(url: "https://github.com/FLEXTool/FLEX.git", .upToNextMajor(from: "5.22.10")),
 
         // [atlantis with proxyman](https://github.com/ProxymanApp/atlantis.git)
-        .package(url: "https://github.com/ProxymanApp/atlantis", .upToNextMajor(from: "2.0.0"))
+        .package(url: "https://github.com/ProxymanApp/atlantis", .upToNextMajor(from: "1.0.0"))
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -39,7 +39,10 @@ let package = Package(
         .target(name: "DebugSettings", dependencies: ["Persistence", "ObjcBridge"]),
         .target(name: "Persistence"),
         .testTarget(name: "DebugSettingsTests", dependencies: ["DebugSettings"]),
-        .target(name: "DebugTools", dependencies: ["LookinServer", "Utils", "ObjcBridge", "FLEX"]),
+        .target(name: "DebugTools", dependencies: [
+            "LookinServer", "Utils", "ObjcBridge", "FLEX",
+            .product(name: "Atlantis", package: "Atlantis")
+        ]),
         .target(name: "ObjcBridge"),
         .target(name: "Utils", dependencies: [
             .product(name: "Toast", package: "Toast-Swift"),
