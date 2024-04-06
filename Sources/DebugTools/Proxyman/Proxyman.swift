@@ -5,6 +5,7 @@
 //  Created by joker on 2024/4/6.
 //
 
+import Foundation
 import Atlantis
 
 @objc(DSProxyman)
