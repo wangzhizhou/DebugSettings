@@ -28,6 +28,8 @@ public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsBasePage {
         case FLEX
         case LocalPush
         case uikitSubPage
+        case proxyman
+        case proxymanTest
 
         // SettingsPageEntryProtocol
         var id: String { self.rawValue }
@@ -52,6 +54,11 @@ public final class DebugSettingsDemoUIKitMainPage: SwiftDebugSettingsBasePage {
                 )
 
                 SettingPageEntry.uikitSubPage.subPageEntryModel(title: "UIKit 子页面")
+
+                SettingPageEntry.proxyman.switchEntryModel(title: "Proxyman")
+                
+                SettingPageEntry.proxymanTest.buttonEntryModel(title: "Test Proxyman")
+
             }
         }
     }
@@ -61,6 +68,16 @@ extension DebugSettingsDemoUIKitMainPage {
     
     public override class func switchValueChangeAction(_ entryItem: SettingsPageEntryModel, _ isOn: Bool, _ type: SettingsEntrySwitchValueChangeActionType) {
         print("id: \(entryItem.id), isOn: \(isOn), type: \(type)")
+        switch entryItem.id {
+        case SettingPageEntry.proxyman.entryId:
+            if isOn {
+                Proxyman.start()
+            } else {
+                Proxyman.stop()
+            }
+        default:
+            break
+        }
     }
     
     public override class func switchClickAction(_ entryItem: SettingsPageEntryModel) {
@@ -73,6 +90,8 @@ extension DebugSettingsDemoUIKitMainPage {
         switch entryItem.id {
         case SettingPageEntry.FLEX.entryId:
             FLEXManager.shared.toggleExplorer()
+        case SettingPageEntry.proxymanTest.entryId:
+            Proxyman.testReport()
         default:
             break
         }

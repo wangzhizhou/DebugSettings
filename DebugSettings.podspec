@@ -18,7 +18,7 @@ Pod::Spec.new do |spec|
   spec.homepage     = 'https://github.com/wangzhizhou/DebugSettings'
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }
   spec.author       = { 'wangzhizhou' => '824219521@qq.com' }
-  spec.platform     = :ios, '12.0'
+  spec.platform     = :ios, '13.0'
   spec.source       = { :git => 'https://github.com/wangzhizhou/DebugSettings.git', :tag => '#{spec.version}' }
   spec.module_name  = 'DebugSettings'
   spec.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
@@ -48,6 +48,7 @@ Pod::Spec.new do |spec|
     dt.dependency 'DebugSettings/Utils'
     dt.dependency 'LookinServer' # [LookIn官网](https://lookin.work/)
     dt.dependency 'FLEX' # [FLEX](https://github.com/FLEXTool/FLEX)
+    dt.dependency 'atlantis-proxyman' # [Atlantis](https://github.com/ProxymanApp/atlantis)
   end
 
   spec.subspec 'OCBridge' do |oc|
